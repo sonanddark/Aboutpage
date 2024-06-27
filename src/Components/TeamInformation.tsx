@@ -22,28 +22,37 @@ export default function TeamInformation() {
 
     return (
         <div onMouseMove={handleMouseMove}>
-            <div 
+            <div
                 onMouseEnter={(e) => handleMouseEnter(e, 'https://picsum.photos/id/1/200/300')}
                 onMouseLeave={handleMouseLeave}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', fontSize: "44px", height: "140px" }}
+                className='flex justify-between items-center  hover:bg-[#DF1780] '
             >
-                Hover over me 1
+                <div className='flex justify-evenly w-2/12 hover:text-white text-black'
+                    style={{ fontFamily: "SFProDisplay, sans-serif" }}
+                >
+                    <h1 style={{ opacity: "25%", color: "#00000" }}>01</h1>
+                    <h2 className=''>AREEKA</h2>
+                </div>
+                <div>
+                    <h2 className='text-white pr-2' style={{ fontSize: "22.2px" }}>PODCAST</h2>
+                </div>
             </div>
-            <div 
+            <div
                 onMouseEnter={(e) => handleMouseEnter(e, 'https://picsum.photos/id/2/200/300')}
                 onMouseLeave={handleMouseLeave}
                 style={{ cursor: 'pointer' }}
             >
                 Hover over me 2
             </div>
-            <div 
+            <div
                 onMouseEnter={(e) => handleMouseEnter(e, 'https://picsum.photos/id/3/200/300')}
                 onMouseLeave={handleMouseLeave}
                 style={{ cursor: 'pointer' }}
             >
                 Hover over me 3
             </div>
-            <div 
+            <div
                 onMouseEnter={(e) => handleMouseEnter(e, 'https://picsum.photos/id/4/200/300')}
                 onMouseLeave={handleMouseLeave}
                 style={{ cursor: 'pointer' }}
@@ -58,8 +67,8 @@ export default function TeamInformation() {
                         duration: 0.8,
                         delay: 0.5,
                         ease: [0, 0.71, 0.2, 1.01]
-                      }}
-                      style={{
+                    }}
+                    style={{
                         position: 'fixed',
                         pointerEvents: 'none',
                         left: 0,
