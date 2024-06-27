@@ -6,6 +6,7 @@ import footerLogo from "../assets/footerLogo.svg";
 import footerLogoStamp from "../assets/footerLogoStamp.png";
 import footerStampArrow from  "../assets/footerStampArrow.svg"
 import { motion } from 'framer-motion';
+import TeamInformation from "@/Components/TeamInformation";
 
 export default function Home() {
   // Define the radius for the text path and the inner circle
@@ -19,6 +20,10 @@ export default function Home() {
   const text = "Welcome to a New Era of Care * * * ";
   const repeatedText = text.repeat(Math.ceil(circumference / (text.length * 8)));
   return (
+    <>
+    <div>
+      <TeamInformation />
+    </div>
     <footer className="w-100">
       <div className="flex justify-between  m-auto items-center" style={{ backgroundColor: "#DF1780", height: "408.52px" }}>
         <div style={{ marginLeft: "68px" }}>
@@ -63,5 +68,5 @@ export default function Home() {
         </div>
       </div>
     </footer>
-  );
+    </>);
 }
