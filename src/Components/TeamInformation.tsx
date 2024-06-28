@@ -1,6 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, MouseEvent } from 'react';
 
-const teamMembers = [
+type TeamMember = {
+    id: number;
+    name: string;
+    position: string;
+    image: string;
+};
+
+const teamMembers: TeamMember[] = [
     { id: 1, name: 'Dr. Rick McCartney', position: 'CEO', image: 'https://cdn.prod.website-files.com/659dbdfd5a080be8d3483190/659dbdfd5a080be8d3483259_Rick%20McCartney%20.webp' },
     { id: 2, name: 'Chris Koha', position: 'COO', image: 'https://cdn.prod.website-files.com/659dbdfd5a080be8d3483190/659dbdfd5a080be8d34832ae_655d505c9d551c9c11dd3613_Chris20Koha.webp' },
     { id: 3, name: 'Caroline Nieto', position: 'Chief Product Officer', image: 'https://cdn.prod.website-files.com/659dbdfd5a080be8d3483190/65cd134a7ece047ea2260d5b_Caroline%20Nieto.webp' },
@@ -11,10 +18,14 @@ const teamMembers = [
     { id: 8, name: 'Lenya McGrath', position: 'VP of Partnerships', image: 'https://cdn.prod.website-files.com/659dbdfd5a080be8d3483190/65e0bbf51f50ea7c26f413f5_Lenya%20McGrath.webp' }
 ];
 
-const TeamMember = ({ member }) => {
-    const [hovered, setHovered] = useState(false);
-    const [coords, setCoords] = useState({ x: '50%', y: '50%' });
-    const divRef = useRef(null);
+interface TeamMemberProps {
+    member: TeamMember;
+}
+
+const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
+    const [hovered, setHovered] = useState<boolean>(false);
+    const [coords, setCoords] = useState<{ x: string; y: string }>({ x: '50%', y: '50%' });
+    const divRef = useRef<HTMLDivElement>(null);
 
     const handleMouseEnter = () => {
         setHovered(true);
@@ -24,11 +35,13 @@ const TeamMember = ({ member }) => {
         setHovered(false);
     };
 
-    const handleOnMouseMove = (event) => {
-        const rect = divRef.current.getBoundingClientRect();
-        const diffX = ((event.clientX - rect.left) / rect.width) * 100;
-        const diffY = ((event.clientY - rect.top) / rect.height) * 100;
-        setCoords({ x: `${diffX}%`, y: `${diffY}%` });
+    const handleOnMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+        if (divRef.current) {
+            const rect = divRef.current.getBoundingClientRect();
+            const diffX = ((event.clientX - rect.left) / rect.width) * 100;
+            const diffY = ((event.clientY - rect.top) / rect.height) * 100;
+            setCoords({ x: `${diffX}%`, y: `${diffY}%` });
+        }
     };
 
     return (
@@ -47,8 +60,8 @@ const TeamMember = ({ member }) => {
                     style={{
                         top: coords.y,
                         left: coords.x,
-                        width: '250px', // increased size
-                        height: '250px', // increased size
+                        width: '250px',
+                        height: '250px',
                         borderRadius: '50%',
                         overflow: 'hidden',
                         pointerEvents: 'none',
@@ -100,12 +113,12 @@ const TeamMember = ({ member }) => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    overflow: visible; // ensure the avatar is not clipped
+                    overflow: visible;
                     pointer-events: none;
                     opacity: 0;
                     visibility: hidden;
                     transition: opacity 0.3s ease, visibility 0.3s ease;
-                    z-index: 100; /* Bring avatar in front */
+                    z-index: 100;
                 }
                 .team__item:hover .team__avatar--parent {
                     opacity: 1;
@@ -119,7 +132,7 @@ const TeamMember = ({ member }) => {
     );
 };
 
-const Team = () => {
+const Team: React.FC = () => {
     return (
         <div className="team__list">
             {teamMembers.map((member) => (
@@ -127,10 +140,7 @@ const Team = () => {
             ))}
             <style jsx>{`
                 .team__list {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 20px;
+                    width: 100%;
                 }
             `}</style>
         </div>
