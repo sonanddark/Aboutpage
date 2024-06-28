@@ -71,10 +71,10 @@ const TeamMember = ({ member }) => {
                     text-align: center;
                     cursor: pointer;
                     transition: background 0.3s ease, color 0.3s ease;
-                    margin-bottom: 20px;
                     width: 100%;
                     position: relative;
                     border-bottom: 1px solid black;
+                    font-family: SF Pro;
                 }
                 .team__item:hover {
                     background: #DF1780;
@@ -85,9 +85,10 @@ const TeamMember = ({ member }) => {
                     justify-content: space-between;
                     align-items: center;
                 }
-                .team__index .f-40 {
-                    font-size: 40px;
-                    font-weight: light;
+                .team__index {
+                    font-size: 44px;
+                    line-height: 52.8px;
+                    font-weight: 274;
                 }
                 .team__position .f-20 {
                     font-size: 20px;
@@ -128,7 +129,6 @@ const Team = () => {
                 .team__list {
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
                     align-items: center;
                     padding: 20px;
                 }
