@@ -6,7 +6,7 @@ import footerLogo from "../assets/footerLogo.svg";
 import footerLogoStamp from "../assets/footerLogoStamp.png";
 import footerStampArrow from  "../assets/footerStampArrow.svg"
 import { motion } from 'framer-motion';
-import TeamInformation from "@/Components/TeamInformation";
+import Team from "@/Components/TeamInformation";
 
 export default function Home() {
   // Define the radius for the text path and the inner circle
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
     <div>
-      <TeamInformation />
+      <Team />
     </div>
     <footer className="w-100">
       <div className="flex justify-between  m-auto items-center" style={{ backgroundColor: "#DF1780", height: "408.52px" }}>
@@ -33,8 +33,8 @@ export default function Home() {
         <div className="flex gap-x-10 mr-12">
           <Image alt="footerLogo" src={footerLogo} />
           <motion.svg
-            width="400" // SVG dimensions adjusted for inner content
-            height="400"
+            width="200" // SVG dimensions adjusted for inner content
+            height="200"
             viewBox="0 0 400 400"
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
