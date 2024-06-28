@@ -45,41 +45,48 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
     };
 
     return (
-        <div ref={divRef} className={`team__item ${hovered ? 'hovered' : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleOnMouseMove}>
-            <div className="team__row animating">
-                <div className="team__index">
-                    <div className="f-40 light">{`0${member.id}`}</div>
-                </div>
-                <div className="f-40 light">{member.name}</div>
-                <div className="team__position">
-                    <div className="f-20 is--500">{member.position}</div>
-                </div>
-            </div>
-            <div className="team__avatar--parent" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
-                <div className="team__avatar"
-                    style={{
-                        top: coords.y,
-                        left: coords.x,
-                        width: '250px',
-                        height: '250px',
-                        borderRadius: '50%',
-                        overflow: 'hidden',
-                        pointerEvents: 'none',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        transform: 'translate(-50%, -50%)',
-                        transition: 'transform 0.3s ease',
-                    }}>
-                    <img
-                        src={member.image}
-                        alt={member.name}
-                        style={{ width: '100%', height: '100%', borderRadius: '50%' }}
-                    />
-                </div>
-            </div>
-            <style jsx>{`
+        <div className='flex justify-center'>
+            <div className='w-[95%]'>
+                <div ref={divRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleOnMouseMove}>
+                    <div className="team__row animating" style={{ width: "100%" }}>
+                        <div className='flex gap-x-10'>
+                            <div className="team__index  flex items-center">
+                                <div className="f-40 light" style={{ opacity: "15%" }}>{`0${member.id}`}</div>
+                            </div>
+                            <div className="f-40 light flex items-center " style={{ fontSize: "44px" }}>{member.name}</div>
+                        </div>
+                        <div className=" flex items-center " style={{ fontSize: "22.2px", fontFamily: "SF Pro, sans-serif" }}>
+                            <div className="f-20 is--500 ">{member.position}</div>
+                        </div>
+
+
+                    </div>
+
+                    <div className="team__avatar--parent" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
+                        <div className="team__avatar"
+                            style={{
+                                top: coords.y,
+                                left: coords.x,
+                                width: '250px',
+                                height: '250px',
+                                borderRadius: '50%',
+                                overflow: 'hidden',
+                                pointerEvents: 'none',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                transform: 'translate(-50%, -50%)',
+                                transition: 'transform 0.3s ease',
+                            }}>
+                            <img
+                                src={member.image}
+                                alt={member.name}
+                                style={{ width: '100%', height: '100%', borderRadius: '50%' }}
+                            />
+                        </div>
+                    </div>
+                    <style jsx>{`
                 .team__item {
-                    background: #f4f4f4;
+                    background: #D9D9D9;
                     padding: 20px;
                     text-align: center;
                     cursor: pointer;
@@ -88,6 +95,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                     position: relative;
                     border-bottom: 1px solid black;
                     font-family: SF Pro;
+                    width: 100%
                 }
                 .team__item:hover {
                     background: #DF1780;
@@ -128,7 +136,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                     position: absolute;
                 }
             `}</style>
+                </div>
+            </div>
         </div>
+
+
     );
 };
 
