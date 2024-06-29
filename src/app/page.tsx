@@ -2,7 +2,7 @@
 import Image from "next/image";
 import PrimaryButton from "@/Components/Button";
 import SecondaryButton from "@/Components/Button";
-
+import AnimatedText from '@/Components/AnimatedText'
 import footerLogo from "../../public/GIFS/logoWhite.gif";
 // import footerLogoStamp from "../assets/footerLogoStamp.png";
 import footerStampArrow from "../assets/footerStampArrow.svg"
@@ -42,17 +42,26 @@ export default function Home() {
 
   return (
     <div>
-      <section className="bg-[#D9D9D9]">
-        <h1 className="text-center text-[90px]" style={{ fontWeight: '860', fontFamily: "SFProDisplay, sans-serif" }}>ALL THAT WE DID!!!</h1>
-        <h2 className="text-center -mt-7 mb-10" style={{ fontWeight: '700', lineHeight: '32.52px', fontFamily: "SFProDisplay, sans-serif", fontSize: "27.1px" }}>THAT YOU MUST HAVE SEEN</h2>
 
+
+      <section className="bg-[#D9D9D9]">
+        {/* <h1 className="" style={{ fontWeight: '860', fontFamily: "SFProDisplay, sans-serif" }}></h1>
+         
+         */}
+        {/* <AnimatedText sentences={sentences} /> */}
+        <div className="flex justify-center">
+          <AnimatedText text="ALL THAT WE DID!!!" customClassName="font-bold  text-[100px]  " />
+        </div>
+        <div className="flex justify-center">
+          <AnimatedText text="THAT YOU MUST HAVE SEEN" customClassName="text-center -mt-7 mb-10" Style={{ fontWeight: '700', lineHeight: '32.52px', fontFamily: "SFProDisplay, sans-serif", fontSize: "27.1px" }} />
+        </div>
 
         <TeamInformation />
         <div className="mt-20 flex justify-center">
-        <SecondaryButton
-        outerClassName= "bg-[#DF1780] p-5 w-[15%]"
+          <SecondaryButton
+            outerClassName="bg-[#DF1780] p-5 w-[15%]"
             customClassName={{
-            
+
               backgroundColor: "#DF1780",
               border: "none",
               color: "white",
@@ -61,24 +70,25 @@ export default function Home() {
               alignItems: 'center',
               fontSize: '15.5px', lineHeight: "25.6px", fontWeight: '590', fontFamily: "SFProDisplay, sans-serif",
               width: "15%",
-            
+
               justifyContent: "space-between"
             }}
             text="TAKE ME BACK"
           />
         </div>
-      
+
       </section>
       <section className="flex pb-10 bg-[#D9D9D9]">
 
         <div className="w-4/12">
-          <h3
-            className="w-4/12 mt-32 ml-16"
-            style={{ fontWeight: '590', fontSize: '18.28px', color: "#000000", lineHeight: "32px", fontFamily: "SFProDisplay, sans-serif", }}
+          {/* <h3
+            className=""
+            style={}
 
-          >Stay up-to-date on the
+          ></h3> */}
+          <AnimatedText text="Stay up-to-date on the
             latest Ghmza and share
-            your thoughts.</h3>
+            your thoughts." customClassName="w-4/12 mt-32 ml-16  " Style={{ fontWeight: '590', fontSize: '18.28px', color: "#000000", lineHeight: "32px", fontFamily: "SFProDisplay, sans-serif", }} />
           <ExploreTheRest
 
             topText="EXPLORE"

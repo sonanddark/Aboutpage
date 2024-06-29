@@ -26,7 +26,7 @@ const SocialPostsCardView: React.FC<CardProps> = ({ data }) => {
                         <img
                             className='-mt-9 -ml-4'
                             src={data.goVegan} alt="" />
-                        <div className='flex flex-col'>
+                            <div className='flex flex-col'>
                             <h4 className='-mt-2' style={{ fontSize: "18px", fontWeight: " 700", lineHeight: "21.09px", fontFamily: "Roboto, sans-serif" }}>GoVegan</h4>
                             <p className='text-[#9CA0AC]'
                                 style={{
