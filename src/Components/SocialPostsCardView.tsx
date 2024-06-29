@@ -49,7 +49,7 @@ const SocialPostsCardView: React.FC<CardProps> = ({ data }) => {
                         <p style={{ fontFamily: 'Roboto, sans-serif', fontWeight: '400', fontSize: '14px', lineHeight: '22px' }}>
                             {data.hashtags.map((item: any, index: any) => {
                                 return (
-                                    <span className='text-[blue]'>{item + " "}</span>
+                                    <span className='text-[blue]' key={index}>{item + " "}</span>
                                 )
                             })}
 

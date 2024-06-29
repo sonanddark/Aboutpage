@@ -45,8 +45,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
     };
 
     return (
-        <div className='flex justify-center'>
-            <div className='w-[95%]'>
+        <div className='flex justify-center ' style={{width:"100%"}}>
+            <div style={{width: "95%"}}>
                 <div ref={divRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleOnMouseMove}>
                     <div className="team__row animating" style={{ width: "100%" }}>
                         <div className='flex gap-x-10'>
