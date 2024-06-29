@@ -120,7 +120,7 @@ export default function Home() {
           <div className="">
             <motion.div layout className="grid grid-cols-3">
               {cardItems.map(card => (
-                <Card data={card} />
+                <Card key={card.id} data={card} />
               ))}
             </motion.div>
           </div>
