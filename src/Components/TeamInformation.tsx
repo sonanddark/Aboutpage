@@ -25,8 +25,7 @@ interface TeamMemberProps {
 const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
     const [hovered, setHovered] = useState<boolean>(false);
     const [coords, setCoords] = useState<{ x: string; y: string }>({ x: '50%', y: '50%' });
-    const divRef = useRef<HTMLDivElement>(null);
-    const divAvatarRef = useRef<HTMLDivElement>(null);
+    const teamItemRef = useRef<HTMLDivElement>(null);
 
     const handleMouseEnter = () => {
         setHovered(true);        
@@ -36,57 +35,35 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
         setHovered(false);
     };
 
-
-    useEffect(() => {
-
-    if (divRef.current) {
-        divRef.current.addEventListener('mouseover', (e) => {
-            if (divAvatarRef.current) {
-                const rect = divAvatarRef.current.getBoundingClientRect();
-                //const rect = document.getElementById('test')!.getBoundingClientRect();
-                const containerTopBounds = rect.top;
-                const containerLeftBounds = rect.left;
-
-                console.log(rect.left);
-
-                const containerWidth = rect.width;
-                const containerHeight = rect.height;
-
-                const containerOriginX = containerWidth / 2;
-                const containerOriginY = containerHeight / 2;
-
-                const cursorPosX = e.clientX - containerLeftBounds;
-                const cursorPosY = e.clientY - containerTopBounds;
-
-                let cursorFromOriginOffsetX = (cursorPosX / containerOriginX - 1) * 100;
-                let cursorFromOriginOffsetY = (cursorPosY / containerOriginY - 1) * 100;
-
-                const acutalImagePositionX = containerOriginX + cursorFromOriginOffsetX; 
-                const acutalImagePositionY = containerOriginY + cursorFromOriginOffsetY / 20;
-
-                console.log('Origin = ' + containerOriginX);
-                console.log('Cursor Offset = ' + cursorFromOriginOffsetX);
-                console.log('Mouse Pointer = ' + e.clientY);
-                console.log('Image Position = ' + acutalImagePositionX);
-                console.log('Height = ' + containerWidth);
-
-                divAvatarRef.current.style.setProperty('--x', `${acutalImagePositionX / containerWidth * 100}%`);
-                divAvatarRef.current.style.setProperty('--y', `${acutalImagePositionY / containerHeight * 100}%`);
-
-                // Set coordinates for avatar position
-                //({ x: `${acutalImagePositionX}%`, y: `${acutalImagePositionY}%` });
-            }
-        
-        });
+    const handleMouseMove = (e: MouseEvent) => {
+        if (teamItemRef.current) {
+            const rect = teamItemRef.current.getBoundingClientRect();
+            const containerTopBounds = rect.top;
+            const containerLeftBounds = rect.left;
+    
+            const containerWidth = rect.width;
+            const containerHeight = rect.height;
+    
+            const containerOriginX = containerWidth / 2;
+            const containerOriginY = containerHeight / 2;
+    
+            const cursorPosX = e.clientX - containerLeftBounds;
+            const cursorPosY = e.clientY - containerTopBounds;
+    
+            let cursorFromOriginOffsetX = (cursorPosX / containerOriginX - 1) * 100;
+            let cursorFromOriginOffsetY = (cursorPosY / containerOriginY - 1) * 100;
+    
+            const acutalImagePositionX = containerOriginX + cursorFromOriginOffsetX; 
+            const acutalImagePositionY = containerOriginY + cursorFromOriginOffsetY / 20;
+    
+            setCoords({x: `${acutalImagePositionX / containerWidth * 100}%`, y: `${acutalImagePositionY / containerHeight * 100}%`});
         }
-    }, [])
-
-
-
+    };
+    
     return (
         <div className='flex justify-center ' style={{width:"100%"}}>
             <div style={{width: "95%"}}>
-                <div ref={divRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div ref={teamItemRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
                     <div className="team__row animating" style={{ width: "100%" }}>
                         <div className='flex gap-x-10'>
                             <div className="team__index  flex items-center">
@@ -101,17 +78,17 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
 
                     </div>
 
-                    <div className="team__avatar--parent" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
+                    <div id='ahmed' className="team__avatar--parent" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
                         <div
-                            ref={divAvatarRef} 
                             className="team__avatar"
                             style = {{
                                 position: 'absolute',
-                                top:'var(--y, 50%)',
-                                left:'var(--x, 50%)',
+                                top: `${coords.y}`,
+                                left:`${coords.x}`,
                                 width: '250px',
                                 height: '250px',
                                 borderRadius: '50%',
+                                transform: 'translate(-50%, -50%)',
                                 transition: 'transform 0.3s ease'
                             }}>
                             <img
@@ -155,8 +132,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 70%;
-                    height: 70%;
+                    width: 100%;
+                    height: 100%;
                     overflow: visible;
                     pointer-events: none;
                     opacity: 0;
