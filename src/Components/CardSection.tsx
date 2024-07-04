@@ -9,7 +9,7 @@ const CardSection: React.FC = () => {
         const { top } = el.getBoundingClientRect();
         const { innerHeight } = window;
 
-        return top < innerHeight && top >= 0;
+        return top < innerHeight - top;
     };
 
     const handleCardScroll = () => {
