@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import PrimaryButton from "@/Components/Button";
-import SecondaryButton from "@/Components/Button";
+import SecondaryButton from "@/Components/SecondaryButton";
 import AnimatedText from '@/Components/AnimatedText'
 import footerLogo from "../../public/GIFS/logoWhite.gif";
 // import footerLogoStamp from "../assets/footerLogoStamp.png";
@@ -61,23 +61,25 @@ export default function Home() {
 
         <TeamInformation />
         <div className="mt-20 flex justify-center">
-          <SecondaryButton
-            outerClassName="bg-[#DF1780] p-5 w-[80%] md:w-[17%] flex md:justify-center justify-center"
-            customClassName={{
-
-              backgroundColor: "#DF1780",
-              border: "none",
-              color: "white",
-              cursor: "pointer",
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '15.5px', lineHeight: "25.6px", fontWeight: '590', fontFamily: "SFProDisplay, sans-serif",
-
-
-              justifyContent: "space-between"
-            }}
-            text="SEE MORE"
-          />
+            <SecondaryButton
+            outerClassName={"md:w-[40%] w-[100%] flex justify-center"}
+              customClassName={{
+                marginTop: "20px",
+                backgroundColor: "#DF1780",
+                border: "none",
+                color: "white",
+                padding: "20px 40px",
+                cursor: "pointer",
+                overflow: "hidden",
+                position: "relative",
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '15.5px', lineHeight: "25.6px", fontWeight: '590', fontFamily: "SFProDisplay, sans-serif",
+                width: "46%",
+                justifyContent: "space-between"
+              }}
+              text="SEE MORE"
+            />
         </div>
 
       </section>
@@ -133,7 +135,7 @@ export default function Home() {
         </div>
 
         <div className="hidden md:block">
-          <motion.div layout className="grid grid-cols-3 relative mt-48 gap-x-[-8px] gap-y-[-4px]">
+          <motion.div layout className="grid grid-cols-3 relative mt-48 gap-x-[-8px !important] gap-y-[-4px]">
             {cardItems.map((card, index) => (
               <Card
                 key={card.id}
