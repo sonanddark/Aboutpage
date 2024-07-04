@@ -28,7 +28,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
     const teamItemRef = useRef<HTMLDivElement>(null);
 
     const handleMouseEnter = () => {
-        setHovered(true);        
+        setHovered(true);
     };
 
     const handleMouseLeave = () => {
@@ -40,51 +40,56 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
             const rect = teamItemRef.current.getBoundingClientRect();
             const containerTopBounds = rect.top;
             const containerLeftBounds = rect.left;
-    
+
             const containerWidth = rect.width;
             const containerHeight = rect.height;
-    
+
             const containerOriginX = containerWidth / 2;
             const containerOriginY = containerHeight / 2;
-    
+
             const cursorPosX = e.clientX - containerLeftBounds;
             const cursorPosY = e.clientY - containerTopBounds;
-    
+
             let cursorFromOriginOffsetX = (cursorPosX / containerOriginX - 1) * 100;
             let cursorFromOriginOffsetY = (cursorPosY / containerOriginY - 1) * 100;
-    
-            const acutalImagePositionX = containerOriginX + cursorFromOriginOffsetX; 
+
+            const acutalImagePositionX = containerOriginX + cursorFromOriginOffsetX;
             const acutalImagePositionY = containerOriginY + cursorFromOriginOffsetY / 20;
-    
-            setCoords({x: `${acutalImagePositionX / containerWidth * 100}%`, y: `${acutalImagePositionY / containerHeight * 100}%`});
+
+            setCoords({ x: `${acutalImagePositionX / containerWidth * 100}%`, y: `${acutalImagePositionY / containerHeight * 100}%` });
         }
     };
-    
+
     return (
-        <div className='flex justify-center ' style={{width:"100%"}}>
-            <div style={{width: "95%"}}>
-                <div ref={teamItemRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
-                    <div className="team__row animating" style={{ width: "100%" }}>
-                        <div className='flex gap-x-10'>
-                            <div className="team__index  flex items-center">
-                                <div className="f-40 light" style={{ opacity: "15%" }}>{`0${member.id}`}</div>
+        <div className='flex justify-center ' style={{ width: "100%" }}>
+            <div style={{ width: "95%" }}>
+                <div ref={teamItemRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex  md:items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
+                    <div className='flex md:justify-between w-[100%]'>
+                        <div className="flex md:justify-between md:items-center animating md:flex-row flex-col w-[100%]">
+                            <div className='flex gap-x-10 md:items-center'>
+                                <div className="team__index  flex md:items-center  hidden md:block">
+                                    <div className="f-40 light hidden md:block items-center" style={{ opacity: "15%" }}>{`0${member.id}`}</div>
+                                </div>
+                                <div className="flex md:items-center md:text-[44px] text-[23.4px]">{member.name}</div>
                             </div>
-                            <div className="f-40 light flex items-center " style={{ fontSize: "44px" }}>{member.name}</div>
+                            <div className=" flex md:items-center md:text-[22.2px] text-[11.57px]" style={{ fontFamily: "SF Pro, sans-serif" }}>
+                                <div className="f-20 is--500 text-[#706A6D]">{member.position}</div>
+                            </div>
                         </div>
-                        <div className=" flex items-center " style={{ fontSize: "22.2px", fontFamily: "SF Pro, sans-serif" }}>
-                            <div className="f-20 is--500 ">{member.position}</div>
+                        <div className='md:hidden block'>
+                            <img src={member.image} alt="" className='w-[100px]' />
+
                         </div>
-
-
                     </div>
 
-                    <div id='ahmed' className="team__avatar--parent" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
+
+                    <div id='ahmed' className="team__avatar--parent md:block hidden" style={{ opacity: hovered ? 1 : 0, visibility: hovered ? 'visible' : 'hidden' }}>
                         <div
                             className="team__avatar"
-                            style = {{
+                            style={{
                                 position: 'absolute',
                                 top: `${coords.y}`,
-                                left:`${coords.x}`,
+                                left: `${coords.x}`,
                                 width: '250px',
                                 height: '250px',
                                 borderRadius: '50%',

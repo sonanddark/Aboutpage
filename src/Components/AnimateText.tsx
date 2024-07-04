@@ -4,6 +4,8 @@ interface TextProps {
   bottomText?: string;
   topTextStyle?: Object;
   bottomTextStyle?: Object;
+  topTextCustomClass?: string;
+  bottomTextCustomClass?: string;
 }
 // Define character animation variants for the motion components
 const characterVariants = {
@@ -33,7 +35,7 @@ const TextAnimationComponent = (props: TextProps) => {
         initial="initial"
         animate="animate"
         style={props.topTextStyle}
-        className='ml-20'
+        className={props.topTextCustomClass}
       >
         {topCharacters.map((char, index) => (
           <motion.span
@@ -50,7 +52,7 @@ const TextAnimationComponent = (props: TextProps) => {
         initial="initial"
         animate="animate"
         style={props.bottomTextStyle}
-         className='ml-20'
+         className={props.bottomTextCustomClass}
       >
         {bottomCharacters.map((char, index) => (
           <motion.span

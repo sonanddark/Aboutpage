@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 interface TextProps {
     topText?: string;
     bottomText?: string;
+    topTextCustomClass: string;
+    bottomTextCustomClass: string;
     topTextStyle?: Object;
     bottomTextStyle?: Object;
 }
@@ -28,12 +30,12 @@ const TextAnimationComponent = (props: TextProps) => {
     const bottomCharacters = Array.from(bottomText ? bottomText : "");
 
     return (
-        <div className='flex flex-col items-center mt-[70%]' style={{ fontFamily: 'SFProDisplay, sans-serif', width: '100%', maxWidth: '300px', marginLeft: "3%" }}>
+        <div className='flex flex-col items-center ' style={{ fontFamily: 'SFProDisplay, sans-serif', width: '100%', maxWidth: '300px', marginLeft: "3%" }}>
             <motion.div
                 initial="initial"
                 animate="animate"
                 style={props.topTextStyle}
-                className='ml-20'
+                className={props.topTextCustomClass}
             >
                 {topCharacters.map((char, index) => (
                     <motion.span
@@ -50,13 +52,14 @@ const TextAnimationComponent = (props: TextProps) => {
                 initial="initial"
                 animate="animate"
                 style={props.bottomTextStyle}
+                className={props.bottomTextCustomClass}
             >
                 {bottomCharacters.map((char, index) => (
                     <motion.span
                         key={`bottom-${index}`}
                         custom={index + topCharacters.length}
                         variants={characterVariants}
-                        style={{ display: 'inline-block', minWidth: '0.34em' }}
+                        style={{ display: 'inline-block', minWidth: '0.30em' }}
                         className='-mt-8'  // Using inline-flex for each character
                     >
                         {char}
