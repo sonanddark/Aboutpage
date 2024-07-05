@@ -70,7 +70,7 @@ const CardSection: React.FC = () => {
                 </div>
                 <div className="cards-list">
                     {[...Array(5)].map((_, i) => (
-                        <div className="cards-item" key={i} ref={el => (cardsRef.current[i] = el)}>
+                        <div className="cards-item" key={i}>
                             <div className="card-item-desc-container">
                                 <div className="card-item-title">Music</div>
                                 <div className="description">
