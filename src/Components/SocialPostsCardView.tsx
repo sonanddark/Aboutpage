@@ -6,17 +6,21 @@ import { Key } from 'react';
 // Define a type for the card props
 type CardProps = {
     data: { id: number; title: string; hashtags: string[]; socialAppIcon: string; rectangle: string; goVegan: string; camera: any; date: string; description: string; }
-
+    hover: boolean;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
 };
 
-const SocialPostsCardView: React.FC<CardProps> = ({ data }) => {
+const SocialPostsCardView: React.FC<CardProps> = ({ data, hover, onMouseEnter, onMouseLeave }) => {
     return (
         <motion.div
             layout
             initial={{ y: 0 }}
-            whileHover={{ y: 40 }}
+            animate={{ y: hover ? 40 : 0 }}
             transition={{ stiffness: 200 }}
-            className="card"
+            className="card bg-white"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
         >
 
             <img src={data.rectangle} alt={data.title} className="card-image" />
@@ -26,7 +30,7 @@ const SocialPostsCardView: React.FC<CardProps> = ({ data }) => {
                         <img
                             className='-mt-9 -ml-4'
                             src={data.goVegan} alt="" />
-                            <div className='flex flex-col'>
+                        <div className='flex flex-col'>
                             <h4 className='-mt-2' style={{ fontSize: "18px", fontWeight: " 700", lineHeight: "21.09px", fontFamily: "Roboto, sans-serif" }}>GoVegan</h4>
                             <p className='text-[#9CA0AC]'
                                 style={{

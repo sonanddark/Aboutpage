@@ -1,17 +1,19 @@
 import { motion, Variants } from 'framer-motion';
 import { useState } from "react";
 
-interface PrimaryButtonProps {
+interface primaryButtonProps {
     text: string;
-    customClassName?: any;  // Changed from Object to any for more flexibility
+    customClassName?: Object;
+    outerClassName? : any;
 }
-
-const SecondaryButton = (props: PrimaryButtonProps) => {
+const PrimaryButton = (props: primaryButtonProps) => {
     const [isHovered, setIsHovered] = useState(false);
+
     const text = props.text;
-    const characters: string[] = [];
+    const characters = [];
 
     let currentWord = '';
+
     for (let i = 0; i < text.length; i++) {
         const char = text[i];
         if (char === ' ' || char === "'") {
@@ -24,9 +26,11 @@ const SecondaryButton = (props: PrimaryButtonProps) => {
             currentWord += char;
         }
     }
+
     if (currentWord.length > 0) {
         characters.push(currentWord);
     }
+
 
     const containerVariants: Variants = {
         initial: {},
@@ -51,19 +55,17 @@ const SecondaryButton = (props: PrimaryButtonProps) => {
         initial: { rotate: -30 },
         hover: { rotate: 0, transition: { duration: 0.7 } }
     };
-
     const spanStyle = {
         display: 'inline-block',
-        minWidth: '0.6em',
-        color: 'white',  // Ensuring text color is white
+        minWidth: '0.6em', // Adjust this value as needed for the desired space width
     };
-
     return (
-        <div className=''>
+        // className='bg-[#DF1780] p-5' style={{width:"15%"}}
+        <div className={props.outerClassName} >
             <motion.button
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                style={{ ...props.customClassName, color: 'white' }} // Ensuring text color is white
+                style={props.customClassName}
             >
                 <motion.div
                     variants={containerVariants}
@@ -73,8 +75,7 @@ const SecondaryButton = (props: PrimaryButtonProps) => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        fontFamily: "SFProDisplay, sans-serif",
-                        color: 'white'  // Ensuring text color is white
+                        fontFamily: "SFProDisplay, sans-serif"
                     }}
                 >
                     {characters.map((char, index) => (
@@ -90,13 +91,13 @@ const SecondaryButton = (props: PrimaryButtonProps) => {
                     style={{ marginLeft: '10px', display: 'flex', alignItems: 'center' }}
                 >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L22 12L12 22" style={{ stroke: "#ffffff !important" }} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2 12H22" style={{ stroke: "#ffffff !important" }} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M12 2L22 12L12 22" stroke={"#FFFFFF"} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M2 12H22" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </motion.div>
             </motion.button>
         </div>
-    );
-}
 
-export default SecondaryButton;
+    )
+}
+export default PrimaryButton;
