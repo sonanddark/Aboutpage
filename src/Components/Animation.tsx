@@ -23,7 +23,7 @@ const Animation: React.FC<AnimatedBoxProps> = ({
 
   useEffect(() => {
     if (inView) {
-      controls.start(animate);
+      //controls.start(animate);
     }
   }, [controls, inView, animate]);
 
