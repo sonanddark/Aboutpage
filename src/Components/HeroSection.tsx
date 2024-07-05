@@ -74,13 +74,15 @@ const HeroSection: React.FC = () => {
         } else if (currentSection.heroRowAnimationSection) {
             scalePercentage = minScaleValue;
             clipPercentage = minClippingValue;
-            for (let [index, row] of heroRowsRefs.current.entries()) {
+            let index = 0;
+            for (let row of heroRowsRefs.current) {
                 if (!row) continue;
                 const translationRange = xTranslationRanges.get(index);
                 if (translationRange !== undefined) {
                     const xTranslationPosition = Math.min((currentScrollTop - heroRowAnimationSection.start) / (heroRowAnimationSection.end - heroRowAnimationSection.start), 1) * translationRange;
                     row.style.transform = `translateX(${xTranslationPosition}%)`;
                 }
+                index++;
             }
 
             const scrollPercentage = Math.min((currentScrollTop - heroRowAnimationSection.start) / (heroRowAnimationSection.end - heroRowAnimationSection.start), 1);
@@ -93,7 +95,7 @@ const HeroSection: React.FC = () => {
                 if (opacity >= 1) {
                     oneOpacityCount++;
                 }
-                span.style.opacity = opacity;
+                span.style.opacity = opacity.toString();
             });
         } else {
             scalePercentage = maxScaleValue;
@@ -146,7 +148,6 @@ const HeroSection: React.FC = () => {
                                 <div
                                     className="hero-row"
                                     key={i}
-                                    ref={el => (heroRowsRefs.current[i] = el)}
                                     style={{ transform: 'translateX()' }}
                                 >
                                     <div className="hero-row-text"> CRAZY </div>
