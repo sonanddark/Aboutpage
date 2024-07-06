@@ -601,6 +601,24 @@ body {
   top: 90%;
 }
 
+.animated-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animated-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.animated-text span.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .footer-circular-text {
   transform-origin: 50% 50%;
   animation: footer-circular-text-animation 15s linear infinite; /* Rotate animation */
@@ -612,5 +630,46 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* AnimatedButton.css */
+/* .animated-button {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+} */
+
+.animated-button span {
+  display: inline-block;
+  position: relative;
+  animation-play-state: paused;
+}
+
+.animated-button:hover span {
+  animation: move-up 0.3s forwards, move-down 0.3s forwards 0s;
+  animation-play-state: running;
+}
+
+@keyframes move-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-125%);
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
