@@ -600,3 +600,17 @@ body {
   left: 76%;
   top: 90%;
 }
+
+.footer-circular-text {
+  transform-origin: 50% 50%;
+  animation: footer-circular-text-animation 15s linear infinite; /* Rotate animation */
+}
+
+@keyframes footer-circular-text-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

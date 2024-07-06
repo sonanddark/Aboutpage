@@ -44,13 +44,13 @@ export default function Home() {
   return (
     <>
       <div>
-        <HeroSection />
+        {/* <HeroSection /> */}
       </div>
       <div>
-        <CardSection />
+        {/* <CardSection /> */}
       </div>
       <div style={{ backgroundColor: 'white'}}>
-        <HorizontalSection />
+        {/* <HorizontalSection /> */}
       </div>
       <div className="">
 
@@ -61,15 +61,15 @@ export default function Home() {
           */}
           {/* <AnimatedText sentences={sentences} /> */}
           <div className="flex justify-center">
-            <AnimatedText text="ALL THAT WE DID!!!" customClassName="font-bold  md:text-[100px] text-[30px]  " />
+            {/* <AnimatedText text="ALL THAT WE DID!!!" customClassName="font-bold  md:text-[100px] text-[30px]  " /> */}
           </div>
           <div className="flex justify-center">
-            <AnimatedText text="THAT YOU MUST HAVE SEEN" customClassName="text-center md:-mt-7 -mt-5 mb-10 md:text-[27.3px] text-[9px]" Style={{ fontWeight: '700', lineHeight: '32.52px', fontFamily: "SFProDisplay, sans-serif" }} />
+            {/* <AnimatedText text="THAT YOU MUST HAVE SEEN" customClassName="text-center md:-mt-7 -mt-5 mb-10 md:text-[27.3px] text-[9px]" Style={{ fontWeight: '700', lineHeight: '32.52px', fontFamily: "SFProDisplay, sans-serif" }} /> */}
           </div>
 
-          <TeamInformation />
+          {/* <TeamInformation /> */}
           <div className="mt-20 flex justify-center">
-              <SecondaryButton
+              {/* <SecondaryButton
               outerClassName={"md:w-[40%] w-[100%] flex justify-center"}
                 customClassName={{
                   marginTop: "20px",
@@ -87,7 +87,7 @@ export default function Home() {
                   justifyContent: "space-between"
                 }}
                 text="SEE MORE"
-              />
+              /> */}
           </div>
 
         </section>
@@ -104,22 +104,22 @@ export default function Home() {
 
             ></h3> */}
             <div className="w-7/12 md:w-full mt-14 md:mt-80">
-              <AnimatedText text="Stay up-to-date on the
+              {/* <AnimatedText text="Stay up-to-date on the
               latest Ghmza and share
-              your thoughts." customClassName="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]" Style={{ fontWeight: '590', color: "#000000", fontFamily: "SFProDisplay, sans-serif", }} />
+              your thoughts." customClassName="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]" Style={{ fontWeight: '590', color: "#000000", fontFamily: "SFProDisplay, sans-serif", }} /> */}
             </div>
             <div className="w-6/12 md:mt-[75%] mt-12">
-              <ExploreTheRest
+              {/* <ExploreTheRest
                 topText="EXPLORE"
                 bottomText="THE REST"
                 topTextCustomClass="md:ml-32 md:text-[58px] text-[24.83px] flex justify-start"
                 bottomTextCustomClass="md:text-[58px] -mt-3 md:-mt-0 text-[24.83px] md:ml-[120px] md:flex md:font-[400]"
                 topTextStyle={{ fontWeight: '860', color: "#000000" }}
-                bottomTextStyle={{}}
+                bottomTextStyle={{}} */}
               />
             </div>
             <div className="hidden md:block">
-              <SecondaryButton
+              {/* <SecondaryButton
                 customClassName={{
                   marginTop: "20px",
                   backgroundColor: "#DF1780",
@@ -137,13 +137,12 @@ export default function Home() {
                   justifyContent: "space-between"
                 }}
                 text="TAKE ME BACK"
-              />
+              /> */}
             </div>
-
           </div>
 
           <div className="hidden md:block">
-            <motion.div layout className="grid grid-cols-3 relative mt-48 gap-x-[-8px !important] gap-y-[-4px]">
+            {/* <motion.div layout className="grid grid-cols-3 relative mt-48 gap-x-[-8px !important] gap-y-[-4px]">
               {cardItems.map((card, index) => (
                 <Card
                   key={card.id}
@@ -153,21 +152,16 @@ export default function Home() {
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
     
         </section>
 
         <div className="bg-[#D9D9D9] block md:hidden ">
-          <CustomSlider cards={cardItems} />
+          {/* <CustomSlider cards={cardItems} /> */}
 
         </div>
-
-
         <Footer />
-
-
-
       </div>
     </>
   );
