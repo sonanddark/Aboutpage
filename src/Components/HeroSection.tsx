@@ -7,8 +7,8 @@ const HeroSection: React.FC = () => {
     const heroRowsParentRef = useRef<HTMLDivElement>(null);
     const heroSectionContainerRef = useRef<HTMLDivElement>(null);
     const linesRef = useRef<HTMLDivElement>(null);
-    const heroRows = document.getElementsByClassName('hero-row') as any;
-
+    const heroRowsChild = useRef<HTMLDivElement>(null);
+    
     const maxClippingValue = 90;
     const maxScaleValue = 20;
     const minClippingValue = 0;
@@ -75,10 +75,11 @@ const HeroSection: React.FC = () => {
             scalePercentage = minScaleValue;
             clipPercentage = minClippingValue;
             let index = 0;
-            for (let row of heroRows) {
+            const heroRows = heroRowsChild!.current?.childNodes!;
+            for (let [index,row] of Array.from(heroRows.entries())) {
                 const translationRange = xTranslationRanges.get(index)!;
                 const xTranslationPosition = Math.min((currentScrollTop - heroRowAnimationSection.start) / (heroRowAnimationSection.end - heroRowAnimationSection.start), 1) * translationRange;
-                row.style.transform = `translateX(${xTranslationPosition}%)`;
+                (row as HTMLElement).style.transform = `translateX(${xTranslationPosition}%)`;
                 index++;
             }
 
@@ -140,7 +141,7 @@ const HeroSection: React.FC = () => {
                         </div>
                     </div>
                     <div className="hero-row-parent" ref={heroRowsParentRef} style={{ paddingTop: '5rem' }}>
-                        <div className="hero-rows">
+                        <div className="hero-rows" ref={heroRowsChild}>
                             <div className="hero-row"  >
                                 <div className="hero-row-text"> 
                                     CRAZY 
