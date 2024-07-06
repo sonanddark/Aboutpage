@@ -7,8 +7,8 @@ const HeroSection: React.FC = () => {
     const heroRowsParentRef = useRef<HTMLDivElement>(null);
     const heroSectionContainerRef = useRef<HTMLDivElement>(null);
     const linesRef = useRef<HTMLDivElement>(null);
-    const heroRowsRefs = useRef<(HTMLDivElement | null)[]>([]);
-
+    const heroRowsChild = useRef<HTMLDivElement>(null);
+    
     const maxClippingValue = 90;
     const maxScaleValue = 20;
     const minClippingValue = 0;
@@ -75,13 +75,11 @@ const HeroSection: React.FC = () => {
             scalePercentage = minScaleValue;
             clipPercentage = minClippingValue;
             let index = 0;
-            for (let row of heroRowsRefs.current) {
-                if (!row) continue;
-                const translationRange = xTranslationRanges.get(index);
-                if (translationRange !== undefined) {
-                    const xTranslationPosition = Math.min((currentScrollTop - heroRowAnimationSection.start) / (heroRowAnimationSection.end - heroRowAnimationSection.start), 1) * translationRange;
-                    row.style.transform = `translateX(${xTranslationPosition}%)`;
-                }
+            const heroRows = heroRowsChild!.current?.childNodes!;
+            for (let [index,row] of Array.from(heroRows.entries())) {
+                const translationRange = xTranslationRanges.get(index)!;
+                const xTranslationPosition = Math.min((currentScrollTop - heroRowAnimationSection.start) / (heroRowAnimationSection.end - heroRowAnimationSection.start), 1) * translationRange;
+                (row as HTMLElement).style.transform = `translateX(${xTranslationPosition}%)`;
                 index++;
             }
 
@@ -143,31 +141,111 @@ const HeroSection: React.FC = () => {
                         </div>
                     </div>
                     <div className="hero-row-parent" ref={heroRowsParentRef} style={{ paddingTop: '5rem' }}>
-                        <div className="hero-rows">
-                            {[...Array(4)].map((_, i) => (
-                                <div
-                                    className="hero-row"
-                                    key={i}
-                                    style={{ transform: 'translateX()' }}
-                                >
-                                    <div className="hero-row-text"> CRAZY </div>
-                                    <div className="circle-container">
-                                        <div className="circle"></div>
-                                    </div>
-                                    <div className="hero-row-text"> USEFUL </div>
-                                    <div className="circle-container">
-                                        <div className="circle"></div>
-                                    </div>
-                                    <div className="hero-row-text"> INTUTIVE </div>
-                                    <div className="circle-container">
-                                        <div className="circle"></div>
-                                    </div>
-                                    <div className="hero-row-text"> USEFUL </div>
-                                    <div className="circle-container">
-                                        <div className="circle"></div>
-                                    </div>
+                        <div className="hero-rows" ref={heroRowsChild}>
+                            <div className="hero-row"  >
+                                <div className="hero-row-text"> 
+                                    CRAZY 
                                 </div>
-                            ))}
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    USEFUL
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div >
+                                <div className="hero-row-text">
+                                    INTUTIVE
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    USEFUL
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                            </div>
+                            <div className="hero-row" >
+                                <div className="hero-row-text"> 
+                                    LOWKEY 
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    AMAZING
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div >
+                                <div className="hero-row-text">
+                                    WINK
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    CREATIVE
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                            </div>
+                            <div className="hero-row" >
+                                <div className="hero-row-text"> 
+                                    CRAZY 
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    USEFUL
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div >
+                                <div className="hero-row-text">
+                                    INTUTIVE
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    USEFUL
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                            </div>
+                            <div className="hero-row" >
+                                <div className="hero-row-text"> 
+                                    LOWKEY 
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    AMAZING
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div >
+                                <div className="hero-row-text">
+                                    WINK
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                                <div className="hero-row-text">
+                                    CREATIVE
+                                </div>
+                                <div className="circle-container" >
+                                    <div className="circle" ></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="hero-bottom">
