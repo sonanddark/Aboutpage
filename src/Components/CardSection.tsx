@@ -38,7 +38,6 @@ const CardSection: React.FC = () => {
         };
 
         window.addEventListener('scroll', handleCardScroll);
-        handleCardScroll(); 
         
         return () => {
             window.removeEventListener('scroll', handleCardScroll);

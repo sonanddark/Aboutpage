@@ -1,12 +1,7 @@
 "use client";
 import twitterLogo from "../assets/twitterLogo.png"
-import Image from "next/image";
-import PrimaryButton from "@/Components/Button";
-import SecondaryButton from "@/Components/SecondaryButton";
-import AnimatedText from '@/Components/AnimatedText'
 import { motion } from 'framer-motion';
 import TeamInformation from "@/Components/TeamInformation";
-import ExploreTheRest from '@/Components/ExploreTheRest'
 import Card from '../Components/SocialPostsCardView';
 import rectangle from '../assets/bgImage.png'
 import camera from '../assets/camera-black.svg'
