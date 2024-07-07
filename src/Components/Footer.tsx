@@ -2,6 +2,8 @@ import React from 'react';
 import TextAroundCircle from './TextAroundCircle';
 import AnimateWhenInViewport from './AnimateWhenInViewport';
 import AnimatedButton from './AnimatedButton';
+import Image from 'next/image';
+import GhmzaLogo from './GhmzaLogo';
 
 const Footer = () => {
   return (
@@ -44,7 +46,7 @@ const Footer = () => {
         </div>
         <div className="flex md:justify-end items-center md:mr-10 mr-[0.5]">
             <div className="flex justify-end gap-x-7">
-            {/* <Image alt="footerLogo" src={footerLogo} className="md:w-2/12 w-3/12 -mr-10" /> TODO: Amed Uzair */}
+              <GhmzaLogo />
             <div className="md:w-[200px] w-[90px]">
               <TextAroundCircle
                 className="footer-circular-text"

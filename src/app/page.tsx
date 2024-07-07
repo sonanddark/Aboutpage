@@ -156,9 +156,17 @@ export default function Home() {
           <div className="md:w-4/12 flex md:flex-col ">
             <div className="w-7/12 md:w-full mt-14 md:mt-80">
               <AnimateWhenInViewport
-                textToBeAnimated="Stay up-to-date on the
-              latest Ghmza and share
-              your thoughts."
+                textToBeAnimated="Stay up-to-date on the"
+                cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
+                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+              />
+              <AnimateWhenInViewport
+                textToBeAnimated="latest Ghmza and share"
+                cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
+                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+              />
+              <AnimateWhenInViewport
+                textToBeAnimated="your thoughts."
                 cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
                 styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
               />
