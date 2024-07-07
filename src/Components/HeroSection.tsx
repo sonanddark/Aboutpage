@@ -9,6 +9,7 @@ const HeroSection: React.FC = () => {
   const linesRef = useRef<HTMLDivElement>(null);
   const heroRowsChild = useRef<HTMLDivElement>(null);
 
+  // Constants and state for animation properties
   const maxClippingValue = 90;
   const maxScaleValue = 20;
   const minClippingValue = 0;
@@ -17,6 +18,7 @@ const HeroSection: React.FC = () => {
   let scalePercentage = 20;
   let videoContainerOpacity = 1;
 
+  // Map for xTranslationRanges
   const xTranslationRanges = new Map<number, number>([
     [0, 10],
     [1, -6],
@@ -24,7 +26,25 @@ const HeroSection: React.FC = () => {
     [3, -9],
   ]);
 
+  // Function to handle scroll and touch events
+  const handleScroll = () => {
+    handleHeroScroll();
+  };
+
+  // Effect hook to add event listeners
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("touchmove", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
+    };
+  }, []);
+
+  // Function to handle scrolling animation
   const handleHeroScroll = () => {
+    // Check if all necessary refs are available
     if (
       !scrollHeroSectionRef.current ||
       !heroSectionContainerRef.current ||
@@ -71,7 +91,8 @@ const HeroSection: React.FC = () => {
       return currentSection;
     };
 
-    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScrollTop =
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
     if (heroSectionContainerRef.current.classList.contains("hide")) {
       heroSectionContainerRef.current.classList.remove("hide");
@@ -127,13 +148,6 @@ const HeroSection: React.FC = () => {
     heroRowsParentRef.current.style.transform = `scale(${scalePercentage})`;
     videoContainerRef.current.style.opacity = `${videoContainerOpacity}`;
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleHeroScroll);
-    return () => {
-      window.removeEventListener("scroll", handleHeroScroll);
-    };
-  }, []);
 
   return (
     <header className="hero-container" ref={scrollHeroSectionRef}>
