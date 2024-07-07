@@ -28,7 +28,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
         slidesToShow: 2.2,  // Default is 2 for wider screens
         slidesToScroll: 2,
         centerMode: true,  // Enable center mode
-        centerPadding: "200px",  // Padding on the sides of each slide
+         // Padding on the sides of each slide
         initialSlide: 0,
         responsive: [
             {
@@ -37,7 +37,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
                     slidesToShow: 2,  // Show 2 slides at a time on mobile
                     slidesToScroll: 1,
                     centerMode: false,  // Optional, can turn off center mode for mobile
-                    centerPadding: "20px"  // Adjust padding for smaller screens
+                     // Adjust padding for smaller screens
                 }
             }
         ]
