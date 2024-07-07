@@ -130,6 +130,7 @@ const CardSection: React.FC = () => {
                 <div className="card-item-desc">not the other way around.</div>
               </div>
             </div>
+
             <div className="card-image">
               <img src="assets/Vector.png" alt="" />
             </div>
