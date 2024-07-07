@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../app/globals.css";
-import { SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
+import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
 import Image from "next/image";
 
 const HorizontalSection: React.FC = () => {
@@ -89,7 +89,7 @@ const HorizontalSection: React.FC = () => {
                   <Image src={manMountain} alt="" />
                 </div>
                 <div className="horizontal-img-cont3">
-                  <Image src={peoples} alt="" />
+                  <Image src={Miami} alt="" />
                 </div>
                 <div className="horizontal-img-cont4">
                   <Image src={peoples} alt="" />
