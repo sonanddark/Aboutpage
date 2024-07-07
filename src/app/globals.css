@@ -150,11 +150,14 @@ body {
   }
 }
 
+
+
 @media (max-width: 480px) {
   .footer h1 {
       font-size: 9vw;
   }
 
+  
   .footer .button {
       font-size: 4vw;
   }
@@ -183,7 +186,10 @@ body {
     border-radius: 
     4.17px, 4.17px, 0px, 0px;
   }
-  
+  .footer-circular-text {
+    transform-origin: 50% 50%;
+    
+  }
 }
 
 
