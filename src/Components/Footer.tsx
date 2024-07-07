@@ -3,7 +3,7 @@ import TextAroundCircle from './TextAroundCircle';
 import AnimateWhenInViewport from './AnimateWhenInViewport';
 import AnimatedButton from './AnimatedButton';
 import Image from 'next/image';
-import footerLogo from '../assets/footerLogo.svg'
+import GhmzaLogo from './GhmzaLogo';
 
 const Footer = () => {
   return (
@@ -45,37 +45,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex md:justify-end items-center md:mr-10 mr-[0.5]">
-        <div className="block md:hidden">
-          <AnimatedButton
-              customCssStyles={{
-              marginLeft: "50px",
-              marginTop: "20px",
-              backgroundColor: "white",
-              border: "none",
-              color: "#DF1780",
-              padding: "10px 17px",
-              cursor: "pointer",
-              overflow: "hidden",
-              position: "relative",
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '13.81px',
-              lineHeight: "23.18px",
-              fontWeight: '590',
-              fontFamily: "SFProDisplay, sans-serif"
-            }}
-              text="LET'S GO"
-              arrowStyle={{
-                marginLeft: '8px',
-                transition: 'transform 0.3s ease',
-                stroke: '#DF1780'
-              }}
-            />
-          </div>
-            <div className="flex justify-end gap-x-7 ">
-            <Image alt="footerLogo" src={footerLogo} className="md:w-2/12 w-3/12 -mr-10" /> 
-
-            <div className="md:w-[200px] w-[90px]  md:block hidden">
+            <div className="flex justify-end gap-x-7">
+              <GhmzaLogo />
+            <div className="md:w-[200px] w-[90px]">
               <TextAroundCircle
                 className="footer-circular-text"
                 id="footer-text-right-circle"
