@@ -47,10 +47,6 @@ export default function Home() {
       <div>
 
         <section className="bg-[#D9D9D9]">
-          <AnimateWhenInViewport 
-              textToBeAnimated="ALL THAT WE DID!!!" 
-              cssClass="font-bold  md:text-[100px] text-[30px]" />
-
           <div className="flex justify-center">
             <AnimateWhenInViewport 
               textToBeAnimated="ALL THAT WE DID!!!" 
@@ -155,7 +151,7 @@ export default function Home() {
         </section>
 
         <div className="bg-[#D9D9D9] block md:hidden ">
-          {/* <CustomSlider cards={cardItems} />  TODO: Ahmed Uzair*/}
+          <CustomSlider cards={cardItems} />
         </div>
         <Footer />
       </div>
