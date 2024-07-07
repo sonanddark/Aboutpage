@@ -314,7 +314,7 @@ body {
   justify-content: space-between;
   border-color: black;
   border: 2px solid;
-  width: 150px;
+  width: 200px;
   height: 10px;
 }
 .title-lines {
@@ -473,11 +473,20 @@ body {
 .container {
   height: 400vh;
 }
-.card-animate {
+/* .card-animate {
   background-color: black;
   color: white;
   width: 100%;
+} */
+.cards-item {
+  transition: transform 0.5s ease;
+  transform: translateX(-100%);
 }
+
+.card-animate {
+  transform: translateX(0);
+}
+
 .horizontal-item-text {
   display: flex;
   align-items: center;
@@ -503,6 +512,12 @@ body {
   justify-items: center;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .horizontal-item-text {
+    padding-right: 0;
+  }
+}
 .horizontal-container {
   height: 100dvh;
 }
@@ -521,6 +536,12 @@ body {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .hori-f1 {
+    font-size: 6rem;
+  }
+}
+
 .hori-f2 {
   font-family: sans-serif;
   font-size: 2.6rem; /* Reduced from 53.45px */
@@ -529,6 +550,11 @@ body {
   letter-spacing: -0.06em;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .hori-f2 {
+    font-size: 2rem;
+  }
+}
 
 .hori-f3 {
   font-family: sans-serif;
@@ -536,6 +562,16 @@ body {
   font-weight: 700;
   line-height: 8rem;
   letter-spacing: -0.06em;
+}
+
+@media (max-width: 768px) {
+  .hori-f3 {
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 8rem;
+    letter-spacing: -0.06em;
+  }
 }
 
 .horizontal-btn {
@@ -601,6 +637,36 @@ body {
   max-height: auto;
   top: 10%;
   left: 65%;
+}
+@media (max-width: 760px) {
+  .horizontal-img-cont4 {
+    position: absolute;
+    max-width: 133px !important;
+    max-height: auto;
+    top: -3%;
+    left: 36%;
+  }
+  .horizontal-img-cont3 {
+    position: absolute;
+    max-width: 112px !important;
+    max-height: auto;
+    top: 73%;
+    left: 33%;
+  }
+  .horizontal-img-cont2 {
+    position: absolute;
+    max-width: 112px !important;
+    max-height: auto;
+    top: 50%;
+    left: 20%;
+  }
+  .horizontal-img-cont1 {
+    position: absolute;
+    max-width: 112px !important;
+    max-height: auto;
+    top: 10%;
+    left: 45%;
+  }
 }
 .horizontal-img-cont6 {
   position: absolute;
