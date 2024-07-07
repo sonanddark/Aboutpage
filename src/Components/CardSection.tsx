@@ -73,7 +73,7 @@ const CardSection: React.FC = () => {
             <img src="assets/Group.png" alt="" />
           </div>
         </div>
-        {/* <div className="cards-list">
+        <div className="cards-list">
           <div className="cards-item">
             <div className="card-item-desc-container">
               <div className="card-item-title">Music</div>
@@ -130,12 +130,13 @@ const CardSection: React.FC = () => {
                 <div className="card-item-desc">not the other way around.</div>
               </div>
             </div>
+
             <div className="card-image">
               <img src="assets/Vector.png" alt="" />
             </div>
           </div>
-        </div> */}
-        <div className="w-screen h-[400vh] ">{/* <CardHorizontalScroll /> */}</div>
+        </div>
+        {/* <div className="w-screen h-[400vh] "><CardHorizontalScroll /></div> */}
       </div>
     </section>
   );
