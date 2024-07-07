@@ -125,11 +125,12 @@ export default function Home() {
           <TeamInformation />
 
           <div className="mt-20 flex justify-center">
-            <div className="md:w-[40%] w-[100%] flex justify-center">
+            <div className="md:w-[20%] w-[20%] ">
               <AnimatedButton
                 text="SEE MORE"
                 customCssStyles={{
                   marginTop: "20px",
+                  textAlign: "center",
                   backgroundColor: "#DF1780",
                   border: "none",
                   color: "white",
@@ -157,19 +158,17 @@ export default function Home() {
             <div className="w-7/12 md:w-full mt-14 md:mt-80">
               <AnimateWhenInViewport
                 textToBeAnimated="Stay up-to-date on the"
-                cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
-              />
+                cssClass="md:w-4/12 w-5/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] "
+                styles={{ fontWeight: '590', color: "#000000", fontFamily: "SFProDisplay, sans-serif" }} />
               <AnimateWhenInViewport
                 textToBeAnimated="latest Ghmza and share"
-                cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
-              />
+                cssClass="md:w-4/12 w-5/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] "
+                styles={{ fontWeight: '590', color: "#000000", fontFamily: "SFProDisplay, sans-serif" }} />
               <AnimateWhenInViewport
                 textToBeAnimated="your thoughts."
-                cssClass="md:w-4/12 w-6/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] md:leading-[32px] leading-[16.9px]"
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
-              />
+                cssClass="md:w-4/12 w-5/12 md:ml-24 ml-6 md:text-[18.28px] text-[9.5px] "
+                styles={{ fontWeight: '590', color: "#000000", fontFamily: "SFProDisplay, sans-serif" }} />
+
             </div>
             <div className="w-6/12 md:mt-[75%] mt-12">
               <AnimateWhenInViewport
@@ -226,11 +225,33 @@ export default function Home() {
               ))}
             </motion.div>
           </div>
+          
         </section>
 
         <div className="bg-[#D9D9D9] block md:hidden ">
           <CustomSlider cards={cardItems} />
         </div>
+        <div className="md:w-[40%] w-[100%] flex justify-center">
+              <AnimatedButton
+                text="TAKE ME BACK!"
+                customCssStyles={{
+                  marginTop: "20px",
+                  backgroundColor: "#DF1780",
+                  border: "none",
+                  color: "white",
+                  padding: "20px 40px",
+                  cursor: "pointer",
+                  overflow: "hidden",
+                  position: "relative",
+                  display: 'flex',
+                  alignItems: 'center',
+                  fontSize: '15.5px', lineHeight: "25.6px", fontWeight: '590', fontFamily: "SFProDisplay, sans-serif",
+                  width: "80%",
+                  justifyContent: "space-between"
+                }}
+                arrowStyle={{ stroke: '#FFFFFF', marginLeft: '30px', display: 'flex', alignItems: 'center' }}
+              />
+            </div>
         <Footer />
       </div>
     </>
