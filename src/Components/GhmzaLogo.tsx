@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import '../app/globals.css';
+interface logoProps{
+  height: string;
+  width: string;
+}
 
-const GhamzaLogo: React.FC = () => {
+const GhamzaLogo: React.FC<logoProps> = (props) => {
   const circlesRef = useRef<(SVGPathElement | null)[]>([]);
 
   useEffect(() => {
@@ -36,8 +40,8 @@ const GhamzaLogo: React.FC = () => {
   }, []);
 
   return (
-    <div className="svg-container">
-      <svg className="animated-logo" width="205" height="205" viewBox="0 0 205 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="svg-container flex items-center">
+      <svg className="animated-logo" width={props.width} height={props.width} viewBox="0 0 205 166" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path ref={(el) => { circlesRef.current[0] = el }} className="circle" d="M198.39 13.2409C198.39 5.92816 192.462 0 185.149 0C177.836 0 171.908 5.92816 171.908 13.2409C171.908 20.5537 177.836 26.4819 185.149 26.4819C192.462 26.4819 198.39 20.5537 198.39 13.2409Z" fill="white"/>
         <path ref={(el) => { circlesRef.current[1] = el }} className="circle" d="M129.63 13.2409C129.63 5.92816 123.702 0 116.389 0C109.076 0 103.148 5.92816 103.148 13.2409C103.148 20.5537 109.076 26.4819 116.389 26.4819C123.702 26.4819 129.63 20.5537 129.63 13.2409Z" fill="white"/>
         <path ref={(el) => { circlesRef.current[2] = el }} className="circle" d="M60.8618 13.2409C60.8618 5.92816 54.9336 0 47.6208 0C40.3081 0 34.3799 5.92816 34.3799 13.2409C34.3799 20.5537 40.3081 26.4819 47.6208 26.4819C54.9336 26.4819 60.8618 20.5537 60.8618 13.2409Z" fill="white"/>

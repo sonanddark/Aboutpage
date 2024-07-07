@@ -15,7 +15,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({ text, customCssStyles, 
 
   return (
     <button
-      className="animated-button"
+      className="animated-button text-center"
       style={customCssStyles}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}>
@@ -30,7 +30,9 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({ text, customCssStyles, 
             {char === ' ' ? '\u00A0' : char} {/* Replace space with non-breaking space */}
           </span>
         ))}
-        <svg
+
+      </div>
+      <svg
           width="14"
           height="14"
           viewBox="0 0 24 24"
@@ -43,7 +45,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({ text, customCssStyles, 
           <path d="M12 2L22 12L12 22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M2 12H22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </div>
     </button>
   );
 };
