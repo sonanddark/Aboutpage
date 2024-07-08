@@ -21,8 +21,7 @@ const HorizontalSection: React.FC = () => {
       const totalOffsetTop = getOffsetTop(horizontalSection);
       const totalOffsetBottom = totalOffsetTop + horizontalSection.offsetHeight;
       const horizontalListSectionRectWidth = horizontalList.getBoundingClientRect().width;
-      const lastSectionWidth = horizontalListSectionRectWidth * 0.245;
-
+      const lastSectionWidth = horizontalListSectionRectWidth * 0.325;
       if (currentScrollTop > totalOffsetTop && currentScrollTop < totalOffsetBottom - lastSectionWidth) {
         translationX =
           ((currentScrollTop - totalOffsetTop) / (totalOffsetBottom - totalOffsetTop)) *
