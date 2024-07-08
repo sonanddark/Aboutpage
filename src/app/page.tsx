@@ -15,6 +15,7 @@ import Footer from "@/Components/Footer";
 import AnimatedButton from "@/Components/AnimatedButton";
 import AnimateWhenInViewport from "@/Components/AnimateWhenInViewport";
 import WinkSection from "@/Components/WinkSection";
+import WinkCardSectionParent from "@/Components/WinkCardSectionParent"
 
 const cardItems = [
   {
@@ -101,10 +102,11 @@ export default function Home() {
         <HeroSection />
       </div>
       <div>
-        <WinkSection />
-      </div>
-      <div>
-        <CardSection />
+          {/* <WinkSection />
+        </div>
+        <div>
+          <CardSection /> */}
+          <WinkCardSectionParent />
       </div>
 
       <div style={{ backgroundColor: "white" }}>

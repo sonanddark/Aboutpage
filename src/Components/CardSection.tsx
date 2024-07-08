@@ -1,52 +1,11 @@
-import React, { useEffect } from "react";
+
+import React, { forwardRef, useRef, useEffect } from "react";
 import "../app/globals.css";
 import AnimateWhenInViewport from "./AnimateWhenInViewport";
-import CardHorizontalScroll from "./CardHorizontalScroll";
 
-const CardSection: React.FC = () => {
-  const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
-    const { top } = el.getBoundingClientRect();
-    const { innerHeight } = window;
-
-    return top < innerHeight - top;
-  };
-
-  useEffect(() => {
-    const handleCardScroll = () => {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const sectionElement = document.querySelector('[data-module-name="card-section"]');
-      //   const cards = document.querySelectorAll(".cards-item");
-
-      if (sectionElement && elementIsVisibleInViewport(sectionElement as HTMLElement)) {
-        document.body.classList.remove("theme-black");
-        if (!document.body.classList.contains("theme-light-gray")) {
-          document.body.classList.add("theme-light-gray");
-        }
-      } else {
-        document.body.classList.remove("theme-light-gray");
-        if (!document.body.classList.contains("theme-black")) {
-          document.body.classList.add("theme-black");
-        }
-      }
-
-      //   cards.forEach((card: Element) => {
-      //     if (elementIsVisibleInViewport(card as HTMLElement)) {
-      //       card.classList.add("card-animate");
-      //     } else {
-      //       card.classList.remove("card-animate");
-      //     }
-      //   });
-    };
-
-    window.addEventListener("scroll", handleCardScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleCardScroll);
-    };
-  }, []);
-
+const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <section data-module-name="card-section">
+    <section ref={ref} data-module-name="card-section">
       <div className="container">
         <div className="card-section-container sticky">
           <div className="section-descr">
@@ -130,16 +89,65 @@ const CardSection: React.FC = () => {
                 <div className="card-item-desc">not the other way around.</div>
               </div>
             </div>
-
             <div className="card-image">
               <img src="assets/Vector.png" alt="" />
             </div>
           </div>
         </div>
-        {/* <div className="w-screen h-[400vh] "><CardHorizontalScroll /></div> */}
+        {/* 
+        <div className="cards-item">
+          <div className="card-item-desc-container">
+            <div className="card-item-title">Music</div>
+            <div className="description">
+              <div className="card-item-desc">We build mobile and web-based apps,</div>
+              <div className="card-item-desc">platforms, and infrastructure fitted to your</div>
+              <div className="card-item-desc">needs. We have an open solutions</div>
+              <div className="card-item-desc">framework, so we work to fit your business,</div>
+              <div className="card-item-desc">not the other way around.</div>
+            </div>
+          </div>
+          <div className="card-image">
+            <img src="assets/Vector.png" alt="" />
+          </div>
+        </div>
+        */}
       </div>
     </section>
   );
-};
+});
+
+// const sectionRef = useRef<HTMLDivElement | null>(null);
+// const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
+//   const { top } = el.getBoundingClientRect();
+//   const { innerHeight } = window;
+
+//   return top < innerHeight - top;
+// };
+// useEffect(() => {
+//   const handleCardScroll = () => {
+//     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     if (sectionRef.current) {
+//       if (elementIsVisibleInViewport(sectionRef.current)) {
+//         document.body.classList.remove("theme-black");
+//         if (!document.body.classList.contains("theme-light-gray")) {
+//           document.body.classList.add("theme-light-gray");
+//         }
+//       } else {
+//         document.body.classList.remove("theme-light-gray");
+//         if (!document.body.classList.contains("theme-black")) {
+//           document.body.classList.add("theme-black");
+//         }
+//       }
+//     }
+//   };
+
+//   window.addEventListener("scroll", handleCardScroll);
+
+//   return () => {
+//     window.removeEventListener("scroll", handleCardScroll);
+//   };
+// }, []);
+
+CardSection.displayName = "CardSection";
 
 export default CardSection;
