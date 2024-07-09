@@ -4,7 +4,52 @@ import AnimateWhenInViewport from "./AnimateWhenInViewport";
 import { Group, image1, image2, image3, image4 } from "public/images/assets";
 import Image from "next/image";
 
+const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
+  const { top } = el.getBoundingClientRect();
+  const { innerHeight } = window;
+
+  return top < innerHeight - top;
+};
+
 const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const cardsListRef = useRef<HTMLDivElement>(null);
+useEffect(() => {
+  const handleCardScroll = () => {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (sectionRef.current) {
+      if (elementIsVisibleInViewport(sectionRef.current)) {
+        document.body.classList.remove("theme-black");
+        if (!document.body.classList.contains("theme-light-gray")) {
+          document.body.classList.add("theme-light-gray");
+        }
+      } else {
+        document.body.classList.remove("theme-light-gray");
+        if (!document.body.classList.contains("theme-black")) {
+          document.body.classList.add("theme-black");
+        }
+      }
+    }
+    // const cards = cardsListRef.current?.querySelectorAll(".cards-item");
+    //   if (cards) {
+    //     cards.forEach((card) => {
+    //       if (elementIsVisibleInViewport(card as HTMLElement)) {
+    //         card.classList.add("card-animate");
+    //       } else {
+    //         card.classList.remove("card-animate");
+    //       }
+    //     });
+    //   } else {
+    //     console.log('no cards');
+    //   }
+  };
+
+  window.addEventListener("scroll", handleCardScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleCardScroll);
+  };
+}, []);
   return (
     <section ref={ref} data-module-name="card-section">
       <div className="container !flex flex-col lg:!flex-row w-auto !h-[200vh] lg:!h-[400vh] w-100vw lg:w-auto">
@@ -33,8 +78,8 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
             <Image src={Group} alt="" />
           </div>
         </div>
-        <div className="cards-list !flex  !flex-row lg:!flex-col gap-10 lg:gap-0 translate-x-[25%] lg:!translate-x-[-160%]">
-          <div className="cards-item !w-[700px]  lg:!w-[95%]">
+        <div className="cards-list !flex !flex-row lg:!flex-col gap-10 lg:gap-0 translate-x-[25%] lg:!translate-x-[-160%]" ref={cardsListRef}>
+          <div className="cards-item !w-[700px] lg:!w-[95%]">
             <div className="card-item-desc-container">
               <div className="card-item-title">FILMS</div>
               <div className="description">
@@ -132,37 +177,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
-// const sectionRef = useRef<HTMLDivElement | null>(null);
-// const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
-//   const { top } = el.getBoundingClientRect();
-//   const { innerHeight } = window;
 
-//   return top < innerHeight - top;
-// };
-// useEffect(() => {
-//   const handleCardScroll = () => {
-//     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//     if (sectionRef.current) {
-//       if (elementIsVisibleInViewport(sectionRef.current)) {
-//         document.body.classList.remove("theme-black");
-//         if (!document.body.classList.contains("theme-light-gray")) {
-//           document.body.classList.add("theme-light-gray");
-//         }
-//       } else {
-//         document.body.classList.remove("theme-light-gray");
-//         if (!document.body.classList.contains("theme-black")) {
-//           document.body.classList.add("theme-black");
-//         }
-//       }
-//     }
-//   };
-
-//   window.addEventListener("scroll", handleCardScroll);
-
-//   return () => {
-//     window.removeEventListener("scroll", handleCardScroll);
-//   };
-// }, []);
 
 CardSection.displayName = "CardSection";
 

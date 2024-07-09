@@ -3,6 +3,13 @@ import "../app/globals.css";
 import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
 import Image from "next/image";
 
+const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
+  const { top } = el.getBoundingClientRect();
+  const { innerHeight } = window;
+
+  return top < innerHeight - top;
+};
+
 const HorizontalSection: React.FC = () => {
   const horizontalSectionRef = useRef<HTMLElement>(null);
   const horizontalListRef = useRef<HTMLDivElement>(null);
@@ -16,6 +23,22 @@ const HorizontalSection: React.FC = () => {
   const handleHorizontalScroll = () => {
     const horizontalSection = horizontalSectionRef.current;
     const horizontalList = horizontalListRef.current;
+    if(horizontalSection) {
+      if (elementIsVisibleInViewport(horizontalSection)) {
+        document.body.classList.remove("theme-light-gray");
+        document.body.classList.remove("theme-black");
+        if (!document.body.classList.contains("theme-orange")) {
+          document.body.classList.add("theme-orange");
+        }
+      } else {
+        console.log('hi');
+        document.body.classList.remove("theme-orange");
+        if (!document.body.classList.contains("theme-light-gray")) {
+          document.body.classList.add("theme-light-gray");
+        }
+      }
+    }
+
     if (horizontalSection && horizontalList) {
       const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const totalOffsetTop = getOffsetTop(horizontalSection);

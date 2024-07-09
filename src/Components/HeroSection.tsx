@@ -3,6 +3,7 @@ import "../app/globals.css";
 import AnimatedButton from "./AnimatedButton";
 import AnimateWhenInViewport from "./AnimateWhenInViewport";
 import GhamzaLogo from "./GhmzaLogo";
+import ScrollToSection from "./ScrollToSection.js";
 
 const HeroSection: React.FC = () => {
   const scrollHeroSectionRef = useRef<HTMLDivElement>(null);

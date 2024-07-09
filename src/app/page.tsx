@@ -109,7 +109,7 @@ export default function Home() {
         <WinkCardSectionParent />
       </div>
 
-      <div style={{ backgroundColor: "white", width: "100vw" }}>
+      <div>
         <HorizontalSection />
       </div>
       <div>

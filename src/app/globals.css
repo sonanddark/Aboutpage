@@ -457,6 +457,12 @@ body {
 .card-item-desc-container {
   width: 75%;
 }
+
+.theme-orange {
+  transition: all 1s ease;
+  background-color: orange;
+}
+
 .theme-light-gray {
   transition: all 1s ease;
   background-color: #d9d9d9;
@@ -495,7 +501,7 @@ body {
 /* .card-animate {
   background-color: black;
   color: white;
-  width: 100%;
+  width: 80%;
 } */
 .cards-item {
   transition: transform 0.5s ease;

@@ -13,8 +13,7 @@ const CardHorizontalScroll: React.FC = () => {
 
   const handleHorizontalScroll = () => {
     const horizontalSection = horizontalSectionRef.current;
-    const horizontalList = horizontalListRef.current;
-
+    const horizontalList = horizontalListRef.current; 
     if (horizontalSection && horizontalList) {
       const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const totalOffsetTop = getOffsetTop(horizontalSection);
