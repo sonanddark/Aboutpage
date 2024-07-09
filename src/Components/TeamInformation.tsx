@@ -59,9 +59,9 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
             setCoords({ x: `${acutalImagePositionX / containerWidth * 100}%`, y: `${acutalImagePositionY / containerHeight * 100}%` });
         }
     };
-
+    
     return (
-        <div className='flex justify-center ' style={{ width: "100%" }}>
+        <div className='flex justify-center' style={{ width: "100%" }}>
             <div style={{ width: "95%" }}>
                 <div ref={teamItemRef} className={`team__item ${hovered ? 'hovered' : ''} h-[140px] flex  md:items-center`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
                     <div className='flex md:justify-between w-[100%]'>
