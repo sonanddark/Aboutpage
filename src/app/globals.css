@@ -701,7 +701,7 @@ body {
   .horizontal-img-cont4 {
     position: absolute;
     max-width: 133px !important;
-    /* max-height: auto; */
+    max-height: auto;
     top: -3%;
     left: 36%;
   }
@@ -717,7 +717,7 @@ body {
     max-width: 112px !important;
     max-height: auto;
     top: 50%;
-    left: 27%;
+    left: 50%;
   }
   .horizontal-img-cont1 {
     position: absolute;
@@ -873,5 +873,6 @@ body {
 }
 
 .slick-slide > div {
-  margin: 0 10px;
+  /* margin: 0 10px; */
+  margin-left: 15px;
 }

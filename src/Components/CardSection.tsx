@@ -65,12 +65,10 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
     speed: 900,
     slidesToShow: 2,
     slidesToScroll: 1,
-    centerMode: true,
-    initialSlide: 1,
     ltr: false,
     arrows: false,
-    centerPadding: '0px', 
-    // variableWidth: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
     responsive: [
       {
         breakpoint: 1024,
@@ -93,10 +91,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
-          initialSlide: 0,
-          ltr: true,
-          centerPadding: '0px',
-
+          initialSlide: .5,
         },
       },
     ],

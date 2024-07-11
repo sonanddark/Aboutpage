@@ -286,8 +286,10 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
           <div className="md:hidden flex flex-col items-center scroll-arrow">
+            <a href="#winkSection" className="flex flex-col items-center">
             <span className="mb-5">Scroll</span>
             <Image src={arrowImg} alt="Arrow icon" width={40} height={40} />
+            </a>
           </div>
           <div className="hidden md:block">
             <div className=" hero-bottom mx-auto mt-10">

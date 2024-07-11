@@ -22,13 +22,14 @@ interface CustomSliderProps {
 
 const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
   var settings = {
-    className: "center",
+    className: "",
     dots: false,
     infinite: true,
     speed: 900,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // centerMode: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
     initialSlide: 0,
     rtl: false,
     arrows: false,
@@ -53,8 +54,8 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToShow: 2.2,
+          // slidesToScroll: 1,
         },
       },
     ],

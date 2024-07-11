@@ -101,7 +101,7 @@ export default function Home() {
       <div>
         <HeroSection />
       </div>
-      <div>
+      <div id='winkSection'>
         <WinkCardSectionParent />
       </div>
       <div>
