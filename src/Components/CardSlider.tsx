@@ -22,55 +22,74 @@ interface CustomSliderProps {
 
 const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
     var settings = {
-        className: "center",
+        dots: false,
+        // className: "center",
         infinite: true,
         speed: 900,
-        slidesToShow: 2.2,  // Default is 2 for wider screens
-        slidesToScroll: 2,
-        centerMode: true,  // Enable center mode
-         // Padding on the sides of each slide
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        centerMode: true,
         initialSlide: 0,
         responsive: [
             {
-                breakpoint: 768, // Adjusts settings for screens 768px wide or less
+                breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2,  // Show 2 slides at a time on mobile
+                    slidesToShow: 2,
                     slidesToScroll: 1,
-                    centerMode: false,  // Optional, can turn off center mode for mobile
-                     // Adjust padding for smaller screens
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1.5,
+                    slidesToScroll: 0.5
                 }
             }
         ]
     };
 
     return (
-        <Slider {...settings}>
-            {cards.map((card, index) => (
-                <div key={index} className="card" >
-                    <img src={card.rectangle} alt={card.title} className="card-image " />
-                    <div className="card-content">
-                        <div className='ml-3'>
+        <div className="">
+            <Slider {...settings}>
+                {cards.map((card, index) => (
+                    <div key={index} className="overflow-hidden w-[200px] md:w-[300px] rounded">
+                        <div className="w-[200px] md:w-[300px]">
+                            <img className="" src={card.rectangle} alt={card.title} />
+                        </div>
+                        <div className=" bg-white w-[200px] md:w-[300px]">
                             <div className='flex gap-x-3'>
-                                <img className='-mt-9 -ml-4 w-10' src={card.goVegan} alt="" />
+                                <img className='-mt-4 ml-2 w-10' src={card.goVegan} alt="" />
                                 <div className='flex flex-col'>
-                                    <h4 className='-mt-2' style={{ fontSize: "7.5px", fontWeight: "700", lineHeight: "8.70px", fontFamily: "Roboto, sans-serif" }}>{card.title}</h4>
+                                    <h4 className='mb-2 font-bold text-[7.50px] leading-[9px]' style={{ fontFamily: "Roboto, sans-serif" }}>{card.title}</h4>
                                     <p className='text-[#9CA0AC]' style={{ fontFamily: "Roboto, sans-serif", fontSize: "5px", fontWeight: "400", lineHeight: "5.86px", textAlign: "left" }}>
                                         {card.date}
                                     </p>
                                 </div>
                             </div>
-                            <div className='flex mt-5'>
-                                <p style={{ fontFamily: 'Roboto, sans-serif', fontWeight: '400', fontSize: '5.84px', lineHeight: '9px' }}>
+                            <div className="w-[200px] md:w-[300px] pt-2 px-3">
+                                <p className="font-normal text-[5.8px] leading-[10px]" style={{ fontFamily: 'Roboto, sans-serif', }}>
                                     {card.hashtags.map((item, index) => <span className='text-[blue]' key={index}>{item + " "}</span>)}
                                     {card.description}
                                 </p>
                             </div>
-                            <Image className='mt-3 mb-4' alt="twitterLogo" src={card.socialAppIcon} width={10} height={10} />
+                            <div className="pl-3 pb-1">
+                                <Image className='mt-3 mb-4' alt="twitterLogo" src={card.socialAppIcon} width={10} height={10} />
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
-        </Slider>
+                ))}
+            </Slider>
+        </div>
     );
 }
 
