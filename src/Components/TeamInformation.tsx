@@ -67,7 +67,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                     <div className='flex md:justify-between w-[100%]'>
                         <div className="flex md:justify-between md:items-center animating md:flex-row flex-col w-[100%]">
                             <div className='flex gap-x-10 md:items-center'>
-                                <div className="team__index  flex md:items-center  hidden md:block">
+                                <div className="team__index  flex md:items-center  md:block">
                                     <div className="f-40 light hidden md:block items-center" style={{ opacity: "15%" }}>{`0${member.id}`}</div>
                                 </div>
                                 <div className="flex md:items-center md:text-[44px] text-[23.4px]">{member.name}</div>

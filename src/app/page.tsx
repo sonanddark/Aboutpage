@@ -20,7 +20,7 @@ import WinkCardSectionParent from "@/Components/WinkCardSectionParent";
 const cardItems = [
   {
     id: 1,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -28,11 +28,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 2,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -40,11 +40,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 3,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -52,11 +52,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 4,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -64,11 +64,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them!",
   },
   {
     id: 5,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -76,11 +76,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them!",
   },
   {
     id: 6,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -88,7 +88,7 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
 
   // Add more cards as per your requirement
@@ -157,7 +157,7 @@ export default function Home() {
                 arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
               />
             </div>
-            <div className=" w-[80%] md:hidden block flex justify-center">
+            <div className=" w-[80%] md:hidden flex justify-center">
               <AnimatedButton
                 text="SEE MORE"
                 customCssStyles={{
@@ -242,10 +242,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          <div className="w-full hidden lg:block">
             <motion.div
-              layout
-              className="grid grid-cols-1 xl:grid-cols-2 relative mt-48 gap-x-[-30px !important] gap-y-[-4px]"
+              // layout
+              className="grid grid-cols-2 xl:grid-cols-3 relative mt-48 gap-x-[20px]"
             >
               {cardItems.map((card, index) => (
                 <Card
@@ -259,11 +259,11 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
-
-        <div className="bg-[#D9D9D9] block md:hidden ">
+        {/* Mobile responsive card */}
+        <div className="bg-[#D9D9D9] w-full block lg:hidden ">
           <CustomSlider cards={cardItems} />
         </div>
-        <div className="flex justify-center md:hidden block">
+        <div className="md:hidden block mx-auto">
           <AnimatedButton
             text="TAKE ME BACK!"
             customCssStyles={{

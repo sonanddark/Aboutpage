@@ -31,7 +31,6 @@ const HorizontalSection: React.FC = () => {
           document.body.classList.add("theme-orange");
         }
       } else {
-        console.log('hi');
         document.body.classList.remove("theme-orange");
         if (!document.body.classList.contains("theme-light-gray")) {
           document.body.classList.add("theme-light-gray");
