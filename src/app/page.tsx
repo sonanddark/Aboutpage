@@ -114,7 +114,7 @@ export default function Home() {
       </div>
       <div>
         <section className="bg-[#D9D9D9]">
-          <div className="flex justify-center">
+          <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
               cssClass="font-bold  md:text-[100px] text-[30px]"
@@ -125,7 +125,11 @@ export default function Home() {
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
               cssClass="text-center md:-mt-7 -mt-5 mb-10 md:text-[27.3px] text-[9px]"
-              styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
+              styles={{
+                fontWeight: "700",
+                lineHeight: "32.52px",
+                fontFamily: "SFProDisplay, sans-serif",
+              }}
             />
           </div>
 
@@ -154,7 +158,12 @@ export default function Home() {
                   width: "80%",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
             <div className=" w-[80%] md:hidden flex justify-center">
@@ -179,7 +188,12 @@ export default function Home() {
                   width: "85%",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
           </div>
@@ -191,20 +205,32 @@ export default function Home() {
               <AnimateWhenInViewport
                 textToBeAnimated="Stay up-to-date on the"
                 cssClass=":w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
               <AnimateWhenInViewport
                 textToBeAnimated="latest Ghmza and share"
                 cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
               <AnimateWhenInViewport
                 textToBeAnimated="your thoughts."
                 cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
             </div>
-            <div className="lg:w-7/12 md:mt-[87%] mt-12">
+            <div className="w-1/2 lg:w-7/12 md:mt-[87%] mt-12">
               <AnimateWhenInViewport
                 textToBeAnimated="EXPLORE"
                 cssClass="md:ml-16 ml-16 md:text-[58px] text-[24.83px]  flex justify-start"
@@ -237,15 +263,20 @@ export default function Home() {
                   marginLeft: "11%",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
           </div>
 
           <div className="w-full hidden lg:block">
             <motion.div
-              // layout
-              className="grid grid-cols-2 xl:grid-cols-3 relative mt-48 gap-x-[20px]"
+              layout
+              className="grid grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 relative mt-48 gap-x-[20px]"
             >
               {cardItems.map((card, index) => (
                 <Card
@@ -259,33 +290,40 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+
         {/* Mobile responsive card */}
-        <div className="bg-[#D9D9D9] w-full block lg:hidden ">
+        <div className="bg-[#D9D9D9] w-full block lg:hidden pb-6">
           <CustomSlider cards={cardItems} />
-        </div>
-        <div className="md:hidden block mx-auto">
-          <AnimatedButton
-            text="TAKE ME BACK!"
-            customCssStyles={{
-              marginTop: "20px",
-              backgroundColor: "#DF1780",
-              border: "none",
-              color: "white",
-              padding: "20px 40px",
-              cursor: "pointer",
-              overflow: "hidden",
-              position: "relative",
-              display: "flex",
-              alignItems: "center",
-              fontSize: "15.5px",
-              lineHeight: "25.6px",
-              fontWeight: "590",
-              fontFamily: "SFProDisplay, sans-serif",
-              width: "65%",
-              justifyContent: "space-between",
-            }}
-            arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
-          />
+          <div className="mt-8">
+            <AnimatedButton
+              text="TAKE ME BACK!"
+              customCssStyles={{
+                marginTop: "20px",
+                backgroundColor: "#DF1780",
+                border: "none",
+                color: "white",
+                padding: "20px 40px",
+                cursor: "pointer",
+                overflow: "hidden",
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                fontSize: "15.5px",
+                lineHeight: "25.6px",
+                fontWeight: "590",
+                fontFamily: "SFProDisplay, sans-serif",
+                width: "65%",
+                margin: "auto",
+                justifyContent: "space-between",
+              }}
+              arrowStyle={{
+                stroke: "#FFFFFF",
+                marginLeft: "30px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            />
+          </div>
         </div>
 
         <Footer />

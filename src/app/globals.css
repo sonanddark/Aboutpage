@@ -498,7 +498,7 @@ body {
   transition: opacity 0.5s ease;
 }
 .container {
-  height: 400vh;
+  /* height: 400vh; */
 }
 /* .card-animate {
   background-color: black;
