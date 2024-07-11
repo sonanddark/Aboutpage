@@ -28,10 +28,10 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
     speed: 900,
     slidesToShow: 2,
     slidesToScroll: 1,
-    centerMode: true,
+    // centerMode: true,
     initialSlide: 0,
-    ltr: true,
- 
+    rtl: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -53,8 +53,8 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 0.5,
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
     ],

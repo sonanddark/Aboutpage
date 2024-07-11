@@ -120,23 +120,22 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
       <div style={{ width: "95%" }}>
         <div
           ref={teamItemRef}
-          className={`team__item ${
-            hovered ? "hovered" : ""
-          } h-[140px] flex  md:items-center`}
+          className={`team__item ${hovered ? "hovered" : ""
+            } h-[140px] flex  md:items-center`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
         >
           <div className="flex items-center md:justify-between w-[100%]">
             <div className="flex md:justify-between md:items-center animating md:flex-row flex-col w-[100%]">
-              <div className="flex gap-x-10  md:items-center">
-                <div className="team__index  flex items-start md:items-center  md:block">
+              <div className="flex gap-x-10 md:items-center">
+                <div className="team__index  flex items-start md:items-center md:block">
                   <div
                     className="f-40 light hidden md:block items-center"
                     style={{ opacity: "15%" }}
                   >{`0${member.id}`}</div>
                 </div>
-                <div className="flex -ml-10 md:ml-0 items-start md:items-center md:text-[44px] text-[23.4px]">
+                <div className="flex -ml-10 md:ml-0 items-start md:items-center md:text-[44px] md:leading-[52px] leading-7 text-[23.4px]">
                   {member.name}
                 </div>
               </div>
@@ -149,8 +148,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                 </div>
               </div>
             </div>
-            <div className="md:hidden block">
-              <img src={member.image} alt="" className="w-[100px]" />
+            <div className="md:hidden block " >
+              <img src={member.image} alt="" className="w-36" width={100} height={100} />
             </div>
           </div>
 

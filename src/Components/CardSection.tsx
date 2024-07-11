@@ -65,9 +65,12 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
     speed: 900,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // centerMode: true,
-    initialSlide: 0,
-    ltr: true,
+    centerMode: true,
+    initialSlide: 1,
+    ltr: false,
+    arrows: false,
+    centerPadding: '0px', 
+    // variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -86,10 +89,14 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         },
       },
       {
-        breakpoint: 420,
+        breakpoint: 480,
         settings: {
           slidesToShow: 1.5,
-          slidesToScroll: 0.5,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          ltr: true,
+          centerPadding: '0px',
+
         },
       },
     ],
@@ -288,118 +295,120 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
           </div>
           {/* Card list carousel  for mobile */}
           <div className="">
-            <Slider {...settings}>
-              <div className="p-5 mr-5 w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out overflow-hidden">
-                <div className="">
-                  <Image className="h-[40px] w-[40px]" src={image1} alt="" />
-                </div>
-                <div className="w-3/4 text-white">
-                  <div className="text-sm leading-4 font-black mt-10 mb-4">
-                    FILMS
+            <div className="w-100" >
+              <Slider {...settings}>
+                <div className="p-5 w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out overflow-hidden">
+                  <div className="">
+                    <Image className="h-[40px] w-[40px]" src={image1} alt="" />
                   </div>
-                  <div className="text-left w-[195px] ">
-                    <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
-                      We believe technology can dramatically <b />
-                      improve the experience of managing
-                      <br />
-                      health, and — when crafted with empathy
-                      <br />
-                      intention, and expertise — impact lives at
-                      <br />
-                      scale.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-5 mr-5  w-[250px] h-[250px]  flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out">
-                <div className="">
-                  <Image className="h-[40px] w-[40px]" src={image2} alt="" />
-                </div>
-                <div className="w-3/4 text-white">
-                  <div className="text-sm leading-4 font-black mt-10 mb-4">
-                    MUSIC
-                  </div>
-                  <div className="text-left w-[195px] ">
-                    <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
-                      We believe technology can dramatically <b />
-                      improve the experience of managing
-                      <br />
-                      health, and — when crafted with empathy
-                      <br />
-                      intention, and expertise — impact lives at
-                      <br />
-                      scale.
-                    </p>
+                  <div className="w-[250px] text-white">
+                    <div className="text-sm leading-4 font-black mt-10 mb-4">
+                      FILMS
+                    </div>
+                    <div className="text-left w-[195px] ">
+                      <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
+                        We believe technology can dramatically <b />
+                        improve the experience of managing
+                        <br />
+                        health, and — when crafted with empathy
+                        <br />
+                        intention, and expertise — impact lives at
+                        <br />
+                        scale.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="p-5 mr-5   w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out">
-                <div className="">
-                  <Image className="h-[40px] w-[40px]" src={image3} alt="" />
-                </div>
-                <div className="w-3/4 text-white">
-                  <div className="text-sm leading-4 font-black mt-10 mb-4">
-                    SHOWS
+                <div className="p-5 w-[250px] h-[250px]  flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out  overflow-hidden">
+                  <div className="">
+                    <Image className="h-[40px] w-[40px]" src={image2} alt="" />
                   </div>
-                  <div className="text-left w-[195px] ">
-                    <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
-                      We believe technology can dramatically <b />
-                      improve the experience of managing
-                      <br />
-                      health, and — when crafted with empathy
-                      <br />
-                      intention, and expertise — impact lives at
-                      <br />
-                      scale.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-5 mr-5  w-[250px] h-[250px]  flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out">
-                <div className="">
-                  <Image className="h-[40px] w-[40px]" src={image4} alt="" />
-                </div>
-                <div className="w-3/4 text-white">
-                  <div className="text-sm leading-4 font-black mt-10 mb-4">
-                    DOCUS
-                  </div>
-                  <div className="text-left w-[195px] ">
-                    <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
-                      We believe technology can dramatically <b />
-                      improve the experience of managing
-                      <br />
-                      health, and — when crafted with empathy
-                      <br />
-                      intention, and expertise — impact lives at
-                      <br />
-                      scale.
-                    </p>
+                  <div className="w-[250px] text-white">
+                    <div className="text-sm leading-4 font-black mt-10 mb-4">
+                      MUSIC
+                    </div>
+                    <div className="text-left w-[195px] ">
+                      <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
+                        We believe technology can dramatically <b />
+                        improve the experience of managing
+                        <br />
+                        health, and — when crafted with empathy
+                        <br />
+                        intention, and expertise — impact lives at
+                        <br />
+                        scale.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="p-5 mr-5  w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out">
-                <div className="">
-                  <Image className="h-[40px] w-[40px]" src={image4} alt="" />
-                </div>
-                <div className="w-3/4 text-white">
-                  <div className="text-sm leading-4 font-black mt-10 mb-4">
-                    LIVE EXPERIENCES
+                <div className="p-5 w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out  overflow-hidden">
+                  <div className="">
+                    <Image className="h-[40px] w-[40px]" src={image3} alt="" />
                   </div>
-                  <div className="text-left w-[195px] ">
-                    <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
-                      We believe technology can dramatically <b />
-                      improve the experience of managing
-                      <br />
-                      health, and — when crafted with empathy
-                      <br />
-                      intention, and expertise — impact lives at
-                      <br />
-                      scale.
-                    </p>
+                  <div className="w-[250px] text-white">
+                    <div className="text-sm leading-4 font-black mt-10 mb-4">
+                      SHOWS
+                    </div>
+                    <div className="text-left w-[195px] ">
+                      <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
+                        We believe technology can dramatically <b />
+                        improve the experience of managing
+                        <br />
+                        health, and — when crafted with empathy
+                        <br />
+                        intention, and expertise — impact lives at
+                        <br />
+                        scale.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Slider>
+                <div className="p-5 w-[250px] h-[250px]  flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out  overflow-hidden">
+                  <div className="">
+                    <Image className="h-[40px] w-[40px]" src={image4} alt="" />
+                  </div>
+                  <div className="w-[250px] text-white">
+                    <div className="text-sm leading-4 font-black mt-10 mb-4">
+                      DOCUS
+                    </div>
+                    <div className="text-left w-[195px] ">
+                      <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
+                        We believe technology can dramatically <b />
+                        improve the experience of managing
+                        <br />
+                        health, and — when crafted with empathy
+                        <br />
+                        intention, and expertise — impact lives at
+                        <br />
+                        scale.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5 w-[250px] h-[250px] flex flex-col items-start border border-solid rounded-[10px] bg-[#df1780] transition-all duration-500 ease-in-out  overflow-hidden">
+                  <div className="">
+                    <Image className="h-[40px] w-[40px]" src={image4} alt="" />
+                  </div>
+                  <div className="w-[250px] text-white">
+                    <div className="text-sm leading-4 font-black mt-10 mb-4">
+                      LIVE EXPERIENCES
+                    </div>
+                    <div className="text-left w-[195px] ">
+                      <p className="text-[10px] leading-4 font-semibold tracking-[-0.21px]">
+                        We believe technology can dramatically <b />
+                        improve the experience of managing
+                        <br />
+                        health, and — when crafted with empathy
+                        <br />
+                        intention, and expertise — impact lives at
+                        <br />
+                        scale.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Slider>
+            </div>
           </div>
         </div>
       </div>

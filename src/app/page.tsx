@@ -102,13 +102,8 @@ export default function Home() {
         <HeroSection />
       </div>
       <div>
-        {/* <WinkSection />
-        </div>
-        <div>
-          <CardSection /> */}
         <WinkCardSectionParent />
       </div>
-
       <div>
         <HorizontalSection />
       </div>
@@ -292,7 +287,7 @@ export default function Home() {
         </section>
 
         {/* Mobile responsive card */}
-        <div className="bg-[#D9D9D9] w-full block lg:hidden pb-6">
+        <div className="bg-[#D9D9D9] w-full block lg:hidden pb-10">
           <CustomSlider cards={cardItems} />
           <div className="mt-8">
             <AnimatedButton
