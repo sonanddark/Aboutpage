@@ -7,7 +7,7 @@ import GhmzaLogo from './GhmzaLogo';
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-14">
+    <footer className="w-100 ">
       <div className="flex md:flex-row flex-col md:justify-between md:m-auto md:items-center md:h-[408.52px] bg-[#DF1780]">
         <div className="md:m-20">
           <AnimateWhenInViewport

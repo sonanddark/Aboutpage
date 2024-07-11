@@ -4,7 +4,8 @@ import AnimatedButton from "./AnimatedButton";
 import AnimateWhenInViewport from "./AnimateWhenInViewport";
 import GhamzaLogo from "./GhmzaLogo";
 import ScrollToSection from "./ScrollToSection.js";
-
+import arrowImg from '../assets/arrow.png'
+import Image from "next/image";
 const HeroSection: React.FC = () => {
   const scrollHeroSectionRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
@@ -120,7 +121,7 @@ const HeroSection: React.FC = () => {
         const xTranslationPosition =
           Math.min(
             (currentScrollTop - heroRowAnimationSection.start) /
-              (heroRowAnimationSection.end - heroRowAnimationSection.start),
+            (heroRowAnimationSection.end - heroRowAnimationSection.start),
             1
           ) * translationRange;
         (row as HTMLElement).style.transform = `translateX(${xTranslationPosition}%)`;
@@ -129,7 +130,7 @@ const HeroSection: React.FC = () => {
 
       const scrollPercentage = Math.min(
         (currentScrollTop - heroRowAnimationSection.start) /
-          (heroRowAnimationSection.end - heroRowAnimationSection.start),
+        (heroRowAnimationSection.end - heroRowAnimationSection.start),
         1
       );
 
@@ -284,17 +285,25 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="hero-bottom !w-full mt-10">
-            <div className="scroll-arrow" style={{ width: "40%" }}>
-              <img src="" alt="" />
-              Scroll
-            </div>
-            <div>
-              <div className="block md:hidden ">
-                <GhamzaLogo height="65" width="65" />
+          <div className="md:hidden flex flex-col items-center scroll-arrow">
+            <a href="#winkSection" className="flex flex-col items-center">
+            <span className="mb-5">Scroll</span>
+            <Image src={arrowImg} alt="Arrow icon" width={40} height={40} />
+            </a>
+          </div>
+          <div className="hidden md:block">
+            <div className=" hero-bottom mx-auto mt-10">
+              <div className="scroll-arrow flex" style={{ width: "40%" }}>
+                <Image src={arrowImg} alt="Arrow icon" width={40} height={40} />
+                <span className="ml-6">Scroll</span>
               </div>
-              <div className="md:block hidden ">
-                <GhamzaLogo height="120" width="120" />
+              <div className=" hidden sm:block">
+                <div className="block md:hidden ">
+                  <GhamzaLogo height="65" width="65" />
+                </div>
+                <div className="md:block hidden ">
+                  <GhamzaLogo height="120" width="120" />
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import "../app/globals.css";
-import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
+import {
+  Miami,
+  SVG,
+  dog,
+  manMountain,
+  peoples,
+} from "../../public/images/assets/index";
 import Image from "next/image";
 
 const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
@@ -23,7 +29,7 @@ const HorizontalSection: React.FC = () => {
   const handleHorizontalScroll = () => {
     const horizontalSection = horizontalSectionRef.current;
     const horizontalList = horizontalListRef.current;
-    if(horizontalSection) {
+    if (horizontalSection) {
       if (elementIsVisibleInViewport(horizontalSection)) {
         document.body.classList.remove("theme-light-gray");
         document.body.classList.remove("theme-black");
@@ -39,14 +45,20 @@ const HorizontalSection: React.FC = () => {
     }
 
     if (horizontalSection && horizontalList) {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       const totalOffsetTop = getOffsetTop(horizontalSection);
       const totalOffsetBottom = totalOffsetTop + horizontalSection.offsetHeight;
-      const horizontalListSectionRectWidth = horizontalList.getBoundingClientRect().width;
+      const horizontalListSectionRectWidth =
+        horizontalList.getBoundingClientRect().width;
       const lastSectionWidth = horizontalListSectionRectWidth * 0.325;
-      if (currentScrollTop > totalOffsetTop && currentScrollTop < totalOffsetBottom - lastSectionWidth) {
+      if (
+        currentScrollTop > totalOffsetTop &&
+        currentScrollTop < totalOffsetBottom - lastSectionWidth
+      ) {
         translationX =
-          ((currentScrollTop - totalOffsetTop) / (totalOffsetBottom - totalOffsetTop)) *
+          ((currentScrollTop - totalOffsetTop) /
+            (totalOffsetBottom - totalOffsetTop)) *
           horizontalListSectionRectWidth *
           -1;
         horizontalList.style.transform = `translateX(${translationX}px)`;
@@ -70,9 +82,7 @@ const HorizontalSection: React.FC = () => {
               <div className="horizontal-item-text">
                 <div className="hori-f3 !text-[42.26px] lg:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
                   REAL IMPACT,
-                </div>
-                <div className="hori-f3 !text-[42.26px] lg:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
-                  REAL REACH
+                  <br /> REAL REACH
                 </div>
               </div>
               <div className="horizontal-btn">
@@ -106,8 +116,12 @@ const HorizontalSection: React.FC = () => {
                 <div className="horizontal-img-cont1">
                   <Image className="h-[150px] w-[200px]" src={dog} alt="" />
                 </div>
-                <div className="horizontal-img-cont2">
-                  <Image className="h-[150px] w-[200px]" src={manMountain} alt="" />
+                <div className="horizontal-img-cont2 ">
+                  <Image
+                    className="h-[150px] w-[200px]"
+                    src={manMountain}
+                    alt=""
+                  />
                 </div>
                 <div className="horizontal-img-cont3">
                   <Image className="h-[150px] w-[200px]" src={Miami} alt="" />
@@ -149,7 +163,9 @@ const HorizontalSection: React.FC = () => {
             <div className="horizontal-item">
               <div className="horizontal-content">
                 <div className="hori-f3">LETS CREATE</div>
-                <div className="hori-f2">AND ENABLE YOU FOR YOUR CRAZIEST IDEA YET</div>
+                <div className="hori-f2">
+                  AND ENABLE YOU FOR YOUR CRAZIEST IDEA YET
+                </div>
               </div>
               <div className="horizontal-btn2">
                 <div className="button !w-[240px]">

@@ -149,8 +149,6 @@ body {
   }
 }
 
-
-
 @media (max-width: 480px) {
   .footer h1 {
     font-size: 9vw;
@@ -498,7 +496,7 @@ body {
   transition: opacity 0.5s ease;
 }
 .container {
-  height: 400vh;
+  /* height: 400vh; */
 }
 /* .card-animate {
   background-color: black;
@@ -603,7 +601,7 @@ body {
 
 .horizontal-btn {
   position: absolute;
-  left: 1%;
+  left: 3%;
   top: 90%;
 }
 .hori-f4 {
@@ -685,7 +683,7 @@ body {
     max-width: 112px !important;
     max-height: auto;
     top: 50%;
-    left: 20%;
+    left: 27%;
   }
   .horizontal-img-cont1 {
     position: absolute;
@@ -693,6 +691,24 @@ body {
     max-height: auto;
     top: 10%;
     left: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .horizontal {
+    height: 230vw;
+    width: 100vw;
+  }
+  .horizontal-img-cont2 {
+    position: absolute;
+    max-width: 112px !important;
+    max-height: auto;
+    top: 50%;
+    left: 50%;
+  }
+  .horizontal-btn2 {
+    position: absolute;
+    left: 76%;
+    top: 90%;
   }
 }
 .horizontal-img-cont6 {
@@ -838,4 +854,9 @@ body {
 
 .circle {
   animation: none;
+}
+
+.slick-slide > div {
+  /* margin: 0 10px; */
+  margin-left: 15px;
 }

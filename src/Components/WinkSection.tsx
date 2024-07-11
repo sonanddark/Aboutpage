@@ -7,7 +7,7 @@ const WinkSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div
       ref={ref}
-      className="lg:w-[1215.54px] md:w-[889px} w-[363px] sm:w-96  mx-auto mt-[100px] mb-[120px] border-[0.5px] border-[#1D1E1C] "
+      className="w-[363px] sm:w-[600px] md:w-[889px] lg:w-[1215.54px] mx-auto mt-[100px] md:mb-[120px] border-[0.5px] border-[#1D1E1C] "
     >
       <div className="flex border-b-[0.5px] border-[#1D1E1C]">
         <div className="w-[25%] flex justify-center items-center">
@@ -17,24 +17,30 @@ const WinkSection = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="w-[69%] ">
           <div className="w-[90%] mx-auto py-5 lg:py-[60px]">
             <Image className="lg:ml-[60px]" src={wink} alt="wink" />
-            <p className="text-[3.59px] leading-[4.28px] font-medium md:text-lg italic mt-8">verb</p>
+            <p className="text-[3.59px] leading-[4.28px] font-medium md:text-lg italic mt-8">
+              verb
+            </p>
             <p className="text-[3.59px] leading-[4.28px] lg:text-[18px] lg:leading-6 font-[500] ml-[12px] mt-[16px]">
-              1. close and open one eye quickly, typically to indicate that something is a joke or a secret or
-              as signal of affection or greeting."he winked at Nicole as he passed"
+              1. close and open one eye quickly, typically to indicate that
+              something is a joke or a secret or as signal of affection or
+              greeting."he winked at Nicole as he passed"
             </p>
             <p className="text-[3.59px] leading-[4.28px] lg:text-[18px] lg:leading-6 font-[500] ml-[12px] mt-4 lg:mt-[80px]">
-              2. (of a bright object or a light) or flash intermittently. <br /> "the diamond on her finger
-              winked in the moonlight"
+              2. (of a bright object or a light) or flash intermittently. <br />{" "}
+              "the diamond on her finger winked in the moonlight"
             </p>
           </div>
           <div className="relative">
             <div className="w-full bg-[#1D1E1C] h-[0.5px] !absolute"></div>
           </div>
           <div className="w-[90%] mx-auto py-5 lg:py-[60px]">
-            <p className="text-[3.59px] leading-[4.28px] font-medium  md:text-lg italic lg:mt-8">noun</p>
+            <p className="text-[3.59px] leading-[4.28px] font-medium  md:text-lg italic lg:mt-8">
+              noun
+            </p>
             <p className="text-[3.59px] leading-[4.28px] lg:text-[18px] lg:leading-6 font-[500] ml-[12px] mt-[16px]">
-              1. close and open one eye quickly, typically to indicate that something is a joke or a secret or
-              as signal of affection or greeting."he winked at Nicole as he passed"
+              1. close and open one eye quickly, typically to indicate that
+              something is a joke or a secret or as signal of affection or
+              greeting."he winked at Nicole as he passed"
             </p>
           </div>
         </div>
