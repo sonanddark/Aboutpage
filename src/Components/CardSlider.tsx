@@ -25,20 +25,20 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
     className: "center",
     infinite: true,
     speed: 900,
-    slidesToShow: 2, // Show only one slide at a time
+    slidesToShow: 2, 
     slidesToScroll: 1,
-    centerMode: true, // Enable center mode
-    centerPadding: "40px", // Adjust the padding to increase the gap
-    arrows: false, // Hide left and right arrows
+    centerMode: true, 
+    centerPadding: "40px", 
+    arrows: false, 
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 700, // Adjusts settings for screens 768px wide or less
+        breakpoint: 700, 
         settings: {
-          slidesToShow: 1, // Show 1 slide at a time on mobile
+          slidesToShow: 1, 
           slidesToScroll: 1,
-          centerMode: true, // Optional, can turn off center mode for mobile
-          centerPadding: "20px", // Adjust padding for smaller screens
+          centerMode: true, 
+          centerPadding: "20px", 
         },
       },
     ],

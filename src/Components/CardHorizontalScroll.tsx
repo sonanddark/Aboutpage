@@ -13,7 +13,7 @@ const CardHorizontalScroll: React.FC = () => {
 
   const handleHorizontalScroll = () => {
     const horizontalSection = horizontalSectionRef.current;
-    const horizontalList = horizontalListRef.current; 
+    const horizontalList = horizontalListRef.current;
     if (horizontalSection && horizontalList) {
       const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const totalOffsetTop = getOffsetTop(horizontalSection);
@@ -48,7 +48,7 @@ const CardHorizontalScroll: React.FC = () => {
       <div className="horizontal">
         <div className="horizontal-container sticky">
           <div className="horizontal-list" ref={horizontalListRef}>
-            <div className="horizontal-item">
+            <div className="horizontal-item ">
               <div className="cards-item">
                 <div className="card-item-desc-container">
                   <div className="card-item-title">Music</div>

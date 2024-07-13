@@ -107,7 +107,9 @@ export default function Home() {
         <WinkCardSectionParent />
       </div>
 
-      <div>{/* <HorizontalSection /> */}</div>
+      <div>
+        <HorizontalSection />
+      </div>
       <div>
         <section className="bg-[#D9D9D9]">
           <div className="flex justify-center">
