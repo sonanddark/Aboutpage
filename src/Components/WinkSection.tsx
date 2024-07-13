@@ -7,7 +7,7 @@ const WinkSection = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div
       ref={ref}
-      className="max-w-[1215.54px] mx-5  xl:mx-auto mt-[100px] mb-[120px] border-[0.5px] border-[#1D1E1C] "
+      className="max-w-[1215.54px] mx-5  xl:mx-auto mt-10 lg:mt-[100px] mb-10 lg:mb-[120px] border-[0.5px] border-[#1D1E1C] "
     >
       <div className="flex border-b-[0.5px] border-[#1D1E1C]">
         <div className="w-[25%] flex justify-center items-center">
@@ -43,7 +43,7 @@ const WinkSection = forwardRef<HTMLDivElement>((props, ref) => {
       <div className="flex justify-between">
         <div className="w-[28%] border-r-[0.5px] border-[#1D1E1C] h-[34.5px]"></div>
         <div className="w-[3.04%] border-l-[0.5px] border-[#1D1E1C] h-[34.5px]">
-          <Image className="h-full w-full" src={circle} alt="" />
+          <Image className="h-full w-full hidden lg:block" src={circle} alt="" />
         </div>
       </div>
     </div>
