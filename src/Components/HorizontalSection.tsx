@@ -1,12 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../app/globals.css";
-import {
-  Miami,
-  SVG,
-  dog,
-  manMountain,
-  peoples,
-} from "../../public/images/assets/index";
+import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
 import Image from "next/image";
 
 import { motion, useTransform, useScroll } from "framer-motion";
@@ -33,10 +27,10 @@ const HorizontalScrollCarousel = () => {
         <motion.div style={{ x }} className="flex gap-4">
           <div className="horizontal-item !w-[100vw] !h-screen">
             <div className="horizontal-item-text">
-              <div className="hori-f3 !text-[42.26px] lg:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
+              <div className="hori-f3 !text-[42.26px] xl:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
                 REAL IMPACT,
               </div>
-              <div className="hori-f3 !text-[42.26px] lg:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
+              <div className="hori-f3 !text-[42.26px] xl:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
                 REAL REACH
               </div>
             </div>

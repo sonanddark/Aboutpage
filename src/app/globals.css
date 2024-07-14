@@ -632,8 +632,8 @@ body {
 }
 .horiztonal-desc {
   position: absolute;
-  top: 15%;
-  left: 30%;
+  top: 3%;
+  left: 3%;
 }
 @media (max-width: 1200px) {
   .horiztonal-desc {
@@ -658,14 +658,14 @@ body {
   max-width: 50%;
   max-height: auto;
   top: 10%;
-  left: 45%;
+  left: 70%;
 }
 .horizontal-img-cont2 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
   top: 50%;
-  left: 25%;
+  left: 0%;
 }
 .horizontal-img-cont3 {
   position: absolute;
@@ -678,7 +678,7 @@ body {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: -10%;
+  top: -15%;
   left: 36%;
 }
 .horizontal-img-cont5 {
