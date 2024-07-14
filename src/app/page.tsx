@@ -98,12 +98,10 @@ export default function Home() {
 
   return (
     <>
-      <div>{/* <HeroSection /> */}</div>
       <div>
-        {/* <WinkSection />
-        </div>
-        <div>
-          <CardSection /> */}
+        <HeroSection />
+      </div>
+      <div>
         <WinkCardSectionParent />
       </div>
 
@@ -205,13 +203,13 @@ export default function Home() {
             <div className="w-full lg:w-7/12 mt-[40px] xl:mt-[630px] ">
               <AnimateWhenInViewport
                 textToBeAnimated="EXPLORE"
-                cssClass="md:ml-16 ml-16 md:text-[58px] text-[24.83px]  flex justify-start"
+                cssClass="md:ml-16 ml-10 md:text-[58px] text-[24.83px]  flex justify-start"
                 styles={{ fontWeight: "860", color: "#000000" }}
               />
 
               <AnimateWhenInViewport
                 textToBeAnimated="THE REST"
-                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px] ml-16 md:flex md:font-[400]"
+                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px] ml-10 md:flex md:font-[400]"
               />
             </div>
             <div className="hidden md:block ">
