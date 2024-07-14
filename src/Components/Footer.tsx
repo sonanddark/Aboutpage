@@ -1,21 +1,23 @@
-import React from 'react';
-import TextAroundCircle from './TextAroundCircle';
-import AnimateWhenInViewport from './AnimateWhenInViewport';
-import AnimatedButton from './AnimatedButton';
-import Image from 'next/image';
-import GhmzaLogo from './GhmzaLogo';
+import React from "react";
+import TextAroundCircle from "./TextAroundCircle";
+import AnimateWhenInViewport from "./AnimateWhenInViewport";
+import AnimatedButton from "./AnimatedButton";
+import Image from "next/image";
+import GhmzaLogo from "./GhmzaLogo";
 
 const Footer = () => {
   return (
-    <footer className="w-100 ">
-      <div className="flex md:flex-row flex-col md:justify-between md:m-auto md:items-center md:h-[408.52px] bg-[#DF1780]">
+    <footer className="w-100">
+      <div className="flex lg:flex-row flex-col md:justify-between md:m-auto md:items-center md:h-auto bg-[#DF1780]">
         <div className="md:m-20">
           <AnimateWhenInViewport
-            textToBeAnimated='LOUDER'
-            cssClass='flex md:justify-start justify-center font-bold text-[77px] md:text-[87.51px] text-white' />
+            textToBeAnimated="LOUDER"
+            cssClass="flex md:justify-start justify-center font-bold text-[77px] md:text-[87.51px] text-white"
+          />
           <AnimateWhenInViewport
-            textToBeAnimated='THE BETTER'
-            cssClass='flex justify-center md:justify-start md:ml-1 font-semibold md:text-[58px] text-[54px] -mt-10 text-white' />
+            textToBeAnimated="THE BETTER"
+            cssClass="flex justify-center md:justify-start md:ml-1 font-semibold md:text-[58px] text-[54px] -mt-10 text-white"
+          />
           <div className="md:block hidden">
             <AnimatedButton
               customCssStyles={{
@@ -28,18 +30,18 @@ const Footer = () => {
                 cursor: "pointer",
                 overflow: "hidden",
                 position: "relative",
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '15.25px',
+                display: "flex",
+                alignItems: "center",
+                fontSize: "15.25px",
                 lineHeight: "25.6px",
-                fontWeight: '590',
-                fontFamily: "SFProDisplay, sans-serif"
+                fontWeight: "590",
+                fontFamily: "SFProDisplay, sans-serif",
               }}
               text="LET'S GO"
               arrowStyle={{
-                marginLeft: '8px',
-                transition: 'transform 0.3s ease',
-                stroke: '#DF1780'
+                marginLeft: "8px",
+                transition: "transform 0.3s ease",
+                stroke: "#DF1780",
               }}
             />
           </div>
@@ -57,27 +59,27 @@ const Footer = () => {
                 cursor: "pointer",
                 overflow: "hidden",
                 position: "relative",
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '15.25px',
+                display: "flex",
+                alignItems: "center",
+                fontSize: "15.25px",
                 lineHeight: "25.6px",
-                fontWeight: '590',
-                fontFamily: "SFProDisplay, sans-serif"
+                fontWeight: "590",
+                fontFamily: "SFProDisplay, sans-serif",
               }}
               text="LET'S GO"
               arrowStyle={{
-                marginLeft: '8px',
-                transition: 'transform 0.3s ease',
-                stroke: '#DF1780'
+                marginLeft: "8px",
+                transition: "transform 0.3s ease",
+                stroke: "#DF1780",
               }}
             />
           </div>
           <div className="flex justify-end gap-x-7 items-center">
-            <div className='block md:hidden -mr-10'>
-              <GhmzaLogo height='65' width='65' />
+            <div className="block md:hidden -mr-10">
+              <GhmzaLogo height="65" width="65" />
             </div>
-            <div className='md:block hidden -mr-10'>
-              <GhmzaLogo height='120' width='120' />
+            <div className="md:block hidden -mr-10">
+              <GhmzaLogo height="120" width="120" />
             </div>
             <div className="md:w-[200px] w-[90px] md:block hidden">
               <TextAroundCircle

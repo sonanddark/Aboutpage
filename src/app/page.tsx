@@ -101,7 +101,7 @@ export default function Home() {
       <div>
         <HeroSection />
       </div>
-      <div id='winkSection'>
+      <div>
         <WinkCardSectionParent />
       </div>
       <div>
@@ -112,25 +112,21 @@ export default function Home() {
           <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
-              cssClass="font-bold  md:text-[100px] text-[30px]"
+              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px]"
             />
           </div>
 
           <div className="flex justify-center">
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
-              cssClass="text-center md:-mt-7 -mt-5 mb-10 md:text-[27.3px] text-[9px]"
-              styles={{
-                fontWeight: "700",
-                lineHeight: "32.52px",
-                fontFamily: "SFProDisplay, sans-serif",
-              }}
+              cssClass="text-center  -mt-28 lg:-mt-16  xl:-mt-6 mb-10 lg:text-[27.3px] text-[14px]"
+              styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
             />
           </div>
 
           <TeamInformation />
 
-          <div className="mt-20 flex justify-center">
+          <div className="mt-20 flex justify-center pb-3">
             <div className="sm:w-auto lg:w-[20%] w-[20%]  md:block hidden">
               <AnimatedButton
                 text="SEE MORE"
@@ -194,9 +190,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex pb-10 bg-[#D9D9D9] flex-col md:flex-row">
-          <div className="md:w-6/12 flex md:flex-col ">
-            <div className="w-7/12 sm:w-full mt-14 md:mt-80">
+        <section className="flex pb-10 bg-[#D9D9D9] flex-col xl:flex-row">
+          <div className="w-full lg:w-full  xl:w-5/12 flex md:flex-col ">
+            <div className=" w-full mt-14  xl:mt-80">
               <AnimateWhenInViewport
                 textToBeAnimated="Stay up-to-date on the"
                 cssClass=":w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
@@ -225,16 +221,16 @@ export default function Home() {
                 }}
               />
             </div>
-            <div className="w-1/2 lg:w-7/12 md:mt-[87%] mt-12">
+            <div className="w-full lg:w-7/12 mt-[40px] xl:mt-[630px] ">
               <AnimateWhenInViewport
                 textToBeAnimated="EXPLORE"
-                cssClass="md:ml-16 ml-16 md:text-[58px] text-[24.83px]  flex justify-start"
+                cssClass="md:ml-16 ml-10 md:text-[58px] text-[24.83px]  flex justify-start"
                 styles={{ fontWeight: "860", color: "#000000" }}
               />
 
               <AnimateWhenInViewport
                 textToBeAnimated="THE REST"
-                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px] ml-16 md:flex md:font-[400]"
+                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px] ml-10 md:flex md:font-[400]"
               />
             </div>
             <div className="hidden md:block ">
@@ -254,8 +250,7 @@ export default function Home() {
                   lineHeight: "25.6px",
                   fontWeight: "590",
                   fontFamily: "SFProDisplay, sans-serif",
-                  width: "46%",
-                  marginLeft: "11%",
+                  marginLeft: "64px",
                   justifyContent: "space-between",
                 }}
                 arrowStyle={{
@@ -268,10 +263,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full hidden lg:block">
+          <div className="w-full lg:w-full xl:w-7/12 hidden md:block">
             <motion.div
               layout
-              className="grid grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 relative mt-48 gap-x-[20px]"
+              className="grid  gridd-col grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 relative mt-10 lg:mt-48 gap-x-[-30px !important] !gap-x-[-4px] !gap-y-[-4px]"
             >
               {cardItems.map((card, index) => (
                 <Card
@@ -289,36 +284,30 @@ export default function Home() {
         {/* Mobile responsive card */}
         <div className="bg-[#D9D9D9] w-full block lg:hidden pb-10">
           <CustomSlider cards={cardItems} />
-          <div className="mt-8">
-            <AnimatedButton
-              text="TAKE ME BACK!"
-              customCssStyles={{
-                marginTop: "20px",
-                backgroundColor: "#DF1780",
-                border: "none",
-                color: "white",
-                padding: "20px 40px",
-                cursor: "pointer",
-                overflow: "hidden",
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                fontSize: "15.5px",
-                lineHeight: "25.6px",
-                fontWeight: "590",
-                fontFamily: "SFProDisplay, sans-serif",
-                width: "65%",
-                margin: "auto",
-                justifyContent: "space-between",
-              }}
-              arrowStyle={{
-                stroke: "#FFFFFF",
-                marginLeft: "30px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            />
-          </div>
+        </div>
+        <div className="flex justify-center md:hidden block pb-10 bg-[#D9D9D9]">
+          <AnimatedButton
+            text="TAKE ME BACK!"
+            customCssStyles={{
+              marginTop: "20px",
+              backgroundColor: "#DF1780",
+              border: "none",
+              color: "white",
+              padding: "20px 40px",
+              cursor: "pointer",
+              overflow: "hidden",
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              fontSize: "15.5px",
+              lineHeight: "25.6px",
+              fontWeight: "590",
+              fontFamily: "SFProDisplay, sans-serif",
+              width: "65%",
+              justifyContent: "space-between",
+            }}
+            arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+          />
         </div>
 
         <Footer />

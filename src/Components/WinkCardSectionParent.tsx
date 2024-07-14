@@ -34,7 +34,7 @@ const ParentComponent: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

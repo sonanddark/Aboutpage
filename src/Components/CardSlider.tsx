@@ -22,94 +22,81 @@ interface CustomSliderProps {
 
 const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
   var settings = {
-    className: "",
-    dots: false,
+    className: "center",
     infinite: true,
     speed: 900,
-    slidesToShow: 2,
+    slidesToShow: 2, 
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1000,
+    centerMode: true, 
+    centerPadding: "40px", 
+    arrows: false, 
     initialSlide: 0,
-    rtl: false,
-    arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 700, 
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1, 
           slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2.2,
-          // slidesToScroll: 1,
+          centerMode: true, 
+          centerPadding: "20px", 
         },
       },
     ],
   };
 
   return (
-    <div className="">
-      <Slider {...settings}>
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="overflow-hidden w-[165px] md:w-[300px] rounded"
-          >
-            <div className="w-[165px] md:w-[300px]">
-              <img className="" src={card.rectangle} alt={card.title} />
-            </div>
-            <div className=" bg-white w-[165px] md:w-[300px]">
-              <div className="flex gap-x-3">
-                <img className="-mt-4 ml-2 w-10" src={card.goVegan} alt="" />
-                <div className="flex flex-col">
-                  <h4
-                    className="mb-2 font-bold text-[7.50px] leading-[9px]"
-                    style={{ fontFamily: "Roboto, sans-serif" }}
-                  >
-                    {card.title}
-                  </h4>
+    <Slider {...settings}>
+      {cards.map((card, index) => (
+        <div key={index} className="card-wrapper">
+          <div className="card shadow-[0px 0px 12.51px 0px #9CA0ACE5]">
+            <img src={card.rectangle} alt={card.title} className="card-image " />
+            <div className="card-content">
+              <div className="ml-3">
+                <div className="flex gap-x-3">
+                  <img className="-mt-9 -ml-4 w-10" src={card.goVegan} alt="" />
+                  <div className="flex flex-col">
+                    <h4
+                      className="-mt-2"
+                      style={{
+                        fontSize: "7.5px",
+                        fontWeight: "700",
+                        lineHeight: "8.70px",
+                        fontFamily: "Roboto, sans-serif",
+                      }}
+                    >
+                      {card.title}
+                    </h4>
+                    <p
+                      className="text-[#9CA0AC]"
+                      style={{
+                        fontFamily: "Roboto, sans-serif",
+                        fontSize: "5px",
+                        fontWeight: "400",
+                        lineHeight: "5.86px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {card.date}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex mt-5">
                   <p
-                    className="text-[#9CA0AC]"
                     style={{
                       fontFamily: "Roboto, sans-serif",
-                      fontSize: "5px",
                       fontWeight: "400",
-                      lineHeight: "5.86px",
-                      textAlign: "left",
+                      fontSize: "5.84px",
+                      lineHeight: "9px",
                     }}
                   >
-                    {card.date}
+                    {card.hashtags.map((item, index) => (
+                      <span className="text-[blue]" key={index}>
+                        {item + " "}
+                      </span>
+                    ))}
+                    {card.description}
                   </p>
                 </div>
-              </div>
-              <div className="w-[165px] md:w-[300px] pt-2 px-3">
-                <p
-                  className="font-normal text-[5.8px] leading-[10px]"
-                  style={{ fontFamily: "Roboto, sans-serif" }}
-                >
-                  {card.hashtags.map((item, index) => (
-                    <span className="text-[blue]" key={index}>
-                      {item + " "}
-                    </span>
-                  ))}
-                  {card.description}
-                </p>
-              </div>
-              <div className="pl-3 pb-1">
                 <Image
                   className="mt-3 mb-4"
                   alt="twitterLogo"
@@ -120,9 +107,9 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
               </div>
             </div>
           </div>
-        ))}
-      </Slider>
-    </div>
+        </div>
+      ))}
+    </Slider>
   );
 };
 
