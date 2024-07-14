@@ -37,7 +37,7 @@ const HeroTest: React.FC = () => {
           heroSectionContainerRef?.current?.classList.add("z-30");
         }
         let oneOpacityCount = 0;
-        const spans = Array.from(linesRef.current.querySelectorAll("span"));
+        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
         spans.forEach((span, index) => {
           let opacity = latest * 9 - (index - oneOpacityCount) * 0.002;
           opacity = Math.max(opacity, 0);
