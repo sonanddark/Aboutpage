@@ -201,8 +201,13 @@ const HeroTest: React.FC = () => {
               <div className="block md:hidden ">
                 <GhamzaLogo height="65" width="65" />
               </div>
-              <div className="md:block hidden ">
-                <GhamzaLogo height="120" width="120" />
+              <div className=" hidden sm:block">
+                <div className="block md:hidden ">
+                  <GhamzaLogo height="65" width="65" />
+                </div>
+                <div className="md:block hidden ">
+                  <GhamzaLogo height="120" width="120" />
+                </div>
               </div>
             </div>
           </div>

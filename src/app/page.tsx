@@ -20,7 +20,7 @@ import WinkCardSectionParent from "@/Components/WinkCardSectionParent";
 const cardItems = [
   {
     id: 1,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -28,11 +28,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 2,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -40,11 +40,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 3,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -52,11 +52,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
   {
     id: 4,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -64,11 +64,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them!",
   },
   {
     id: 5,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -76,11 +76,11 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them!",
   },
   {
     id: 6,
-    title: "",
+    title: "GoVegan",
     hashtags: ["#vegan", "#healthy"],
     socialAppIcon: twitterLogo.src,
     rectangle: rectangle.src,
@@ -88,7 +88,7 @@ const cardItems = [
     camera: camera.src,
     date: "15 Oct 2019",
     description:
-      "The Best Vegan Chocolate Cake- A quick and easy recipe! It’s super moist, rich and full of chocolate. ",
+      "Feeling hungry? When our week gets busy, it can be challenging to get creative with your tasty plant-based meal options — we get it! Tag a friend to share this week’s snack plan with them! ",
   },
 
   // Add more cards as per your requirement
@@ -104,13 +104,12 @@ export default function Home() {
       <div>
         <WinkCardSectionParent />
       </div>
-
       <div>
         <HorizontalSection />
       </div>
       <div>
         <section className="bg-[#D9D9D9]">
-          <div className="flex justify-center">
+          <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
               cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px]"
@@ -150,10 +149,15 @@ export default function Home() {
                   width: "80%",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
-            <div className=" w-[80%] md:hidden block flex justify-center">
+            <div className=" w-[80%] md:hidden flex justify-center">
               <AnimatedButton
                 text="SEE MORE"
                 customCssStyles={{
@@ -175,7 +179,12 @@ export default function Home() {
                   width: "85%",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
           </div>
@@ -187,17 +196,29 @@ export default function Home() {
               <AnimateWhenInViewport
                 textToBeAnimated="Stay up-to-date on the"
                 cssClass=":w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
               <AnimateWhenInViewport
                 textToBeAnimated="latest Ghmza and share"
                 cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
               <AnimateWhenInViewport
                 textToBeAnimated="your thoughts."
                 cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
-                styles={{ fontWeight: "590", color: "#000000", fontFamily: "SFProDisplay, sans-serif" }}
+                styles={{
+                  fontWeight: "590",
+                  color: "#000000",
+                  fontFamily: "SFProDisplay, sans-serif",
+                }}
               />
             </div>
             <div className="w-full lg:w-7/12 mt-[40px] xl:mt-[630px] ">
@@ -232,7 +253,12 @@ export default function Home() {
                   marginLeft: "64px",
                   justifyContent: "space-between",
                 }}
-                arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
+                arrowStyle={{
+                  stroke: "#FFFFFF",
+                  marginLeft: "30px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               />
             </div>
           </div>
@@ -255,7 +281,8 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="bg-[#D9D9D9] block md:hidden ">
+        {/* Mobile responsive card */}
+        <div className="bg-[#D9D9D9] w-full block lg:hidden pb-10">
           <CustomSlider cards={cardItems} />
         </div>
         <div className="flex justify-center md:hidden block pb-10 bg-[#D9D9D9]">
