@@ -14,7 +14,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 const HorizontalSection = () => {
   return (
     <div>
-      <HorizontalScrollCarousel />
+      <HorizontalScrollCarousel /> 
     </div>
   );
 };
