@@ -3,6 +3,7 @@ import "../app/globals.css";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import GhamzaLogo from "./GhmzaLogo";
 import Image from "next/image";
+import { arrowDown } from "public/images/assets";
 
 const HeroTest: React.FC = () => {
   const scrollHeroSectionRef = useRef<HTMLDivElement>(null);
@@ -193,9 +194,8 @@ const HeroTest: React.FC = () => {
             </div>
           </motion.div>
           <div className="hero-bottom !w-full mt-3">
-            <div className="text-[35px] lg:text-[48px] text-white" style={{ width: "40%" }}>
-              {/* <Image src={scrollarrow} alt="" /> */}
-              Scroll
+            <div className="text-[35px] lg:text-[48px] text-white flex" style={{ width: "40%" }}>
+              <Image height={20} className="bg-white mr-2" src={arrowDown} alt="" /> Scroll
             </div>
             <div>
               <div className="block md:hidden ">
