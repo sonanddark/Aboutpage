@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import "../app/globals.css";
-import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
+import {
+  Miami,
+  SVG,
+  dog,
+  manMountain,
+  peoples,
+} from "../../public/images/assets/index";
 import Image from "next/image";
 
 import { motion, useTransform, useScroll } from "framer-motion";
