@@ -130,16 +130,16 @@ const HorizontalScrollCarousel = () => {
               </div>
             </div>
             <div className="horizontal-imgs">
-              <div className="horizontal-img-cont5">
+              <div className="horizontal-img-cont5 hidden lg:block">
                 <Image className="h-[165.47px] w-[165.47px]" src={image1} alt="" />
               </div>
-              <div className="horizontal-img-cont6">
+              <div className="horizontal-img-cont6 hidden lg:block">
                 <Image className="h-[118px] w-[208px]" src={image4} alt="" />
               </div>
-              <div className="horizontal-img-cont7">
+              <div className="horizontal-img-cont7 hidden lg:block">
                 <Image className="w-[145.94px] h-[149.15px]" src={image2} alt="" />
               </div>
-              <div className="horizontal-img-cont8">
+              <div className="horizontal-img-cont8 hidden lg:block">
                 <Image className="h-[97px] w-[125px]" src={image3} alt="" />
               </div>
             </div>
