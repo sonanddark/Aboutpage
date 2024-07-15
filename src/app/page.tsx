@@ -224,7 +224,7 @@ export default function Home() {
             <div className="w-full lg:w-7/12 mt-[40px] xl:mt-[630px] ">
               <AnimateWhenInViewport
                 textToBeAnimated="EXPLORE"
-                cssClass="md:ml-16 ml-10 md:text-[58px] text-[24.83px]  flex justify-start"
+                cssClass="md:ml-10 ml-10 md:text-[58px] text-[24.83px]  flex justify-start"
                 styles={{ fontWeight: "860", color: "#000000" }}
               />
 
