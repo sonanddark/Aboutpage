@@ -1,6 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import "../app/globals.css";
-import { Miami, SVG, dog, manMountain, peoples } from "../../public/images/assets/index";
+import {
+  Miami,
+  SVG,
+  dog,
+  image1,
+  image2,
+  image3,
+  image4,
+  manMountain,
+  peoples,
+  SVGWHITE,
+} from "../../public/images/assets/index";
 import Image from "next/image";
 
 import { motion, useTransform, useScroll } from "framer-motion";
@@ -19,6 +30,34 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
+  const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
+    const { top, bottom } = el.getBoundingClientRect();
+    const { innerHeight } = window;
+
+    return top < innerHeight - top && bottom > 0;
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (targetRef.current) {
+        const isHorizontalVisible = elementIsVisibleInViewport(targetRef.current);
+
+        if (isHorizontalVisible) {
+          document.body.classList.add("theme-pink");
+        } else {
+          document.body.classList.remove("theme-pink");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-85%"]);
 
   return (
@@ -35,9 +74,9 @@ const HorizontalScrollCarousel = () => {
               </div>
             </div>
             <div className="horizontal-btn">
-              <div className="button">
+              <div className="button rounded-md">
                 <div className="button-text">Contact</div>
-                <Image className="button-arrow" src={SVG} alt="" />
+                <Image className="button-arrow" src={SVGWHITE} alt="" />
               </div>
             </div>
           </div>
@@ -90,19 +129,18 @@ const HorizontalScrollCarousel = () => {
                 THE MENA REGION
               </div>
             </div>
-            /*{" "}
             <div className="horizontal-imgs">
               <div className="horizontal-img-cont5">
-                <img src="assets/Group 1000004205 (1).png" alt="" />
+                <Image className="h-[165.47px] w-[165.47px]" src={image1} alt="" />
               </div>
               <div className="horizontal-img-cont6">
-                <img src="assets/Group 1000004206(1).png" alt="" />
+                <Image className="h-[118px] w-[208px]" src={image4} alt="" />
               </div>
               <div className="horizontal-img-cont7">
-                <img src="assets/Vector (2).png" alt="" />
+                <Image className="w-[145.94px] h-[149.15px]" src={image2} alt="" />
               </div>
               <div className="horizontal-img-cont8">
-                <img src="assets/Group 9.png" alt="" />
+                <Image className="h-[97px] w-[125px]" src={image3} alt="" />
               </div>
             </div>
           </div>
@@ -112,8 +150,11 @@ const HorizontalScrollCarousel = () => {
               <div className="hori-f2">AND ENABLE YOU FOR YOUR CRAZIEST IDEA YET</div>
             </div>
             <div className="horizontal-btn2">
-              <div className=" !w-[240px]">
-                <div className="text-[14px] font-[590]">Create With Us</div>
+              <div className="horizontal-btn">
+                <div className="button rounded-md !w-[220px] !h-[44px]">
+                  <div className="button-text">Create With Us</div>
+                  <Image className="button-arrow" src={SVGWHITE} alt="" />
+                </div>
               </div>
             </div>
           </div>

@@ -9,19 +9,21 @@ const HeroTest: React.FC = () => {
   const scrollHeroSectionRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const heroSectionContainerRef = useRef<HTMLDivElement>(null);
+  const [startAnimate, setStartAnimate] = useState(false);
+  const [showIcon, setShowIcon] = useState(false);
   const linesRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
 
-  const scale = useTransform(scrollYProgress, [0, 0.1], [20, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.1], [35, 1]);
   const scaleValue = useSpring(scale, { stiffness: 100, damping: 20 });
 
   const clipPath = useTransform(scrollYProgress, [0, 0.1], ["circle(100%)", "circle(0%)"]);
 
-  const translateX1 = useTransform(scrollYProgress, [0, 0.3], [0, 150]);
-  const translateX2 = useTransform(scrollYProgress, [0, 0.3], [0, -150]);
-  const translateX3 = useTransform(scrollYProgress, [0, 0.3], [0, 150]);
-  const translateX4 = useTransform(scrollYProgress, [0, 0.3], [0, -150]);
+  const translateX1 = useTransform(scrollYProgress, [0, 0.3], [62.5, 150]);
+  const translateX2 = useTransform(scrollYProgress, [0, 0.3], [62.5, -150]);
+  const translateX3 = useTransform(scrollYProgress, [0, 0.3], [62.5, 150]);
+  const translateX4 = useTransform(scrollYProgress, [0, 0.3], [62.5, -150]);
 
   const x1 = useSpring(translateX1, { stiffness: 100, damping: 20 });
   const x2 = useSpring(translateX2, { stiffness: 100, damping: 20 });
@@ -29,14 +31,9 @@ const HeroTest: React.FC = () => {
   const x4 = useSpring(translateX4, { stiffness: 100, damping: 20 });
 
   useEffect(() => {
-    scrollYProgress.onChange((latest) => {
-      scrollHeroSectionRef?.current?.classList.add("bg-black");
-
-      if (latest >= 0.04955614068083505) {
-        if (heroSectionContainerRef?.current?.classList.contains("hide")) {
-          heroSectionContainerRef?.current?.classList.remove("hide");
-          heroSectionContainerRef?.current?.classList.add("z-30");
-        }
+    scaleValue.onChange((latest) => {
+      if (latest < 1.2) {
+        setStartAnimate(true);
         let oneOpacityCount = 0;
         const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
         spans.forEach((span, index) => {
@@ -48,13 +45,35 @@ const HeroTest: React.FC = () => {
           span.style.opacity = opacity.toString();
         });
       } else {
+        setStartAnimate(false);
+        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
+        spans.forEach((span) => {
+          span.style.opacity = "0";
+        });
+      }
+      if (latest < 2.25894) {
+        setShowIcon(true);
+      } else {
+        setShowIcon(false);
+      }
+    });
+
+    scrollYProgress.onChange((latest) => {
+      scrollHeroSectionRef?.current?.classList.add("bg-black");
+
+      if (latest >= 0.07955614068083505) {
+        if (heroSectionContainerRef?.current?.classList.contains("hide")) {
+          heroSectionContainerRef?.current?.classList.remove("hide");
+          heroSectionContainerRef?.current?.classList.add("z-30");
+        }
+      } else {
         if (!heroSectionContainerRef?.current?.classList.contains("hide")) {
           heroSectionContainerRef?.current?.classList.add("hide");
           heroSectionContainerRef?.current?.classList.remove("z-30");
         }
       }
     });
-  }, [scrollYProgress]);
+  }, [scrollYProgress, scaleValue]);
 
   return (
     <header className="hero-container" ref={scrollHeroSectionRef}>
@@ -66,7 +85,7 @@ const HeroTest: React.FC = () => {
             clipPath: clipPath,
           }}
         >
-          <video className="w-[100%] h-[100vh] object-cover" autoPlay muted loop playsInline>
+          <video className="w-[100%] h-[110vh] object-cover" autoPlay muted loop playsInline>
             <source src="https://cdn.significo.com/videos/significo-main-hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
@@ -117,9 +136,9 @@ const HeroTest: React.FC = () => {
               </div>
             </div>
           </div>
-          <motion.div style={{ scale }} className="hero-row-parent pt-[20px] lg:pt-[40px]">
+          <motion.div style={{ scale }} className="hero-row-parent pt-[20px] lg:pt-[84px]">
             <div className="hero-rows">
-              <motion.div style={{ x: x1 }} className="hero-row">
+              <motion.div style={{ x: startAnimate ? x1 : 10 }} className="hero-row">
                 <div className="hero-row-text">CRAZY</div>
                 <div className="circle-container">
                   <div className="circle"></div>
@@ -137,14 +156,14 @@ const HeroTest: React.FC = () => {
                   <div className="circle"></div>
                 </div>
               </motion.div>
-              <motion.div style={{ x: x2 }} className="hero-row">
+              <motion.div style={{ x: startAnimate ? x2 : 10 }} className="hero-row">
                 <div className="hero-row-text">LOWKEY</div>
                 <div className="circle-container">
                   <div className="circle"></div>
                 </div>
                 <div className="hero-row-text">AMAZING</div>
                 <div className="circle-container">
-                  <div className="circle"></div>
+                  <div className={`circle ${showIcon ? "block" : "hide"}`}></div>
                 </div>
                 <div className="hero-row-text">WINK</div>
                 <div className="circle-container">
@@ -173,7 +192,7 @@ const HeroTest: React.FC = () => {
                   <div className="circle"></div>
                 </div>
               </motion.div>
-              <motion.div style={{ x: x4 }} className="hero-row">
+              <motion.div style={{ x: startAnimate ? x4 : 62 }} className="hero-row">
                 <div className="hero-row-text">LOWKEY</div>
                 <div className="circle-container">
                   <div className="circle"></div>

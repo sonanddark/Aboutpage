@@ -112,14 +112,14 @@ export default function Home() {
           <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
-              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px]"
+              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px] text-black"
             />
           </div>
 
           <div className="flex justify-center">
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
-              cssClass="text-center  -mt-28 lg:-mt-16  xl:-mt-6 mb-10 lg:text-[27.3px] text-[14px]"
+              cssClass="text-center  -mt-28 lg:-mt-16  xl:-mt-6 mb-10 lg:text-[27.3px] text-[14px] text-black"
               styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
             />
           </div>
