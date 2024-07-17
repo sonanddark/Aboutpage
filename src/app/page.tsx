@@ -6,7 +6,7 @@ import Card from "../Components/SocialPostsCardView";
 import rectangle from "../assets/bgImage.png";
 import camera from "../assets/camera-black.svg";
 import goVegan from "../assets/goVegan.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomSlider from "@/Components/CardSlider";
 import HorizontalSection from "@/Components/HorizontalSection";
 import HeroSection from "@/Components/HeroSection";
@@ -95,6 +95,10 @@ const cardItems = [
 ];
 export default function Home() {
   const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
+  const [innerWidth, setInnerWidth] = useState<number | null>(null);
+  useEffect(() => {
+    setInnerWidth(window?.innerWidth);
+  }, []);
 
   return (
     <>
@@ -272,8 +276,8 @@ export default function Home() {
                 <Card
                   key={card.id}
                   data={card}
-                  hover={Math.floor(index % 3) === hoveredColumn}
-                  onMouseEnter={() => setHoveredColumn(Math.floor(index % 3))}
+                  hover={Math.floor(index % (innerWidth! > 1536 ? 3 : 2)) === hoveredColumn}
+                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth! > 1536 ? 3 : 2)))}
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}
