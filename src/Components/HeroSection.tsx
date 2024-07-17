@@ -21,10 +21,12 @@ const HeroTest: React.FC = () => {
 
   const clipPath = useTransform(scrollYProgress, [0, 0.1], ["circle(100%)", "circle(0%)"]);
 
-  const translateX1 = useTransform(scrollYProgress, [0, 0.2], [10, 150]);
-  const translateX2 = useTransform(scrollYProgress, [0, 0.2], [10, -150]);
-  const translateX3 = useTransform(scrollYProgress, [0, 0.2], [10, 150]);
-  const translateX4 = useTransform(scrollYProgress, [0, 0.2], [10, -150]);
+  console.log({ scrollYProgress });
+
+  const translateX1 = useTransform(scrollYProgress, [0.09991288582354112, 0.2], [10, 150]);
+  const translateX2 = useTransform(scrollYProgress, [0.09991288582354112, 0.2], [10, -150]);
+  const translateX3 = useTransform(scrollYProgress, [0.09991288582354112, 0.2], [10, 150]);
+  const translateX4 = useTransform(scrollYProgress, [0.09991288582354112, 0.2], [10, -150]);
 
   const x1 = useSpring(translateX1, { stiffness: 100, damping: 20 });
   const x2 = useSpring(translateX2, { stiffness: 100, damping: 20 });
@@ -38,7 +40,7 @@ const HeroTest: React.FC = () => {
       } else {
         setStartAnimate(false);
       }
-      if (latest < 2.25894) {
+      if (latest < 2.5894) {
         setShowIcon(true);
       } else {
         setShowIcon(false);
@@ -54,7 +56,6 @@ const HeroTest: React.FC = () => {
         let oneOpacityCount = 0;
         spans.forEach((span, index) => {
           let opacity = scrollPercent - (index - oneOpacityCount) * 0.02;
-          console.log({ opacity, lastest: latest - 0.07955614068083505, scrollPercent });
           opacity = Math.max(opacity, 0);
           if (opacity >= 1) {
             oneOpacityCount++;
@@ -78,11 +79,13 @@ const HeroTest: React.FC = () => {
     });
   }, [scrollYProgress, scaleValue]);
 
+  console.log({ showIcon });
+
   return (
     <header className="hero-container" ref={scrollHeroSectionRef}>
       <div className="sticky hero">
         <motion.div
-          className="video-container"
+          className={`video-container ${showIcon ? "invisible" : "visible"} `}
           ref={videoContainerRef}
           style={{
             clipPath: clipPath,
@@ -166,7 +169,7 @@ const HeroTest: React.FC = () => {
                 </div>
                 <div className="hero-row-text">AMAZING</div>
                 <div className="circle-container">
-                  <div className={`circle ${showIcon ? "block" : "hide"}`}></div>
+                  <div className={`circle ${showIcon ? "visible" : "invisible"}`}></div>
                 </div>
                 <div className="hero-row-text">WINK</div>
                 <div className="circle-container">

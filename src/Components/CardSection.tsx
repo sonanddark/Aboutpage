@@ -22,14 +22,14 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.intersectionRatio >= 0.3) {
+          if (entry.intersectionRatio >= 0.05) {
             entry.target.classList.add("card-color-change");
           } else {
             entry.target.classList.remove("card-color-change");
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.05 }
     );
 
     console.log({ observer: observer });

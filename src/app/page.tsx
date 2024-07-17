@@ -95,6 +95,7 @@ const cardItems = [
 ];
 export default function Home() {
   const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
+  const width = window.innerWidth;
 
   return (
     <>
@@ -272,8 +273,8 @@ export default function Home() {
                 <Card
                   key={card.id}
                   data={card}
-                  hover={Math.floor(index % 3) === hoveredColumn}
-                  onMouseEnter={() => setHoveredColumn(Math.floor(index % 3))}
+                  hover={Math.floor(index % (width > 1536 ? 3 : 2)) === hoveredColumn}
+                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (width > 1536 ? 3 : 2)))}
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}

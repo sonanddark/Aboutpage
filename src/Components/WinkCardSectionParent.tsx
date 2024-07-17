@@ -10,7 +10,7 @@ const ParentComponent: React.FC = () => {
     const { top, bottom } = el.getBoundingClientRect();
     const { innerHeight } = window;
 
-    return top < innerHeight - top && bottom > 0;
+    return top < innerHeight && bottom > 0;
   };
 
   useEffect(() => {
