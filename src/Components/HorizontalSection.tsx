@@ -14,6 +14,7 @@ import {
 } from "../../public/images/assets/index";
 import Image from "next/image";
 import { motion, useTransform, useScroll } from "framer-motion";
+import ArrowSVG from "./ArrowSVG";
 
 const HorizontalSection = () => {
   return (
@@ -134,13 +135,13 @@ const HorizontalScrollCarousel = () => {
     };
   }, [targetRef]);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-85%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
   return (
     <section ref={targetRef} className="relative h-[400vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
-          <div className="horizontal-item !w-[100vw] !h-screen">
+          <div className="horizontal-item !w-[100vw] !h-screen relative">
             <div className="horizontal-item-text">
               <div className="hori-f3 !text-[42.26px] xl:!text-[158px] !leading-[42.26px] lg:!leading-[130px]">
                 REAL IMPACT,
@@ -154,6 +155,9 @@ const HorizontalScrollCarousel = () => {
                 <div className="button-text">Contact</div>
                 <Image className="button-arrow" src={SVGWHITE} alt="" />
               </div>
+            </div>
+            <div className="absolute bottom-[20px] right-[120px]">
+              <ArrowSVG />
             </div>
           </div>
           <div className="horizontal-item count-section-1 !w-[100vw] !h-screen relative">
@@ -176,11 +180,6 @@ const HorizontalScrollCarousel = () => {
                 Here’s our progress.
               </div>
             </div>
-            {/* position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: 90px;
-  right: -250px; */}
             <div className="horizontal-imgs">
               <div className="horizontal-img-cont1 absolute top-[90px] -right-[30px] hidden lg:block">
                 <Image className="h-[150px] w-[250px] 2xl:h-[238px] 2xl:w-[424px]" src={dog} alt="" />
@@ -230,7 +229,10 @@ const HorizontalScrollCarousel = () => {
               </div>
             </div>
           </div>
-          <div className="horizontal-item !w-[100vw] !h-screen">
+          <div className="horizontal-item !w-[100vw] !h-screen ">
+            <div className="absolute bottom-[20px] right-[60px]">
+              <ArrowSVG direction="vertical" />
+            </div>
             <div className="horizontal-content">
               <div className="hori-f3">LETS CREATE</div>
               <div className="hori-f2">AND ENABLE YOU FOR YOUR CRAZIEST IDEA YET</div>

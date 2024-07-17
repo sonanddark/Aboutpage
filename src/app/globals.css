@@ -452,6 +452,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: end;
+  width: 520px;
 }
 .card-image {
   display: flex;
@@ -755,7 +756,7 @@ body {
 .horizontal-btn2 {
   position: absolute;
   left: 76%;
-  top: 90%;
+  bottom: 0px;
 }
 
 .animated-text {
@@ -896,4 +897,20 @@ body {
   color: white !important;
   width: 100% !important;
   transition: all 0.5s ease-in;
+}
+
+.subtitle-text span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* For hero row */
+.hero-row {
+  display: flex;
+  align-items: center;
+}
+
+/* For hiding and showing the icon */
+.circle.hide {
+  display: none;
 }

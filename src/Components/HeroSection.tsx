@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import GhamzaLogo from "./GhmzaLogo";
 import Image from "next/image";
 import { arrowDown } from "public/images/assets";
+import ArrowSVG from "./ArrowSVG";
 
 const HeroTest: React.FC = () => {
   const scrollHeroSectionRef = useRef<HTMLDivElement>(null);
@@ -34,22 +35,8 @@ const HeroTest: React.FC = () => {
     scaleValue.onChange((latest) => {
       if (latest === 1) {
         setStartAnimate(true);
-        let oneOpacityCount = 0;
-        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
-        spans.forEach((span, index) => {
-          let opacity = latest * 9 - (index - oneOpacityCount) * 0.002;
-          opacity = Math.max(opacity, 0);
-          if (opacity >= 1) {
-            oneOpacityCount++;
-          }
-          span.style.opacity = opacity.toString();
-        });
       } else {
         setStartAnimate(false);
-        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
-        spans.forEach((span) => {
-          span.style.opacity = "0";
-        });
       }
       if (latest < 2.25894) {
         setShowIcon(true);
@@ -62,6 +49,18 @@ const HeroTest: React.FC = () => {
       scrollHeroSectionRef?.current?.classList.add("bg-black");
 
       if (latest >= 0.07955614068083505) {
+        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
+        const scrollPercent = Math.min((latest - 0.07955614068083505) / (0.15 - 0.07955614068083505), 1);
+        let oneOpacityCount = 0;
+        spans.forEach((span, index) => {
+          let opacity = scrollPercent - (index - oneOpacityCount) * 0.02;
+          console.log({ opacity, lastest: latest - 0.07955614068083505, scrollPercent });
+          opacity = Math.max(opacity, 0);
+          if (opacity >= 1) {
+            oneOpacityCount++;
+          }
+          span.style.opacity = `${opacity}`;
+        });
         if (heroSectionContainerRef?.current?.classList.contains("hide")) {
           heroSectionContainerRef?.current?.classList.remove("hide");
           heroSectionContainerRef?.current?.classList.add("z-30");
@@ -71,6 +70,10 @@ const HeroTest: React.FC = () => {
           heroSectionContainerRef?.current?.classList.add("hide");
           heroSectionContainerRef?.current?.classList.remove("z-30");
         }
+        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
+        spans.forEach((span) => {
+          span.style.opacity = "0";
+        });
       }
     });
   }, [scrollYProgress, scaleValue]);
@@ -213,9 +216,17 @@ const HeroTest: React.FC = () => {
             </div>
           </motion.div>
           <div className="hero-bottom !w-full mt-3">
-            <div className="text-[35px] lg:text-[48px] text-white flex" style={{ width: "40%" }}>
-              <Image height={20} className="bg-white mr-2" src={arrowDown} alt="" /> Scroll
-            </div>
+            <button
+              onClick={() => {
+                document
+                  .getElementById("winkSection")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="text-[35px] lg:text-[38px] text-white flex items-center"
+              style={{ width: "40%" }}
+            >
+              <ArrowSVG direction={"vertical"} width="80px" /> Scroll
+            </button>
             <div>
               <div className="block md:hidden ">
                 <GhamzaLogo height="65" width="65" />
