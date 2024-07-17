@@ -236,7 +236,7 @@ body {
 }
 .hero {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -341,9 +341,10 @@ body {
   display: flex;
   justify-content: space-between;
   border-color: black;
-  border: 2px solid;
-  width: 200px;
-  height: 10px;
+  border: 1px solid;
+  width: 222px;
+  height: 44px;
+  border-radius: 3px !important;
 }
 .title-lines {
   font-family: sans-serif;
@@ -432,7 +433,7 @@ body {
 }
 .cards-item {
   height: 213px;
-  width: 95%;
+  width: 90%;
   border: 1px solid;
   border-radius: 10px;
   background-color: #df1780;
@@ -442,7 +443,7 @@ body {
   align-items: center;
   justify-content: space-around;
   justify-items: center;
-  transition: width 0.5s ease;
+  transition: all 0.5s ease-in;
 }
 .cards-list {
   margin-right: 40px;
@@ -451,6 +452,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: end;
+  width: 520px;
 }
 .card-image {
   display: flex;
@@ -481,6 +483,13 @@ body {
   /* background-color: black;
   transition: all 1s ease; */
   background-color: #0000;
+}
+.theme-pink {
+  transition: all 1s ease;
+  /* background-color: black;
+  transition: all 1s ease; */
+  background-color: #df1780;
+  color: white !important;
 }
 .circle-container {
   padding-left: 30px;
@@ -514,9 +523,9 @@ body {
   color: white;
   width: 80%;
 } */
-.cards-item {
-  transition: transform 0.5s ease;
-}
+/* .cards-item {
+  transition: transform 3s ease;
+} */
 
 .card-animate {
   transform: translateX(0);
@@ -611,8 +620,8 @@ body {
 
 .horizontal-btn {
   position: absolute;
-  left: 3%;
-  top: 90%;
+  left: 23px;
+  bottom: 40px;
 }
 .hori-f4 {
   font-family: sans-serif;
@@ -653,40 +662,22 @@ body {
 .horizontal-imgs {
   z-index: 5;
 }
-.horizontal-img-cont1 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: 10%;
-  left: 70%;
-}
-.horizontal-img-cont2 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: 50%;
-  left: 0%;
-}
+
 .horizontal-img-cont3 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 80%;
-  left: 35%;
+  left: 50%;
+  bottom: -90px;
+  transform: translateX(-50%);
 }
-.horizontal-img-cont4 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: -15%;
-  left: 36%;
-}
+
 .horizontal-img-cont5 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 10%;
-  left: 65%;
+  top: 60%;
+  left: 5%;
 }
 @media (max-width: 760px) {
   .horizontal-img-cont4 {
@@ -740,22 +731,22 @@ body {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 60%;
-  left: 55%;
+  top: 80%;
+  left: 30%;
 }
 .horizontal-img-cont7 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 63%;
-  left: 68%;
+  top: 3%;
+  left: 70%;
 }
 .horizontal-img-cont8 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 77%;
-  left: 62%;
+  top: 70%;
+  right: 10%;
 }
 .horiztonal-desc2 {
   position: absolute;
@@ -765,7 +756,7 @@ body {
 .horizontal-btn2 {
   position: absolute;
   left: 76%;
-  top: 90%;
+  bottom: 0px;
 }
 
 .animated-text {
@@ -899,4 +890,27 @@ body {
 
 .card-wrapper {
   padding: 0 30px;
+}
+
+.card-color-change {
+  background-color: black !important;
+  color: white !important;
+  width: 100% !important;
+  transition: all 0.5s ease-in;
+}
+
+.subtitle-text span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* For hero row */
+.hero-row {
+  display: flex;
+  align-items: center;
+}
+
+/* For hiding and showing the icon */
+.circle.hide {
+  display: none;
 }

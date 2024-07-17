@@ -16,44 +16,35 @@ const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
 };
 
 const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
   const cardsListRef = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   const handleCardScroll = () => {
-  //     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  //     if (sectionRef.current) {
-  //       if (elementIsVisibleInViewport(sectionRef.current)) {
-  //         document.body.classList.remove("theme-black");
-  //         if (!document.body.classList.contains("theme-light-gray")) {
-  //           document.body.classList.add("theme-light-gray");
-  //         }
-  //       } else {
-  //         document.body.classList.remove("theme-light-gray");
-  //         if (!document.body.classList.contains("theme-black")) {
-  //           document.body.classList.add("theme-black");
-  //         }
-  //       }
-  //     }
-  //     // const cards = cardsListRef.current?.querySelectorAll(".cards-item");
-  //     //   if (cards) {
-  //     //     cards.forEach((card) => {
-  //     //       if (elementIsVisibleInViewport(card as HTMLElement)) {
-  //     //         card.classList.add("card-animate");
-  //     //       } else {
-  //     //         card.classList.remove("card-animate");
-  //     //       }
-  //     //     });
-  //     //   } else {
-  //     //     console.log('no cards');
-  //     //   }
-  //   };
 
-  //   window.addEventListener("scroll", handleCardScroll);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio >= 0.3) {
+            entry.target.classList.add("card-color-change");
+          } else {
+            entry.target.classList.remove("card-color-change");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleCardScroll);
-  //   };
-  // }, []);
+    console.log({ observer: observer });
+
+    const cards = cardsListRef.current?.querySelectorAll(".cards-item");
+    cards?.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      cards?.forEach((card) => {
+        observer.unobserve(card);
+      });
+    };
+  }, []);
   return (
     <section ref={ref} data-module-name="card-section">
       <div className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto lg:h-[3500px]  w-100vw lg:w-auto">
@@ -119,10 +110,10 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
         <div className="hidden lg:flex w-full justify-end">
           <div
-            className="cards-list lg:!flex !flex-row lg:!flex-col gap-10 lg:gap-0 mr-[90px] !hidden "
+            className="cards-list lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-0 mr-[90px] !hidden "
             ref={cardsListRef}
           >
-            <div className="cards-item !w-[700px] lg:!w-[95%]">
+            <div className="cards-item ">
               <div className="card-item-desc-container">
                 <div className="card-item-title">FILMS</div>
                 <div className="description">
