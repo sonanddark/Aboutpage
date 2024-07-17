@@ -20,10 +20,10 @@ const HeroTest: React.FC = () => {
 
   const clipPath = useTransform(scrollYProgress, [0, 0.1], ["circle(100%)", "circle(0%)"]);
 
-  const translateX1 = useTransform(scrollYProgress, [0, 0.3], [62.5, 150]);
-  const translateX2 = useTransform(scrollYProgress, [0, 0.3], [62.5, -150]);
-  const translateX3 = useTransform(scrollYProgress, [0, 0.3], [62.5, 150]);
-  const translateX4 = useTransform(scrollYProgress, [0, 0.3], [62.5, -150]);
+  const translateX1 = useTransform(scrollYProgress, [0, 0.2], [10, 150]);
+  const translateX2 = useTransform(scrollYProgress, [0, 0.2], [10, -150]);
+  const translateX3 = useTransform(scrollYProgress, [0, 0.2], [10, 150]);
+  const translateX4 = useTransform(scrollYProgress, [0, 0.2], [10, -150]);
 
   const x1 = useSpring(translateX1, { stiffness: 100, damping: 20 });
   const x2 = useSpring(translateX2, { stiffness: 100, damping: 20 });
@@ -32,7 +32,7 @@ const HeroTest: React.FC = () => {
 
   useEffect(() => {
     scaleValue.onChange((latest) => {
-      if (latest < 1.2) {
+      if (latest === 1) {
         setStartAnimate(true);
         let oneOpacityCount = 0;
         const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
@@ -174,7 +174,7 @@ const HeroTest: React.FC = () => {
                   <div className="circle"></div>
                 </div>
               </motion.div>
-              <motion.div style={{ x: x3 }} className="hero-row">
+              <motion.div style={{ x: startAnimate ? x3 : 10 }} className="hero-row">
                 <div className="hero-row-text">CRAZY</div>
                 <div className="circle-container">
                   <div className="circle"></div>
@@ -192,7 +192,7 @@ const HeroTest: React.FC = () => {
                   <div className="circle"></div>
                 </div>
               </motion.div>
-              <motion.div style={{ x: startAnimate ? x4 : 62 }} className="hero-row">
+              <motion.div style={{ x: startAnimate ? x4 : 10 }} className="hero-row">
                 <div className="hero-row-text">LOWKEY</div>
                 <div className="circle-container">
                   <div className="circle"></div>

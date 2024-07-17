@@ -110,10 +110,10 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
         <div className="hidden lg:flex w-full justify-end">
           <div
-            className="cards-list lg:!flex !flex-row lg:!flex-col gap-10 lg:gap-0 mr-[90px] !hidden "
+            className="cards-list lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-0 mr-[90px] !hidden "
             ref={cardsListRef}
           >
-            <div className="cards-item !w-[700px] lg:!w-[95%]">
+            <div className="cards-item ">
               <div className="card-item-desc-container">
                 <div className="card-item-title">FILMS</div>
                 <div className="description">

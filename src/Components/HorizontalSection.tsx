@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../app/globals.css";
 import {
   Miami,
@@ -13,7 +13,6 @@ import {
   SVGWHITE,
 } from "../../public/images/assets/index";
 import Image from "next/image";
-
 import { motion, useTransform, useScroll } from "framer-motion";
 
 const HorizontalSection = () => {
@@ -26,6 +25,8 @@ const HorizontalSection = () => {
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
@@ -58,6 +59,81 @@ const HorizontalScrollCarousel = () => {
     };
   }, []);
 
+  useEffect(() => {
+    let hasRun1 = false;
+    let hasRun2 = false;
+
+    const observer1 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasRun1) {
+            hasRun1 = true;
+            let start = 0;
+            const end = 203;
+            const duration = 2000; // 2 seconds
+            const stepTime = Math.abs(Math.floor(duration / end));
+
+            const timer = () => {
+              start += 1;
+              setCount1(start);
+              if (start < end) {
+                setTimeout(timer, stepTime);
+              }
+            };
+
+            timer();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasRun2) {
+            hasRun2 = true;
+            let start = 5000;
+            const end = 10000;
+            const duration = 2000; // 2 seconds
+            const stepTime = Math.abs(Math.floor(duration / ((end - start) / 1000)));
+
+            const timer = () => {
+              start += 1000;
+              setCount2(start);
+              if (start < end) {
+                setTimeout(timer, stepTime);
+              }
+            };
+
+            timer();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section1 = document.querySelector(".count-section-1");
+    const section2 = document.querySelector(".count-section-2");
+
+    if (section1) {
+      observer1.observe(section1);
+    }
+
+    if (section2) {
+      observer2.observe(section2);
+    }
+
+    return () => {
+      if (section1) {
+        observer1.unobserve(section1);
+      }
+      if (section2) {
+        observer2.unobserve(section2);
+      }
+    };
+  }, [targetRef]);
+
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-85%"]);
 
   return (
@@ -80,9 +156,9 @@ const HorizontalScrollCarousel = () => {
               </div>
             </div>
           </div>
-          <div className="horizontal-item !w-[100vw] !h-screen relative">
+          <div className="horizontal-item count-section-1 !w-[100vw] !h-screen relative">
             <div className="horizontal-content">
-              <div className="hori-f1">203 M</div>
+              <div className="hori-f1">{count1} M</div>
               <div className="hori-f2">
                 Real people — real lives — TOTAL REACH
                 <br />
@@ -100,25 +176,35 @@ const HorizontalScrollCarousel = () => {
                 Here’s our progress.
               </div>
             </div>
+            {/* position: absolute;
+  max-width: 50%;
+  max-height: auto;
+  top: 90px;
+  right: -250px; */}
             <div className="horizontal-imgs">
-              <div className="horizontal-img-cont1 hidden lg:block">
-                <Image className=" h-[150px] w-[200px]" src={dog} alt="" />
+              <div className="horizontal-img-cont1 absolute top-[90px] -right-[30px] hidden lg:block">
+                <Image className="h-[150px] w-[250px] 2xl:h-[238px] 2xl:w-[424px]" src={dog} alt="" />
               </div>
+
               <div className="horizontal-img-cont2 hidden lg:block">
-                <Image className="h-[150px] w-[200px]" src={manMountain} alt="" />
+                <Image
+                  className="h-[150px] w-[250px] 2xl:h-[238px] 2xl:w-[424px] absolute bottom-[60px] left-[50px]"
+                  src={manMountain}
+                  alt=""
+                />
               </div>
               <div className="horizontal-img-cont3 hidden lg:block">
-                <Image className="h-[150px] w-[200px]" src={Miami} alt="" />
+                <Image className="h-[150px] w-[250px] 2xl:h-[250px] 2xl:w-[450px]" src={Miami} alt="" />
               </div>
-              <div className="horizontal-img-cont4 hidden lg:block">
-                <Image className="h-[150px] w-[200px]" src={peoples} alt="" />
+              <div className="horizontal-img-cont4 hidden lg:block absolute -top-2 -translate-x-2/4 left-2/4 ">
+                <Image className="h-[150px] w-[250px] 2xl:h-[250px] 2xl:w-[450px]" src={peoples} alt="" />
               </div>
             </div>
           </div>
-          <div className="horizontal-item !w-[100vw] !h-screen relative">
+          <div className="horizontal-item count-section-2 !w-[100vw] !h-screen relative">
             <div className="horizontal-content">
               <div className="hori-f2">WE CREATED OVER</div>
-              <div className="hori-f1">30000+</div>
+              <div className="hori-f1">{count2}+</div>
               <div className="hori-f2">HOURS OF FOOTAGE COMBINED</div>
             </div>
             <div className="absolute top-[5px] left-[5px] lg:left-[50px] lg:top-[50px] ">

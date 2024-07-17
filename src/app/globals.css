@@ -341,9 +341,10 @@ body {
   display: flex;
   justify-content: space-between;
   border-color: black;
-  border: 2px solid;
-  width: 200px;
-  height: 10px;
+  border: 1px solid;
+  width: 222px;
+  height: 44px;
+  border-radius: 3px !important;
 }
 .title-lines {
   font-family: sans-serif;
@@ -432,7 +433,7 @@ body {
 }
 .cards-item {
   height: 213px;
-  width: 95%;
+  width: 90%;
   border: 1px solid;
   border-radius: 10px;
   background-color: #df1780;
@@ -442,7 +443,7 @@ body {
   align-items: center;
   justify-content: space-around;
   justify-items: center;
-  transition: width 0.5s ease;
+  transition: all 0.5s ease-in;
 }
 .cards-list {
   margin-right: 40px;
@@ -521,9 +522,9 @@ body {
   color: white;
   width: 80%;
 } */
-.cards-item {
+/* .cards-item {
   transition: transform 3s ease;
-}
+} */
 
 .card-animate {
   transform: translateX(0);
@@ -618,8 +619,8 @@ body {
 
 .horizontal-btn {
   position: absolute;
-  left: 3%;
-  top: 90%;
+  left: 23px;
+  bottom: 40px;
 }
 .hori-f4 {
   font-family: sans-serif;
@@ -660,34 +661,16 @@ body {
 .horizontal-imgs {
   z-index: 5;
 }
-.horizontal-img-cont1 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: 10%;
-  left: 70%;
-}
-.horizontal-img-cont2 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: 50%;
-  left: 0%;
-}
+
 .horizontal-img-cont3 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
-  top: 80%;
-  left: 35%;
+  left: 50%;
+  bottom: -90px;
+  transform: translateX(-50%);
 }
-.horizontal-img-cont4 {
-  position: absolute;
-  max-width: 50%;
-  max-height: auto;
-  top: -15%;
-  left: 36%;
-}
+
 .horizontal-img-cont5 {
   position: absolute;
   max-width: 50%;
@@ -911,4 +894,6 @@ body {
 .card-color-change {
   background-color: black !important;
   color: white !important;
+  width: 100% !important;
+  transition: all 0.5s ease-in;
 }

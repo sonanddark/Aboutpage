@@ -108,18 +108,18 @@ export default function Home() {
         <HorizontalSection />
       </div>
       <div>
-        <section className="bg-[#D9D9D9]">
+        <section className="bg-[#D9D9D9] pt-2">
           <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
-              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px] text-black"
+              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px] text-black !-tracking-[10px]"
             />
           </div>
 
           <div className="flex justify-center">
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
-              cssClass="text-center  -mt-28 lg:-mt-16  xl:-mt-6 mb-10 lg:text-[27.3px] text-[14px] text-black"
+              cssClass="text-center  -mt-28 lg:-mt-[55px] mb-10 lg:text-[27.3px] text-[14px] text-black !-tracking-[0px]"
               styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
             />
           </div>
