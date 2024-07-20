@@ -44,11 +44,11 @@ const HorizontalScrollCarousel = () => {
       if (targetRef.current) {
         const isHorizontalVisible = elementIsVisibleInViewport(targetRef.current);
 
-        if (isHorizontalVisible) {
-          document.body.classList.add("theme-pink");
-        } else {
-          document.body.classList.remove("theme-pink");
-        }
+        // if (isHorizontalVisible) {
+        //   document.body.classList.add("theme-pink");
+        // } else {
+        //   document.body.classList.remove("theme-pink");
+        // }
       }
     };
 
