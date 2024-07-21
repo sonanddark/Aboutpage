@@ -9,14 +9,14 @@ const Footer = () => {
   return (
     <footer className="w-100">
       <div className="flex lg:flex-row flex-col md:justify-between md:m-auto md:items-center md:h-auto bg-[#DF1780]">
-        <div className="md:m-20">
+        <div className="md:m-16">
           <AnimateWhenInViewport
             textToBeAnimated="LOUDER"
-            cssClass="flex md:justify-start justify-center font-bold text-[77px] md:text-[87.51px] text-white"
+            cssClass="flex md:justify-start justify-center font-bold text-[77px] md:text-[87.51px] text-white !font-sf-pro-bold !font-[860]"
           />
           <AnimateWhenInViewport
             textToBeAnimated="THE BETTER"
-            cssClass="flex justify-center md:justify-start md:ml-1 font-semibold md:text-[58px] text-[54px] -mt-10 text-white"
+            cssClass="flex justify-center md:justify-start md:ml-1 font-semibold md:text-[58px] text-[52px] -mt-10 text-white !sf-pro-medium"
           />
           <div className="md:block hidden">
             <AnimatedButton
@@ -35,7 +35,7 @@ const Footer = () => {
                 fontSize: "15.25px",
                 lineHeight: "25.6px",
                 fontWeight: "590",
-                fontFamily: "SFProDisplay, sans-serif",
+                fontFamily: "SF Pro Medium",
               }}
               text="LET'S GO"
               arrowStyle={{
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
           <div className="flex justify-end gap-x-7 items-center">
             <div className="block md:hidden -mr-10">
-              <GhmzaLogo height="65" width="65" />
+              <GhmzaLogo height="50" width="50" />
             </div>
             <div className="md:block hidden -mr-10">
               <GhmzaLogo height="120" width="120" />

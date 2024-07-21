@@ -116,14 +116,14 @@ export default function Home() {
           <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
-              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[108.85px] leading-[148.13px] text-black !-tracking-[10px]"
+              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[28px] lg:leading-[108.85px] leading-[148.13px] text-black  tracking-[0px] lg:!-tracking-[10px]"
             />
           </div>
 
           <div className="flex justify-center">
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
-              cssClass="text-center  -mt-28 lg:-mt-[55px] mb-10 lg:text-[27.3px] text-[14px] text-black !-tracking-[0px]"
+              cssClass="text-center -mt-4 lg:-mt-4 lg:-mt-[55px] mb-10 lg:text-[27.3px] text-[14px] text-black !-tracking-[0px]"
               styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
             />
           </div>
@@ -161,7 +161,7 @@ export default function Home() {
                 }}
               />
             </div>
-            <div className=" w-[80%] md:hidden flex justify-center">
+            <div className=" w-[100%] md:hidden flex justify-center">
               <AnimatedButton
                 text="SEE MORE"
                 customCssStyles={{
@@ -180,8 +180,9 @@ export default function Home() {
                   lineHeight: "25.6px",
                   fontWeight: "590",
                   fontFamily: "SFProDisplay, sans-serif",
-                  width: "85%",
+                  width: "100%",
                   justifyContent: "space-between",
+                  margin: "0px 24px",
                 }}
                 arrowStyle={{
                   stroke: "#FFFFFF",
@@ -195,11 +196,11 @@ export default function Home() {
         </section>
 
         <section className="flex pb-10 bg-[#D9D9D9] flex-col xl:flex-row">
-          <div className="w-full lg:w-full  xl:w-5/12 flex md:flex-col ">
-            <div className=" w-full mt-14  xl:mt-80">
+          <div className="w-full  xl:w-5/12 flex md:flex-col  items-center md:items-start pl-8 md:pl-16">
+            <div className="w-5/12 lg:w-full mt-14  xl:mt-72">
               <AnimateWhenInViewport
-                textToBeAnimated="Stay up-to-date on the"
-                cssClass=":w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
+                textToBeAnimated=" up-to-date on the"
+                cssClass=":w-4/12 w-5/12 md:ml-[2.7rem] lg:ml-3 md:text-[18.28px] text-[9.5px] "
                 styles={{
                   fontWeight: "590",
                   color: "#000000",
@@ -208,7 +209,7 @@ export default function Home() {
               />
               <AnimateWhenInViewport
                 textToBeAnimated="latest Ghmza and share"
-                cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
+                cssClass="md:w-4/12 w-5/12 md:ml-[2.7rem] lg:ml-3 md:text-[18.28px] text-[9.5px] "
                 styles={{
                   fontWeight: "590",
                   color: "#000000",
@@ -217,7 +218,7 @@ export default function Home() {
               />
               <AnimateWhenInViewport
                 textToBeAnimated="your thoughts."
-                cssClass="md:w-4/12 w-5/12 md:ml-24 ml-10 md:text-[18.28px] text-[9.5px] "
+                cssClass="md:w-4/12 w-5/12 md:ml-[2.7rem] lg:ml-3 md:text-[18.28px] text-[9.5px] "
                 styles={{
                   fontWeight: "590",
                   color: "#000000",
@@ -225,16 +226,16 @@ export default function Home() {
                 }}
               />
             </div>
-            <div className="w-full lg:w-7/12 mt-[40px] xl:mt-[630px] ">
+            <div className="w-[53%] flex flex-col items-end md:items-start lg:w-7/12 mt-[3.5rem] xl:mt-[630px] ">
               <AnimateWhenInViewport
                 textToBeAnimated="EXPLORE"
-                cssClass="md:ml-10 ml-10 md:text-[58px] text-[24.83px]  flex justify-start"
-                styles={{ fontWeight: "860", color: "#000000" }}
+                cssClass=" md:text-[58px] text-[24.83px]  flex justify-start  !font-sf-pro-bold !font-[900]"
+                styles={{ color: "#000000" }}
               />
 
               <AnimateWhenInViewport
                 textToBeAnimated="THE REST"
-                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px] ml-10 md:flex md:font-[400]"
+                cssClass="md:text-[58px] -mt-3 md:-mt-10 text-[24.83px]  md:flex md:!font-[400] !font-sf-pro-medium "
               />
             </div>
             <div className="hidden md:block ">
@@ -254,8 +255,9 @@ export default function Home() {
                   lineHeight: "25.6px",
                   fontWeight: "590",
                   fontFamily: "SFProDisplay, sans-serif",
-                  marginLeft: "64px",
                   justifyContent: "space-between",
+                  width: "248.44px",
+                  height: "63.09px",
                 }}
                 arrowStyle={{
                   stroke: "#FFFFFF",
@@ -270,7 +272,7 @@ export default function Home() {
           <div className="w-full lg:w-full xl:w-7/12 hidden md:block">
             <motion.div
               layout
-              className="grid  gridd-col grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 relative mt-10 lg:mt-48 gap-x-[-30px !important] !gap-x-[-4px] !gap-y-[-4px]"
+              className="grid  gridd-col grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 relative mt-10 lg:mt-48 gap-x-[-30px !important] !gap-x-[-4px] !gap-y-[-4px] mr-8"
             >
               {cardItems.map((card, index) => (
                 <Card
@@ -286,7 +288,7 @@ export default function Home() {
         </section>
 
         {/* Mobile responsive card */}
-        <div className="bg-[#D9D9D9] w-full block lg:hidden pb-10">
+        <div className="bg-[#D9D9D9] w-full block md:hidden pb-10">
           <CustomSlider cards={cardItems} />
         </div>
         <div className="flex justify-center md:hidden block pb-10 bg-[#D9D9D9]">
@@ -307,8 +309,9 @@ export default function Home() {
               lineHeight: "25.6px",
               fontWeight: "590",
               fontFamily: "SFProDisplay, sans-serif",
-              width: "65%",
+              width: "248.44px",
               justifyContent: "space-between",
+              height: "63.09px",
             }}
             arrowStyle={{ stroke: "#FFFFFF", marginLeft: "30px", display: "flex", alignItems: "center" }}
           />

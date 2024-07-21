@@ -28,7 +28,7 @@ const SocialPostsCardView: React.FC<CardProps> = ({ data, hover, onMouseEnter, o
       initial={{ y: 0 }}
       animate={{ y: hover ? 40 : 0 }}
       transition={{ stiffness: 200 }}
-      className="card bg-white !mx-auto !h-[460px]"
+      className="card bg-white !mx-auto !h-[420px] lg:!h-[530px]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

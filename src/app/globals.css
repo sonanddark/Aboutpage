@@ -29,23 +29,19 @@ body {
 }
 
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("/fonts/SFPro/SFProDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "SF Pro";
+  src: url("/fonts/SFPRODISPLAYREGULAR.OTF") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Bold";
+  src: url("/fonts/SFPRODISPLAYBOLD.OTF") format("truetype");
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("/fonts/SFPro/SFProDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SFProText";
-  src: url("/fonts/SFPro/SFProText-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "SF Pro Medium";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF") format("truetype");
   font-style: normal;
 }
 
@@ -140,7 +136,7 @@ body {
   .card {
     width: 162.59px !important; /* Adjust the width to be a percentage of the screen */
     margin: 10px;
-    height: 350px !important;
+    height: 350px;
   }
   .card-image {
     width: 100%;
@@ -203,7 +199,7 @@ body {
 
 @media (max-width: 1200px) {
   .card {
-    width: 80% !important;
+    width: 70% !important;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -236,7 +232,7 @@ body {
 }
 .hero {
   width: 100%;
-  height: 110vh;
+  height: 115vh;
   display: flex;
   flex-direction: column;
   justify-items: center;

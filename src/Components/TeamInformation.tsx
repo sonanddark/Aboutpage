@@ -105,8 +105,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
       let cursorFromOriginOffsetY = (cursorPosY / containerOriginY - 1) * 100;
 
       const acutalImagePositionX = containerOriginX + cursorFromOriginOffsetX;
-      const acutalImagePositionY =
-        containerOriginY + cursorFromOriginOffsetY / 20;
+      const acutalImagePositionY = containerOriginY + cursorFromOriginOffsetY / 20;
 
       setCoords({
         x: `${(acutalImagePositionX / containerWidth) * 100}%`,
@@ -117,11 +116,10 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
 
   return (
     <div className="flex justify-center" style={{ width: "100%" }}>
-      <div style={{ width: "95%" }}>
+      <div className="w-full lg:w-[95%]">
         <div
           ref={teamItemRef}
-          className={`team__item ${hovered ? "hovered" : ""
-            } h-[140px] flex  md:items-center`}
+          className={`team__item ${hovered ? "hovered" : ""} h-[140px] flex  md:items-center`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
@@ -143,12 +141,10 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                 className="flex md:items-center md:text-[22.2px] text-[11.57px]"
                 style={{ fontFamily: "SF Pro, sans-serif" }}
               >
-                <div className="f-20 is--500 text-[#706A6D]">
-                  {member.position}
-                </div>
+                <div className="f-20 is--500 text-[#706A6D]">{member.position}</div>
               </div>
             </div>
-            <div className="md:hidden block " >
+            <div className="md:hidden block ">
               <img src={member.image} alt="" className="w-36" width={100} height={100} />
             </div>
           </div>
@@ -239,7 +235,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
 
 const Team: React.FC = () => {
   return (
-    <div className="team__list">
+    <div className="team__list px-6">
       {teamMembers.map((member) => (
         <TeamMember key={member.id} member={member} />
       ))}

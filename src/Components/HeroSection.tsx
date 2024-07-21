@@ -91,7 +91,7 @@ const HeroTest: React.FC = () => {
             clipPath: clipPath,
           }}
         >
-          <video className="w-[100%] h-[110vh] object-cover" autoPlay muted loop playsInline>
+          <video className="w-[100%] h-[115vh] object-cover" autoPlay muted loop playsInline>
             <source src="https://cdn.significo.com/videos/significo-main-hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
@@ -218,27 +218,26 @@ const HeroTest: React.FC = () => {
               </motion.div>
             </div>
           </motion.div>
-          <div className="hero-bottom !w-full mt-3">
+          <div className="hero-bottom !w-full mt-3 ">
             <button
               onClick={() => {
                 document
                   .getElementById("winkSection")
                   ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="text-[35px] lg:text-[38px] text-white flex items-center"
-              style={{ width: "40%" }}
+              className="text-[18px] lg:text-[42px] text-white flex flex-col-reverse justify-center lg:flex-row items-center mx-auto lg:mx-0 lg:pl-12  2xl:pl-20 uppercase pt-10 lg:pt-0"
             >
-              <ArrowSVG direction={"vertical"} width="80px" /> Scroll
+              <div className="hidden lg:block">
+                <ArrowSVG direction={"vertical"} width="80px" />
+              </div>
+              <div className="lg:hidden block mt-3">
+                <ArrowSVG direction={"vertical"} width="110px" />
+              </div>{" "}
+              <p> Scroll</p>
             </button>
             <div>
-              <div className="block md:hidden ">
-                <GhamzaLogo height="65" width="65" />
-              </div>
-              <div className=" hidden sm:block">
-                <div className="block md:hidden ">
-                  <GhamzaLogo height="65" width="65" />
-                </div>
-                <div className="md:block hidden ">
+              <div className=" hidden lg:block">
+                <div className="mr-10 ">
                   <GhamzaLogo height="120" width="120" />
                 </div>
               </div>
