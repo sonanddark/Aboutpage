@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sf-pro': ['SF Pro', 'sans-serif'],
+        'sf-pro-bold': ['SF Pro Bold', 'sans-serif'],
+       'sf-pro-medium' :["SF Pro Medium",'sans-serif'],
+       'sf-pro-semibold' :["SF Pro SemiBold",'sans-serif'],
+
+
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
