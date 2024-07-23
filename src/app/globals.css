@@ -281,7 +281,6 @@ body {
 }
 .hero-row-text {
   font-size: 3rem;
-  color: white;
   font-weight: 860;
   font-family: sans-serif;
   letter-spacing: -0.085459375rem;
@@ -301,7 +300,6 @@ body {
   justify-items: center;
 }
 .gif-container {
-  color: white;
   font-size: 48px;
   text-align: right;
 }
@@ -476,12 +474,14 @@ body {
 .theme-light-gray {
   transition: all 1s ease;
   background-color: #d9d9d9;
+  color: black !important;
 }
 .theme-black {
   transition: all 1s ease;
   /* background-color: black;
   transition: all 1s ease; */
   background-color: #000000;
+  color: white !important;
 }
 .theme-pink {
   transition: all 1s ease;

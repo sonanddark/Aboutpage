@@ -4,7 +4,7 @@ import AnimateWhenInViewport from "./AnimateWhenInViewport";
 import { Group, image1, image2, image3, image4 } from "public/images/assets";
 import Image from "next/image";
 import AnimatedButton from "./AnimatedButton";
-import {useScroll} from 'framer-motion'
+import {useScroll, useTransform} from 'framer-motion'
 import CardHorizontal from "./CardHorizontal";
 
 const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
@@ -18,9 +18,17 @@ const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
 
 const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   const cardsListRef = useRef<HTMLDivElement>(null);
-  const {scrollYProgress} = useScroll();
+  const cardSectionRef = useRef<HTMLDivElement>(null);
+  const {scrollYProgress: viewportScrollY} = useScroll();
   const cards = cardsListRef.current?.querySelectorAll(".cards-item");
-  scrollYProgress.on("change", () => {
+  const { scrollYProgress: cardSectionScrollY } = useScroll({
+    target: cardSectionRef,
+  });
+  // cardSectionScrollY.on("change", (latest) => {
+  //   console.log(latest);
+  // })
+  const transformX = useTransform(cardSectionScrollY, [0, 1], ["0%", "-100%"]);
+  viewportScrollY.on("change", () => {
     cards?.forEach((card) => {
         if(elementIsVisibleInViewport(card as HTMLElement)){
           card.classList.add('card-color-change');
@@ -60,8 +68,8 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   }, []);
   return (
     <section ref={ref} data-module-name="card-section">
-      <div className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto lg:h-[3500px]  w-100vw lg:w-auto">
-        <div className="card-section-container relative lg:sticky lg:top-0 !ml-0 lg:!ml-[60px] w-full lg:w-auto">
+      <div ref={cardSectionRef} className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto h-[3500px] w-100vw lg:w-auto">
+        <div className="card-section-container sticky lg:top-0 !ml-0 lg:!ml-[60px] w-full lg:w-auto overflow-hidden">
           <div className="section-descr">
             <p className="text-[19px] font-[590] leading-[32px] tracking-[-0.4px] max-w-[592.89px]">
               GHMZA FOR YOU
@@ -114,16 +122,20 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
               arrowStyle={{ stroke: "#000000", marginLeft: "30px", display: "flex", alignItems: "center" }}
             />
           </div>
+          
           <div
             className="max-w-[536px] max-h-[433px] hidden lg:block"
             style={{ marginTop: "20%", paddingBottom: "20px" }}
           >
             <Image src={Group} alt="" />
           </div>
+          <div className="block lg:hidden">
+            <CardHorizontal x={transformX}/>
+          </div>
         </div>
         <div className="hidden lg:flex w-full justify-end xl:mr-10 2xl:mr-0">
           <div
-            className="cards-list lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
+            className="cards-list -mt-10 lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
             ref={cardsListRef}
           >
             <div className="cards-item ">
@@ -203,9 +215,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
             </div>
           </div>
         </div>
-        <div className="block lg:hidden">
-          <CardHorizontal />
-        </div>
+       
       </div>
     </section>
   );

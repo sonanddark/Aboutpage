@@ -228,7 +228,7 @@ const HeroTest: React.FC = () => {
                   .getElementById("winkSection")
                   ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="text-[18px] lg:text-[42px] text-white flex flex-col-reverse justify-center lg:flex-row items-center mx-auto lg:mx-0 lg:pl-12  2xl:pl-20 uppercase pt-10 lg:pt-0"
+              className="text-[18px] lg:text-[42px] flex flex-col-reverse justify-center lg:flex-row items-center mx-auto lg:mx-0 lg:pl-12  2xl:pl-20 uppercase pt-10 lg:pt-0"
             >
               <div className="hidden lg:block">
                 <ArrowSVG direction={"vertical"} width="80px" />

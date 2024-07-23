@@ -8,7 +8,7 @@ const WinkSection = forwardRef<HTMLDivElement>((props, ref) => {
     <div
       id="winkSection"
       ref={ref}
-      className="max-w-[1215.54px] mx-5  xl:mx-auto mt-10 lg:mt-[100px] mb-10 lg:mb-[120px] border-[0.5px] border-[#1D1E1C] "
+      className="max-w-[1215.54px] mx-5 xl:mx-auto mt-10 lg:mt-[100px] mb-10 lg:mb-[120px] border-[0.5px] border-[#1D1E1C] "
     >
       <div className="flex border-b-[0.5px] border-[#1D1E1C]">
         <div className="w-[25%] flex justify-center items-center">

@@ -1,27 +1,32 @@
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll, MotionValue } from "framer-motion";
 import Image from "next/image";
 import { Group, image1, image2, image3, image4 } from "public/images/assets";
 import { useRef } from "react";
 
-const CardHorizontal = () => {
+interface CardHorizontalProps {
+  x : MotionValue;
+}
+
+const CardHorizontal = ( {x}: CardHorizontalProps) => {
   return (
-    <div className="bg-[#D9D9D9]">
-      <HorizontalScrollCarousel />
+    <div className="">
+      <HorizontalScrollCarousel x={x} />
     </div>
   );
 };
 
-const HorizontalScrollCarousel = () => {
+
+const HorizontalScrollCarousel = ( {x}: CardHorizontalProps) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
+  // const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-[#D9D9D9]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+    <section ref={targetRef} className="pt-10 relative">
+      <div className="flex items-start overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;

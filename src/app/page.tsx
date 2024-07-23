@@ -6,7 +6,7 @@ import Card from "../Components/SocialPostsCardView";
 import rectangle from "../assets/bgImage.png";
 import camera from "../assets/camera-black.svg";
 import goVegan from "../assets/goVegan.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CustomSlider from "@/Components/CardSlider";
 import HorizontalSection from "@/Components/HorizontalSection";
 import HeroSection from "@/Components/HeroSection";
@@ -94,36 +94,71 @@ const cardItems = [
   // Add more cards as per your requirement
 ];
 export default function Home() {
+  const heroSectionRef = useRef<HTMLDivElement>(null);
+  const winkCardSectionParentRef = useRef<HTMLDivElement>(null);
+  const horizontalSectionRef = useRef<HTMLDivElement>(null);
   const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-  const [innerWidth, setInnerWidth] = useState<number | null>(null);
+  const [innerWidth, setInnerWidth] = useState<number>(0);
   const { scrollYProgress } = useScroll();
+  const heroScroll = useScroll({
+    target: heroSectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const winkCardScroll = useScroll({
+    target: winkCardSectionParentRef,
+    offset: ["start end", "end start"]
+  });
+
+  const horizontalScroll = useScroll({
+    target: horizontalSectionRef,
+    offset: ["start end", "end start"]
+  });
   scrollYProgress.on("change", (latest) => {
-    console.log(latest);
-    if (latest < 0.27) {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-light-gray");
-      if (!document.body.classList.contains("theme-black")) {
+   console.log(latest);
+   console.log(innerWidth);
+   const latestHero = heroScroll.scrollYProgress.get();
+      const latestWinkCard = winkCardScroll.scrollYProgress.get();
+      const latestHorizontal = horizontalScroll.scrollYProgress.get();
+
+      if (latestHero < 0.87) {
+        document.body.classList.remove("theme-pink", "theme-light-gray");
         document.body.classList.add("theme-black");
-      }
-    } else if (latest < 0.57) {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-light-gray")) {
+      } else if (latestWinkCard < 0.95) {
+        document.body.classList.remove("theme-pink", "theme-black");
         document.body.classList.add("theme-light-gray");
-      }
-    } else if (latest < 0.8) {
-      document.body.classList.remove("theme-light-gray");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-pink")) {
+      } else if (latestHorizontal < 0.825) {
+        document.body.classList.remove("theme-light-gray", "theme-black");
         document.body.classList.add("theme-pink");
-      }
-    } else {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-light-gray")) {
+      } else {
+        document.body.classList.remove("theme-pink", "theme-black");
         document.body.classList.add("theme-light-gray");
       }
-    }
+    // if (latest < 0.25) {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-light-gray");
+    //   if (!document.body.classList.contains("theme-black")) {
+    //     document.body.classList.add("theme-black");
+    //   }
+    // } else if (latest < 0.57) {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-light-gray")) {
+    //     document.body.classList.add("theme-light-gray");
+    //   }
+    // } else if (latest < (((innerWidth!) < 1280)? 0.85 : 0.78)) {
+    //   document.body.classList.remove("theme-light-gray");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-pink")) {
+    //     document.body.classList.add("theme-pink");
+    //   }
+    // } else {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-light-gray")) {
+    //     document.body.classList.add("theme-light-gray");
+    //   }
+    // }
   });
   useEffect(() => {
     setInnerWidth(window?.innerWidth);
@@ -131,13 +166,13 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div ref={heroSectionRef}>
         <HeroSection />
       </div>
-      <div>
+      <div ref={winkCardSectionParentRef}>
         <WinkCardSectionParent />
       </div>
-      <div>
+      <div ref={horizontalSectionRef}>
         <HorizontalSection />
       </div>
       <div>
@@ -307,8 +342,8 @@ export default function Home() {
                 <Card
                   key={card.id}
                   data={card}
-                  hover={Math.floor(index % (innerWidth! > 1536 ? 3 : 2)) === hoveredColumn}
-                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth! > 1536 ? 3 : 2)))}
+                  hover={Math.floor(index % (innerWidth > 1536 ? 3 : 2)) === hoveredColumn}
+                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth > 1536 ? 3 : 2)))}
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}
