@@ -10,7 +10,7 @@ interface ArrowSVGProps {
 
 const ArrowSVG: React.FC<ArrowSVGProps> = ({
   arrowHeight = 50,
-  color = "white",
+  color = "currentColor",
   lineWidth = 2,
   direction = "horizontal",
   width = null,
@@ -27,7 +27,7 @@ const ArrowSVG: React.FC<ArrowSVGProps> = ({
     const centerY = arrowHeight / 2;
     startX = 0;
     startY = centerY;
-    endX = arrowWidth;
+    endX = arrowWidth / 2;
     endY = centerY;
     arrowHead1X = endX - headLength * Math.cos(Math.PI / 8);
     arrowHead1Y = endY - headLength * Math.sin(Math.PI / 4);

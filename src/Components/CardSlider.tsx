@@ -21,24 +21,33 @@ interface CustomSliderProps {
 }
 
 const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
-  var settings = {
+  const settings = {
     className: "center",
     infinite: true,
     speed: 900,
-    slidesToShow: 2, 
+    slidesToShow: 2,
     slidesToScroll: 1,
-    centerMode: true, 
-    centerPadding: "40px", 
-    arrows: false, 
+    centerMode: true,
+    centerPadding: "40px",
+    arrows: false,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 700, 
+        breakpoint: 600,
         settings: {
-          slidesToShow: 1, 
+          slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true, 
-          centerPadding: "20px", 
+          centerMode: true,
+          centerPadding: "20px",
+        },
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
         },
       },
     ],
@@ -47,7 +56,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ cards }) => {
   return (
     <Slider {...settings}>
       {cards.map((card, index) => (
-        <div key={index} className="card-wrapper">
+        <div key={index} className="card-wrapper !flex !justify-center">
           <div className="card shadow-[0px 0px 12.51px 0px #9CA0ACE5]">
             <img src={card.rectangle} alt={card.title} className="card-image " />
             <div className="card-content">

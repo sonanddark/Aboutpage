@@ -29,23 +29,19 @@ body {
 }
 
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("/fonts/SFPro/SFProDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "SF Pro";
+  src: url("/fonts/SFPRODISPLAYREGULAR.OTF") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Bold";
+  src: url("/fonts/SFPRODISPLAYBOLD.OTF") format("truetype");
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("/fonts/SFPro/SFProDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SFProText";
-  src: url("/fonts/SFPro/SFProText-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "SF Pro Medium";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF") format("truetype");
   font-style: normal;
 }
 
@@ -140,7 +136,7 @@ body {
   .card {
     width: 162.59px !important; /* Adjust the width to be a percentage of the screen */
     margin: 10px;
-    height: 350px !important;
+    height: 350px;
   }
   .card-image {
     width: 100%;
@@ -203,7 +199,7 @@ body {
 
 @media (max-width: 1200px) {
   .card {
-    width: 80% !important;
+    width: 70% !important;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -236,7 +232,7 @@ body {
 }
 .hero {
   width: 100%;
-  height: 110vh;
+  height: 115vh;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -285,9 +281,8 @@ body {
 }
 .hero-row-text {
   font-size: 3rem;
-  color: white;
   font-weight: 860;
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   letter-spacing: -0.085459375rem;
 }
 
@@ -305,7 +300,6 @@ body {
   justify-items: center;
 }
 .gif-container {
-  color: white;
   font-size: 48px;
   text-align: right;
 }
@@ -347,7 +341,7 @@ body {
   border-radius: 3px !important;
 }
 .title-lines {
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   font-size: 58px;
   font-weight: 860;
   line-height: 69.6px;
@@ -356,7 +350,7 @@ body {
 
 @media (max-width: 768px) {
   .title-lines {
-    font-family: sans-serif;
+    font-family: SF Pro, sans-serif;
     font-size: 28px;
     line-height: 30px;
     font-weight: 860;
@@ -387,7 +381,7 @@ body {
 }
 
 .description-lines {
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   font-size: 18.28px;
   font-weight: 590;
   line-height: 32px;
@@ -398,7 +392,7 @@ body {
 
 @media (max-width: 768px) {
   .description-lines {
-    font-family: sans-serif;
+    font-family: SF Pro, sans-serif;
     font-size: 18.28px;
     font-weight: 590;
     line-height: 28px;
@@ -411,29 +405,56 @@ body {
 .button-text {
   font-size: 1.2rem;
 }
+
+@media (max-width: 768px) {
+  .button-text {
+    font-family: SF Pro, sans-serif;
+    font-size: 4.13px;
+    line-height: 6.82px;
+    font-weight: 590px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .button {
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    border-color: black;
+    border: 1px solid;
+    width: 62.1px;
+    height: 11.7px;
+    border-radius: 3px !important;
+  }
+}
+
 .card-item-desc {
-  font-family: sans-serif;
-  font-size: 12px;
+  font-family: SF pro, sans-serif;
+  font-size: 15.25px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.3199999928474426px;
   text-align: left;
-  margin-left: 5%;
+  margin-left: 10%;
   display: inline;
+  color: white;
 }
 .card-item-title {
-  font-family: sans-serif;
+  font-family: SF pro ,sans-serif;
   font-size: 22.2px;
   font-weight: 860;
   line-height: 24.46px;
   letter-spacing: -0.4449999928474426px;
-  margin-left: 5%;
+  margin-left: 10%;
   padding-bottom: 3%;
   text-align: left;
+  color: white;
 }
 .cards-item {
-  height: 213px;
-  width: 90%;
+  height: 213.16px;
+  width: 555px;
   border: 1px solid;
   border-radius: 10px;
   background-color: #df1780;
@@ -457,6 +478,7 @@ body {
 .card-image {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .description {
   display: flex;
@@ -477,12 +499,21 @@ body {
 .theme-light-gray {
   transition: all 1s ease;
   background-color: #d9d9d9;
+  color: black !important;
 }
+
+.theme-light-gray-last-section {
+  transition: all 1s ease;
+  background-color: #d9d9d9;
+  color: white !important;
+}
+
 .theme-black {
   transition: all 1s ease;
   /* background-color: black;
   transition: all 1s ease; */
   background-color: #000000;
+  color: white !important;
 }
 .theme-pink {
   transition: all 1s ease;
@@ -572,7 +603,7 @@ body {
   align-items: center;
 }
 .hori-f1 {
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   font-size: 11rem; /* Reduced from 212.12px */
   font-weight: 700;
   line-height: 9rem; /* Reduced from 173.72px */
@@ -582,39 +613,42 @@ body {
 
 @media (max-width: 768px) {
   .hori-f1 {
-    font-size: 6rem;
+    font-size: 56.47px;
+    line-height: 42.46px;
+    letter-spacing: -6%;
   }
 }
 
 .hori-f2 {
-  font-family: sans-serif;
-  font-size: 2.6rem; /* Reduced from 53.45px */
+  font-family: SF Pro, sans-serif;
+  font-size: 53.45px; /* Reduced from 53.45px */
   font-weight: 700;
-  line-height: 3.5rem; /* Reduced from 50.78px */
-  letter-spacing: -0.06em;
+  line-height: 50.78px; /* Reduced from 50.78px */
+  letter-spacing: -6%;
   text-align: center;
 }
 @media (max-width: 768px) {
   .hori-f2 {
-    font-size: 2rem;
+    font-size: 14.23px;
+    line-height: 13.52px;
   }
 }
 
 .hori-f3 {
-  font-family: sans-serif;
-  font-size: 9rem;
+  font-family: SF Pro, sans-serif;
+  font-size: 212.12px;
   font-weight: 700;
-  line-height: 8rem;
-  letter-spacing: -0.06em;
+  line-height: 173.72px;
+  letter-spacing: -6%;
 }
 
 @media (max-width: 768px) {
   .hori-f3 {
-    font-family: sans-serif;
-    font-size: 2rem;
+    font-family: SF Pro, sans-serif;
+    font-size: 56.47px;
     font-weight: 700;
-    line-height: 8rem;
-    letter-spacing: -0.06em;
+    line-height: 46.23px;
+    letter-spacing: -6%;
   }
 }
 
@@ -624,13 +658,32 @@ body {
   bottom: 40px;
 }
 .hori-f4 {
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.3rem;
   letter-spacing: -0.06em;
   text-align: left;
 }
+
+.hori-para {
+  font-family: SF Pro, sans-serif;
+  font-weight: 700;
+  font-size: 22.68px;
+  line-height: 27.54px;
+  letter-spacing: -6%;
+}
+
+@media (max-width: 768px) {
+  .hori-para {
+    font-family: SF Pro, sans-serif;
+    font-weight: 700;
+    font-size: 6.04px;
+    line-height: 7.33px;
+    letter-spacing: -6%;
+  }
+}
+
 .horizontal-item {
   height: 100%;
   width: 100%;
@@ -641,17 +694,12 @@ body {
 }
 .horiztonal-desc {
   position: absolute;
-  top: 3%;
-  left: 3%;
+  top: 15%;
+  left: 10%;
 }
 @media (max-width: 1200px) {
-  .horiztonal-desc {
-    position: absolute;
-    top: 0%;
-    left: 5%;
-  }
   .hori-f4 {
-    font-family: sans-serif;
+    font-family: SF Pro, sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     line-height: 1.3rem;
@@ -680,46 +728,38 @@ body {
   left: 5%;
 }
 @media (max-width: 760px) {
+  .horiztonal-desc {
+    position: absolute;
+    top: 35%;
+    left: 2%;
+  }
+
   .horizontal-img-cont4 {
     position: absolute;
-    max-width: 133px !important;
-    max-height: auto;
-    top: -3%;
+    top: -2%;
     left: 36%;
   }
   .horizontal-img-cont3 {
     position: absolute;
-    max-width: 112px !important;
-    max-height: auto;
-    top: 73%;
+    top: 92%;
     left: 33%;
   }
   .horizontal-img-cont2 {
     position: absolute;
-    max-width: 112px !important;
-    max-height: auto;
-    top: 50%;
-    left: 27%;
+    top: 75%;
+    left: -20%;
   }
   .horizontal-img-cont1 {
     position: absolute;
-    max-width: 112px !important;
-    max-height: auto;
-    top: 10%;
-    left: 45%;
+    top: 18%;
+    left: 62%;
   }
 }
+
 @media (max-width: 480px) {
   .horizontal {
     height: 230vw;
     width: 100vw;
-  }
-  .horizontal-img-cont2 {
-    position: absolute;
-    max-width: 112px !important;
-    max-height: auto;
-    top: 50%;
-    left: 50%;
   }
   .horizontal-btn2 {
     position: absolute;
@@ -739,14 +779,20 @@ body {
   max-width: 50%;
   max-height: auto;
   top: 3%;
-  left: 70%;
+  left: 60%;
+}
+@media (max-width: 768px) {
+  .horizontal-img-cont7 {
+    top: 20%;
+    left: 60%;
+  }
 }
 .horizontal-img-cont8 {
   position: absolute;
   max-width: 50%;
   max-height: auto;
   top: 70%;
-  right: 10%;
+  right: 18%;
 }
 .horiztonal-desc2 {
   position: absolute;
@@ -892,10 +938,13 @@ body {
   padding: 0 30px;
 }
 
+.SF-Pro {
+  font-family: SF Pro ,sans-serif;
+}
 .card-color-change {
   background-color: black !important;
   color: white !important;
-  width: 100% !important;
+  width: 595px !important;
   transition: all 0.5s ease-in;
 }
 
