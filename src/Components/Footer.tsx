@@ -3,7 +3,7 @@ import TextAroundCircle from "./TextAroundCircle";
 import AnimateWhenInViewport from "./AnimateWhenInViewport";
 import AnimatedButton from "./AnimatedButton";
 import Image from "next/image";
-import GhmzaLogo from "./GhmzaLogo";
+import FooterGhmzaLogo from "./FooterGhmzaLogo";
 
 const Footer = () => {
   return (
@@ -76,10 +76,10 @@ const Footer = () => {
           </div>
           <div className="flex justify-end gap-x-7 items-center">
             <div className="block md:hidden -mr-10">
-              <GhmzaLogo height="50" width="50" />
+              <FooterGhmzaLogo height="50" width="50" />
             </div>
             <div className="md:block hidden -mr-10">
-              <GhmzaLogo height="120" width="120" />
+              <FooterGhmzaLogo height="120" width="120" />
             </div>
             <div className="md:w-[200px] w-[90px] md:block hidden">
               <TextAroundCircle

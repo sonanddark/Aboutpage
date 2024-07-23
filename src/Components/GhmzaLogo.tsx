@@ -3,6 +3,7 @@ import '../app/globals.css';
 interface logoProps{
   height: string;
   width: string;
+  color?: string;
 }
 
 const GhamzaLogo: React.FC<logoProps> = (props) => {

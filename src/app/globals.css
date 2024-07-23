@@ -476,6 +476,13 @@ body {
   background-color: #d9d9d9;
   color: black !important;
 }
+
+.theme-light-gray-last-section {
+  transition: all 1s ease;
+  background-color: #d9d9d9;
+  color: white !important;
+}
+
 .theme-black {
   transition: all 1s ease;
   /* background-color: black;
@@ -586,7 +593,7 @@ body {
 }
 
 .hori-f2 {
-  font-family: sans-serif;
+  font-family: SF Pro, sans-serif;
   font-size: 2.6rem; /* Reduced from 53.45px */
   font-weight: 700;
   line-height: 3.5rem; /* Reduced from 50.78px */
@@ -595,7 +602,8 @@ body {
 }
 @media (max-width: 768px) {
   .hori-f2 {
-    font-size: 2rem;
+    font-size: 14.23px;
+    line-height: 13.52px;
   }
 }
 
@@ -610,10 +618,10 @@ body {
 @media (max-width: 768px) {
   .hori-f3 {
     font-family: sans-serif;
-    font-size: 2rem;
+    font-size: 56.47px;
     font-weight: 700;
-    line-height: 8rem;
-    letter-spacing: -0.06em;
+    line-height: 46.23px;
+    letter-spacing: -6%;
   }
 }
 

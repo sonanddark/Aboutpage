@@ -136,10 +136,10 @@ const HorizontalScrollCarousel = () => {
   }, [targetRef]);
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
-  const img1X = useTransform(scrollYProgress, [0.2, 1], ["0%", "50%"]);
-  const img2X = useTransform(scrollYProgress, [0.2, 1], ["-75%", "-50%"]);
-  const img3X = useTransform(scrollYProgress, [0.2, 1], ["25%", "-25%"]);
-  const img4X = useTransform(scrollYProgress, [0.2, 1], ["0%", "-50%"]);
+  const img1X = useTransform(scrollYProgress, [0.2, 1], ["0%", "100%"]);
+  const img2X = useTransform(scrollYProgress, [0.2, 1], ["-75%", "-25%"]);
+  const img3X = useTransform(scrollYProgress, [0.2, 1], ["25%", "-50%"]);
+  const img4X = useTransform(scrollYProgress, [0.2, 1], ["0%", "-100%"]);
 
   return (
     <section ref={targetRef} className="relative h-[400vh]">
