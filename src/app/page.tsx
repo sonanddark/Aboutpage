@@ -6,7 +6,7 @@ import Card from "../Components/SocialPostsCardView";
 import rectangle from "../assets/bgImage.png";
 import camera from "../assets/camera-black.svg";
 import goVegan from "../assets/goVegan.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CustomSlider from "@/Components/CardSlider";
 import HorizontalSection from "@/Components/HorizontalSection";
 import HeroSection from "@/Components/HeroSection";
@@ -94,36 +94,71 @@ const cardItems = [
   // Add more cards as per your requirement
 ];
 export default function Home() {
+  const heroSectionRef = useRef<HTMLDivElement>(null);
+  const winkCardSectionParentRef = useRef<HTMLDivElement>(null);
+  const horizontalSectionRef = useRef<HTMLDivElement>(null);
   const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-  const [innerWidth, setInnerWidth] = useState<number | null>(null);
+  const [innerWidth, setInnerWidth] = useState<number>(0);
   const { scrollYProgress } = useScroll();
+  const heroScroll = useScroll({
+    target: heroSectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const winkCardScroll = useScroll({
+    target: winkCardSectionParentRef,
+    offset: ["start end", "end start"]
+  });
+
+  const horizontalScroll = useScroll({
+    target: horizontalSectionRef,
+    offset: ["start end", "end start"]
+  });
   scrollYProgress.on("change", (latest) => {
-    console.log(latest);
-    if (latest < 0.27) {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-light-gray");
-      if (!document.body.classList.contains("theme-black")) {
+   console.log(latest);
+   console.log(innerWidth);
+   const latestHero = heroScroll.scrollYProgress.get();
+      const latestWinkCard = winkCardScroll.scrollYProgress.get();
+      const latestHorizontal = horizontalScroll.scrollYProgress.get();
+
+      if (latestHero < 0.87) {
+        document.body.classList.remove("theme-pink", "theme-light-gray");
         document.body.classList.add("theme-black");
-      }
-    } else if (latest < 0.57) {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-light-gray")) {
+      } else if (latestWinkCard < 0.95) {
+        document.body.classList.remove("theme-pink", "theme-black");
         document.body.classList.add("theme-light-gray");
-      }
-    } else if (latest < 0.8) {
-      document.body.classList.remove("theme-light-gray");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-pink")) {
+      } else if (latestHorizontal < 0.825) {
+        document.body.classList.remove("theme-light-gray", "theme-black");
         document.body.classList.add("theme-pink");
-      }
-    } else {
-      document.body.classList.remove("theme-pink");
-      document.body.classList.remove("theme-black");
-      if (!document.body.classList.contains("theme-light-gray")) {
+      } else {
+        document.body.classList.remove("theme-pink", "theme-black");
         document.body.classList.add("theme-light-gray");
       }
-    }
+    // if (latest < 0.25) {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-light-gray");
+    //   if (!document.body.classList.contains("theme-black")) {
+    //     document.body.classList.add("theme-black");
+    //   }
+    // } else if (latest < 0.57) {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-light-gray")) {
+    //     document.body.classList.add("theme-light-gray");
+    //   }
+    // } else if (latest < (((innerWidth!) < 1280)? 0.85 : 0.78)) {
+    //   document.body.classList.remove("theme-light-gray");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-pink")) {
+    //     document.body.classList.add("theme-pink");
+    //   }
+    // } else {
+    //   document.body.classList.remove("theme-pink");
+    //   document.body.classList.remove("theme-black");
+    //   if (!document.body.classList.contains("theme-light-gray")) {
+    //     document.body.classList.add("theme-light-gray");
+    //   }
+    // }
   });
   useEffect(() => {
     setInnerWidth(window?.innerWidth);
@@ -131,13 +166,13 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div ref={heroSectionRef}>
         <HeroSection />
       </div>
-      <div>
+      <div ref={winkCardSectionParentRef}>
         <WinkCardSectionParent />
       </div>
-      <div>
+      <div ref={horizontalSectionRef}>
         <HorizontalSection />
       </div>
       <div>
@@ -145,14 +180,14 @@ export default function Home() {
           <div className="flex justify-center py-5">
             <AnimateWhenInViewport
               textToBeAnimated="ALL THAT WE DID!!!"
-              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[28px] lg:leading-[108.85px] leading-[148.13px] text-black  tracking-[0px] lg:!-tracking-[10px]"
+              cssClass="font-bold text-[30px]  sm:text-[40px] lg:text-[80px] xl:text-[128px] leading-[28px] lg:leading-[108.85px] leading-[148.13px] text-black tracking-[0px] lg:!-tracking-[10px]"
             />
           </div>
 
           <div className="flex justify-center">
             <AnimateWhenInViewport
               textToBeAnimated="THAT YOU MUST HAVE SEEN"
-              cssClass="text-center -mt-4 lg:-mt-4 lg:-mt-[55px] mb-10 lg:text-[27.3px] text-[14px] text-black !-tracking-[0px]"
+              cssClass="text-center -mt-7  lg:-mt-4  mb-10 lg:text-[27.3px] text-[14px] text-black !-tracking-[0px]"
               styles={{ fontWeight: "700", lineHeight: "32.52px", fontFamily: "SFProDisplay, sans-serif" }}
             />
           </div>
@@ -228,7 +263,7 @@ export default function Home() {
           <div className="w-full  xl:w-5/12 flex md:flex-col  items-center md:items-start pl-8 md:pl-16">
             <div className="w-5/12 lg:w-full mt-14  xl:mt-72">
               <AnimateWhenInViewport
-                textToBeAnimated=" up-to-date on the"
+                textToBeAnimated="Stay up-to-date on the"
                 cssClass=":w-4/12 w-5/12 md:ml-[2.7rem] lg:ml-3 md:text-[18.28px] text-[9.5px] "
                 styles={{
                   fontWeight: "590",
@@ -307,8 +342,8 @@ export default function Home() {
                 <Card
                   key={card.id}
                   data={card}
-                  hover={Math.floor(index % (innerWidth! > 1536 ? 3 : 2)) === hoveredColumn}
-                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth! > 1536 ? 3 : 2)))}
+                  hover={Math.floor(index % (innerWidth > 1536 ? 3 : 2)) === hoveredColumn}
+                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth > 1536 ? 3 : 2)))}
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}
@@ -320,7 +355,7 @@ export default function Home() {
         <div className="bg-[#D9D9D9] w-full block md:hidden pb-10">
           <CustomSlider cards={cardItems} />
         </div>
-        <div className="flex justify-center md:hidden block pb-10 bg-[#D9D9D9]">
+        <div className="flex justify-center md:hidden pb-10 bg-[#D9D9D9]">
           <AnimatedButton
             text="TAKE ME BACK!"
             customCssStyles={{
