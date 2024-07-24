@@ -149,9 +149,9 @@ const HorizontalScrollCarousel = () => {
         <motion.div style={{ x }} className="flex gap-4">
           <div className="horizontal-item !w-[100vw] !h-screen relative">
             <div className="horizontal-item-text">
-              <div className="hori-f3 !text-[42.26px] xl:!text-[158.74px] !leading-[42.26px] lg:!leading-[130px] !tracking-[-6%] w-5/6 2xl:w-7/12">
-                REAL IMPACT,
-                REAL REACH
+              <div className="hori-f3 ">
+                <span className="inline-block">REAL IMPACT,</span>
+                <span className="inline-block">REAL REACH</span>
               </div>
             </div>
             <div className="horizontal-btn">

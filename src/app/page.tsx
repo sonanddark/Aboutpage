@@ -334,14 +334,14 @@ export default function Home() {
           <div className="w-full lg:w-full xl:w-7/12 hidden md:block">
             <motion.div
               layout
-              className="grid  gridd-col grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 relative mt-10 lg:mt-48 gap-x-[-30px !important] !gap-x-[-4px] !gap-y-[-4px] mr-8"
+              className="grid grid-col grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 relative mt-10 lg:mt-48 gap-x-[-30px !important] !gap-x-[-4px] !gap-y-[-4px] mr-8"
             >
               {cardItems.map((card, index) => (
                 <Card
                   key={card.id}
                   data={card}
-                  hover={Math.floor(index % (innerWidth > 1536 ? 3 : 2)) === hoveredColumn}
-                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth > 1536 ? 3 : 2)))}
+                  hover={Math.floor(index % (innerWidth > 1700 ? 3 : 2)) === hoveredColumn}
+                  onMouseEnter={() => setHoveredColumn(Math.floor(index % (innerWidth > 1700 ? 3 : 2)))}
                   onMouseLeave={() => setHoveredColumn(null)}
                 />
               ))}
