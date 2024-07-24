@@ -280,10 +280,11 @@ body {
   justify-content: space-around;
 }
 .hero-row-text {
-  font-size: 3rem;
+  font-size: 76.8px;
+  line-height: 62.33px;
   font-weight: 860;
   font-family: SF Pro, sans-serif;
-  letter-spacing: -0.085459375rem;
+  letter-spacing: -2.05px;
 }
 
 @media (max-width: 768px) {
@@ -466,6 +467,13 @@ body {
   justify-items: center;
   transition: all 0.5s ease-in;
 }
+
+@media (max-width: 1536px) {
+  .cards-item {
+    width: 475px;
+  }
+}
+
 .cards-list {
   margin-right: 40px;
   height: 50%;
@@ -474,6 +482,12 @@ body {
   justify-content: flex-end;
   align-items: end;
   width: 520px;
+}
+
+@media (min-width: 1536px) {
+  .cards-list {
+    width: 475px;
+  }
 }
 .card-image {
   display: flex;
@@ -529,8 +543,8 @@ body {
 .circle {
   border-radius: 50%;
   background-color: #df1780;
-  width: 25.16px;
-  height: 25.16px;
+  width: 31.16px;
+  height: 31.16px;
 }
 .subtitle-text-lines {
   color: white;
@@ -604,18 +618,26 @@ body {
 }
 .hori-f1 {
   font-family: SF Pro, sans-serif;
-  font-size: 11rem; /* Reduced from 212.12px */
+  font-size: 212.12px; /* Reduced from 212.12px */
   font-weight: 700;
-  line-height: 9rem; /* Reduced from 173.72px */
-  letter-spacing: -0.06em;
+  line-height: 173.72px; /* Reduced from 173.72px */
+  letter-spacing: -0.03em;
   text-align: center;
+}
+
+@media (max-width: 1536px) {
+  .hori-f1 {
+    font-size: 160.47px;
+    line-height: 140.46px;
+    letter-spacing: -0.03em;
+  }
 }
 
 @media (max-width: 768px) {
   .hori-f1 {
     font-size: 56.47px;
     line-height: 42.46px;
-    letter-spacing: -6%;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -624,9 +646,20 @@ body {
   font-size: 53.45px; /* Reduced from 53.45px */
   font-weight: 700;
   line-height: 50.78px; /* Reduced from 50.78px */
-  letter-spacing: -6%;
+  letter-spacing: -0.03em;
   text-align: center;
 }
+
+@media (max-width: 1536px) {
+  .hori-f2 {
+    font-family: SF Pro, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -0.03em;
+  }
+}
+
 @media (max-width: 768px) {
   .hori-f2 {
     font-size: 14.23px;
@@ -639,7 +672,17 @@ body {
   font-size: 212.12px;
   font-weight: 700;
   line-height: 173.72px;
-  letter-spacing: -6%;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 1536px) {
+  .hori-f3 {
+    font-family: SF Pro, sans-serif;
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 130.23px;
+    letter-spacing: -0.03em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -648,7 +691,7 @@ body {
     font-size: 56.47px;
     font-weight: 700;
     line-height: 46.23px;
-    letter-spacing: -6%;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -671,8 +714,19 @@ body {
   font-weight: 700;
   font-size: 22.68px;
   line-height: 27.54px;
-  letter-spacing: -6%;
+  letter-spacing: -0.03em;
 }
+
+@media (max-width: 1536px) {
+  .hori-para {
+    font-family: SF Pro, sans-serif;
+    font-weight: 700;
+    font-size: 16.01px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+  }
+}
+
 
 @media (max-width: 768px) {
   .hori-para {
@@ -680,7 +734,7 @@ body {
     font-weight: 700;
     font-size: 6.04px;
     line-height: 7.33px;
-    letter-spacing: -6%;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -946,6 +1000,12 @@ body {
   color: white !important;
   width: 595px !important;
   transition: all 0.5s ease-in;
+}
+
+@media (max-width: 1536px) {
+  .card-color-change {
+    width: 520px !important;
+  }
 }
 
 .subtitle-text span {

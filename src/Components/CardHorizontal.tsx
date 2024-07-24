@@ -25,8 +25,8 @@ const HorizontalScrollCarousel = ( {x}: CardHorizontalProps) => {
   // const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="pt-10 relative">
-      <div className="flex items-start overflow-hidden">
+    <section ref={targetRef} className="relative">
+      <div className="flex items-start pt-5 overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
