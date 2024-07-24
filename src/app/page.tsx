@@ -115,8 +115,6 @@ export default function Home() {
     offset: ["start end", "end start"]
   });
   scrollYProgress.on("change", (latest) => {
-   console.log(latest);
-   console.log(innerWidth);
    const latestHero = heroScroll.scrollYProgress.get();
       const latestWinkCard = winkCardScroll.scrollYProgress.get();
       const latestHorizontal = horizontalScroll.scrollYProgress.get();
