@@ -9,7 +9,7 @@ import CardHorizontal from "./CardHorizontal";
 
 const elementIsVisibleInViewport = (el: HTMLElement): boolean => {
   const { top } = el.getBoundingClientRect();
-  console.log(top);
+  
 
   const { innerHeight } = window;
 
@@ -68,7 +68,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   }, []);
   return (
     <section ref={ref} data-module-name="card-section">
-      <div ref={cardSectionRef} className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto h-[3500px] w-100vw lg:w-auto">
+      <div ref={cardSectionRef} className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto h-[2500px] w-100vw lg:w-auto">
         <div className="card-section-container sticky lg:top-0 !ml-0 lg:!ml-[60px] w-full lg:w-auto overflow-hidden">
           <div className="section-descr">
             <p className="text-[19px] font-[590] leading-[32px] tracking-[-0.4px] max-w-[592.89px]">
@@ -83,16 +83,16 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
           <div className="section-title">
             <AnimateWhenInViewport
               textToBeAnimated="WE DO A LOT!"
-              cssClass="text-[35px] lg:text-[58px] font-[510] leading-[35px] lg:leading-[69.6px]"
+              cssClass="text-[35px] 2xl:text-[58px] font-[510] leading-[35px] 2xl:leading-[69.6px]"
             />
             <div className="flex">
               <AnimateWhenInViewport
                 textToBeAnimated="OF"
-                cssClass="text-[35px] lg:text-[58px] font-[510] leading-[35px] lg:leading-[69.6px]"
+                cssClass="text-[35px] 2xl:text-[58px] font-[510] leading-[35px] 2xl:leading-[69.6px]"
               />
               <AnimateWhenInViewport
                 textToBeAnimated=" COOOOOOL"
-                cssClass="text-[35px] lg:text-[58px] font-[860] leading-[30px] lg:leading-[69.6px]"
+                cssClass="text-[35px] 2xl:text-[58px] font-[860] leading-[30px] 2xl:leading-[69.6px]"
               />
             </div>
           </div>
@@ -124,10 +124,9 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
           </div>
           
           <div
-            className="max-w-[536px] max-h-[433px] hidden lg:block"
-            style={{ marginTop: "20%", paddingBottom: "20px" }}
+            className="max-w-[536px] max-h-[433px] lg:mt-[15%] pb-[20px] 2xl:mt-[18%] hidden lg:block"
           >
-            <Image src={Group} alt="" />
+            <Image className="lg:w-[350px] lg:h-[275px] 2xl:w-[475px] 2xl:h-[350px]" src={Group} alt="" />
           </div>
           <div className="block lg:hidden">
             <CardHorizontal x={transformX}/>
@@ -135,7 +134,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
         <div className="hidden lg:flex w-full justify-end xl:mr-10 2xl:mr-0">
           <div
-            className="cards-list -mt-10 lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
+            className="cards-list mt-[30rem] lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
             ref={cardsListRef}
           >
             <div className="cards-item ">

@@ -23,12 +23,12 @@ const HeroTest: React.FC = () => {
 
   //scrollYProgress.onChange(latest => {console.log(latest)});
 
-  const translateX1 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [9.5, 75, 150]);
-  const translateX2 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [9.5, -75, -150]);
-  const translateX3 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [9.5, 75, 150]);
-  const translateX4 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [9.5, -75, -150]);
+  const translateX1 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
+  const translateX2 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
+  const translateX3 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
+  const translateX4 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
 
-  const videoOpacity = useTransform(scrollYProgress, [0.094, 0.096], [1, 0]);
+  const videoOpacity = useTransform(scrollYProgress, [0.094, 0.095], [1, 0]);
   const circleOpacity = useTransform(scrollYProgress, [0.094, 0.096], [0, 1]);
 
   const x1 = useSpring(translateX1, { stiffness: 300, damping: 30 });
@@ -36,21 +36,27 @@ const HeroTest: React.FC = () => {
   const x3 = useSpring(translateX3, { stiffness: 300, damping: 30 });
   const x4 = useSpring(translateX4, { stiffness: 300, damping: 30 });
 
-  useEffect(() => {
-    scaleValue.onChange((latest) => {
+    scaleValue.on("change", (latest) => {
+      console.log({latest});
       if (latest === 1) {
         setStartAnimate(true);
       } else {
         setStartAnimate(false);
       }
-      if (latest < 2.5894) {
-        setShowIcon(true);
+      if (latest < 10) {
+        if (heroSectionContainerRef?.current?.classList.contains("hide")) {
+          heroSectionContainerRef?.current?.classList.remove("hide");
+          //heroSectionContainerRef?.current?.classList.remove("z-30");
+        } 
       } else {
-        setShowIcon(false);
+        if (!heroSectionContainerRef?.current?.classList.contains("hide")) {
+          heroSectionContainerRef?.current?.classList.add("hide");
+          //heroSectionContainerRef?.current?.classList.remove("z-30");
+        } 
       }
     });
 
-    scrollYProgress.onChange((latest) => {
+    scrollYProgress.on("change", (latest) => {
       // scrollHeroSectionRef?.current?.classList.add("bg-black");
       if (latest >= 0.09) {
         const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
@@ -64,22 +70,8 @@ const HeroTest: React.FC = () => {
           }
           span.style.opacity = `${opacity}`;
         });
-        if (heroSectionContainerRef?.current?.classList.contains("hide")) {
-          heroSectionContainerRef?.current?.classList.remove("hide");
-          //heroSectionContainerRef?.current?.classList.add("z-30");
-        }
-      } else {
-        if (!heroSectionContainerRef?.current?.classList.contains("hide")) {
-          heroSectionContainerRef?.current?.classList.add("hide");
-          //heroSectionContainerRef?.current?.classList.remove("z-30");
-        }
-        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
-        spans.forEach((span) => {
-          span.style.opacity = "0";
-        });
       }
     });
-  }, [scrollYProgress, scaleValue]);
 
   console.log({ showIcon });
 
@@ -94,11 +86,11 @@ const HeroTest: React.FC = () => {
             opacity: videoOpacity
           }}
         >
-          <video className="w-[100%] h-[115vh] object-cover" autoPlay muted loop playsInline>
+          <video className="w-[100%] h-[115vh] object-cover z-100" autoPlay muted loop playsInline>
             <source src="https://cdn.significo.com/videos/significo-main-hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
-        <div className="centered-div z-10 hide" ref={heroSectionContainerRef}>
+        <div className="centered-div hide" ref={heroSectionContainerRef}>
           <div className="hero-subtitle">
             <div className="f-24">
               <div className="subtitle-text">
@@ -145,7 +137,7 @@ const HeroTest: React.FC = () => {
               </div>
             </div>
           </div>
-          <motion.div style={{ scale }} className="hero-row-parent pt-[30px] lg:pt-[90px]">
+          <motion.div style={{ scale }} className="hero-row-parent pt-[30px] lg:pt-[80px]">
             <div className="hero-rows">
               <motion.div style={{ x: x1 }} className="hero-row">
                 <div className="hero-row-text">CRAZY</div>
