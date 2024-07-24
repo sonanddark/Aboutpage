@@ -137,7 +137,7 @@ const HeroTest: React.FC = () => {
               </div>
             </div>
           </div>
-          <motion.div style={{ scale }} className="hero-row-parent pt-[30px] lg:pt-[80px]">
+          <motion.div style={{ scale }} className="hero-row-parent pt-[30px] lg:pt-[72px]">
             <div className="hero-rows">
               <motion.div style={{ x: x1 }} className="hero-row">
                 <div className="hero-row-text">CRAZY</div>
