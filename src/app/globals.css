@@ -692,6 +692,9 @@ body {
   font-weight: 700;
   line-height: 173.72px;
   letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: column;
+
 }
 
 @media (max-width: 1536px) {
@@ -704,7 +707,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   .hori-f3 {
     font-family: SF Pro, sans-serif;
     font-size: 56.47px;
