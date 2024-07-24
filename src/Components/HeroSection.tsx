@@ -96,42 +96,42 @@ const HeroTest: React.FC = () => {
               <div className="subtitle-text">
                 <div className="subtitle-text-lines" ref={linesRef}>
                   <div>
-                    <span className="text-[30px] lg:text-[41px]">L</span>
-                    <span className="text-[30px] lg:text-[41px]">e</span>
-                    <span className="text-[30px] lg:text-[41px]">t</span>
-                    <span className="text-[30px] lg:text-[41px]">'</span>
-                    <span className="text-[30px] lg:text-[41px]">s</span>
-                    <span className="text-[30px] lg:text-[41px]"> </span>
-                    <span className="text-[30px] lg:text-[41px]">t</span>
-                    <span className="text-[30px] lg:text-[41px]">a</span>
-                    <span className="text-[30px] lg:text-[41px]">l</span>
-                    <span className="text-[30px] lg:text-[41px]">k</span>
-                    <span className="text-[30px] lg:text-[41px]"> </span>
-                    <span className="text-[30px] lg:text-[41px]">a</span>
-                    <span className="text-[30px] lg:text-[41px]">b</span>
-                    <span className="text-[30px] lg:text-[41px]">o</span>
-                    <span className="text-[30px] lg:text-[41px]">u</span>
-                    <span className="text-[30px] lg:text-[41px]">t</span>
-                    <span className="text-[30px] lg:text-[41px]"> </span>
-                    <span className="text-[30px] lg:text-[41px]">y</span>
-                    <span className="text-[30px] lg:text-[41px]">o</span>
-                    <span className="text-[30px] lg:text-[41px]">u</span>
-                    <span className="text-[30px] lg:text-[41px]">r</span>
+                    <span>L</span>
+                    <span>e</span>
+                    <span>t</span>
+                    <span>'</span>
+                    <span>s</span>
+                    <span> </span>
+                    <span>t</span>
+                    <span>a</span>
+                    <span>l</span>
+                    <span>k</span>
+                    <span> </span>
+                    <span>a</span>
+                    <span>b</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>t</span>
+                    <span> </span>
+                    <span>y</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>r</span>
                   </div>
                   <div>
-                    <span className="text-[30px] lg:text-[41px]">N</span>
-                    <span className="text-[30px] lg:text-[41px]">e</span>
-                    <span className="text-[30px] lg:text-[41px]">x</span>
-                    <span className="text-[30px] lg:text-[41px]">t</span>
-                    <span className="text-[30px] lg:text-[41px]"> </span>
-                    <span className="text-[30px] lg:text-[41px]">b</span>
-                    <span className="text-[30px] lg:text-[41px]">i</span>
-                    <span className="text-[30px] lg:text-[41px]">g</span>
-                    <span className="text-[30px] lg:text-[41px]"> </span>
-                    <span className="text-[30px] lg:text-[41px]">i</span>
-                    <span className="text-[30px] lg:text-[41px]">d</span>
-                    <span className="text-[30px] lg:text-[41px]">e</span>
-                    <span className="text-[30px] lg:text-[41px]">a</span>
+                    <span>N</span>
+                    <span>e</span>
+                    <span>x</span>
+                    <span>t</span>
+                    <span> </span>
+                    <span>b</span>
+                    <span>i</span>
+                    <span>g</span>
+                    <span> </span>
+                    <span>i</span>
+                    <span>d</span>
+                    <span>e</span>
+                    <span>a</span>
                   </div>
                 </div>
               </div>

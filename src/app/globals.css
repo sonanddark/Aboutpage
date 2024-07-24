@@ -289,7 +289,9 @@ body {
 
 @media (max-width: 768px) {
   .hero-row-text {
-    font-size: 1.8rem;
+    font-size: 41.87px;
+    line-height: 33.98px;
+    letter-spacing: -1.12px;
   }
 }
 .hero-bottom {
@@ -546,16 +548,33 @@ body {
   width: 31.16px;
   height: 31.16px;
 }
-.subtitle-text-lines {
+
+@media (max-width: 768px) {
+  .circle {
+    width: 17.12px;
+    height: 17.23px;
+  }
+}
+.subtitle-text-lines  {
   color: white;
-  font-family: sans-serif;
-  font-size: 2.6rem;
+  font-family: SF-Pro, sans-serif;
+  font-size: 59.14px;
   font-weight: 400;
-  line-height: 1.98rem;
+  line-height: 48px;
+  letter-spacing: -1.58px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .subtitle-text-lines {
+    font-size: 31.1px;
+    line-height: 25.24px;
+    letter-spacing: -0.83px;
+  }
+}
+
 .subtitle-text-lines span {
   opacity: 0;
   transition: opacity 0.5s ease;
