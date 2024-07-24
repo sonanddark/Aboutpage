@@ -109,7 +109,7 @@ export default function Home() {
     target: winkCardSectionParentRef,
     offset: ["start end", "end start"]
   });
-
+  
   const horizontalScroll = useScroll({
     target: horizontalSectionRef,
     offset: ["start end", "end start"]
