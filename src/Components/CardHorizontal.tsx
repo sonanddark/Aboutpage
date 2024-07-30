@@ -25,9 +25,9 @@ const HorizontalScrollCarousel = ( {x}: CardHorizontalProps) => {
   // const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative">
+    <section ref={targetRef} className="z-50 relative">
       <div className="flex items-start pt-5 overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+        <motion.div style={{ x }} className="px-5 flex gap-4">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}
@@ -42,12 +42,12 @@ const Card = ({ card }: any) => {
     <div className="w-[250px] bg-[#DF1780] px-3 py-6 rounded-lg border border-black">
       <div className="ml-3">
         <div className="mt-5">
-          <Image className="h-[48px] w-[48px]" src={card.url} alt="" />
+          <Image className="h-[48px] w-auto" src={card.url} alt="" />
         </div>
-        <h4 className="text-[14.31px] font-[1000] leading-[15.77px] tracking-[-0.29px] text-white mt-8 SF-Pro">
+        <h4 className="text-[16.31px] font-[1000] leading-[15.77px] tracking-[-0.29px] text-white mt-8 SF-Pro">
           {card.title}
         </h4>
-        <p className="text-[9.83px] font-[590] leading-[15.47px] -tracking-[0.21px] text-white mt-3 SF-Pro w-[80%]">
+        <p className="text-[12.83px] font-[590] leading-[15.47px] -tracking-[0.16px] text-white mt-3 SF-Pro w-[95%]">
           {card.paragraph}
         </p>
       </div>

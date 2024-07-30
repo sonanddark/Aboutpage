@@ -68,9 +68,9 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
   }, []);
   return (
     <section ref={ref} data-module-name="card-section">
-      <div ref={cardSectionRef} className="max-w-[1720px] mx-5 lg:mx-auto !flex flex-col lg:!flex-row w-auto h-[2500px] w-100vw lg:w-auto">
+      <div ref={cardSectionRef} className="max-w-[1720px] lg:mx-auto !flex flex-col lg:!flex-row w-auto h-[2250px] w-100vw lg:w-auto">
         <div className="card-section-container sticky lg:top-0 !ml-0 lg:!ml-[60px] w-full lg:w-auto overflow-hidden">
-          <div className="section-descr">
+          <div className="section-descr mx-5">
             <p className="text-[19px] font-[590] leading-[32px] tracking-[-0.4px] max-w-[592.89px]">
               GHMZA FOR YOU
             </p>
@@ -80,7 +80,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
               outcomes.
             </p>
           </div>
-          <div className="section-title">
+          <div className="section-title mx-5">
             <AnimateWhenInViewport
               textToBeAnimated="WE DO A LOT!"
               cssClass="text-[35px] 2xl:text-[58px] font-[510] leading-[35px] 2xl:leading-[69.6px]"
@@ -96,7 +96,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
               />
             </div>
           </div>
-          <div>
+          <div className="mx-5">
             <AnimatedButton
               text="CONTACT!!"
               customCssStyles={{
@@ -134,7 +134,7 @@ const CardSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
         <div className="hidden lg:flex w-full justify-end xl:mr-10 2xl:mr-0">
           <div
-            className="cards-list mt-[30rem] lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
+            className="cards-list mt-[48rem] lg:!flex !flex-row lg:!flex-col !items-center gap-10 lg:gap-5 mr-[90px] !hidden "
             ref={cardsListRef}
           >
             <div className="cards-item ">
