@@ -16,62 +16,63 @@ const HeroTest: React.FC = () => {
 
   const { scrollYProgress } = useScroll();
 
-  const scale = useTransform(scrollYProgress, [0, 0.07, 0.098, 0.14], [35,10, 3, 1]);
+  // Increase the scroll progress by 50%
+  const modifiedScrollYProgress = useTransform(scrollYProgress, (value) => value * 1.5);
+
+  const scale = useTransform(modifiedScrollYProgress, [0, 0.07, 0.098, 0.14], [35, 10, 3, 1]);
   const scaleValue = useSpring(scale, { stiffness: 300, damping: 30 });
 
-  const clipPath = useTransform(scrollYProgress, [0, 0.1], ["circle(100%)", "circle(0%)"]);
+  const clipPath = useTransform(modifiedScrollYProgress, [0, 0.1], ["circle(100%)", "circle(0%)"]);
 
-  //scrollYProgress.onChange(latest => {console.log(latest)});
+  const translateX1 = useTransform(modifiedScrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
+  const translateX2 = useTransform(modifiedScrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
+  const translateX3 = useTransform(modifiedScrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
+  const translateX4 = useTransform(modifiedScrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
 
-  const translateX1 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
-  const translateX2 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
-  const translateX3 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, 80, 150]);
-  const translateX4 = useTransform(scrollYProgress, [0.1, 0.15, 0.25], [-8, -80, -150]);
-
-  const videoOpacity = useTransform(scrollYProgress, [0.094, 0.095], [1, 0]);
-  const circleOpacity = useTransform(scrollYProgress, [0.094, 0.096], [0, 1]);
+  const videoOpacity = useTransform(modifiedScrollYProgress, [0.094, 0.095], [1, 0]);
+  const circleOpacity = useTransform(modifiedScrollYProgress, [0.094, 0.096], [0, 1]);
 
   const x1 = useSpring(translateX1, { stiffness: 300, damping: 30 });
   const x2 = useSpring(translateX2, { stiffness: 300, damping: 30 });
   const x3 = useSpring(translateX3, { stiffness: 300, damping: 30 });
   const x4 = useSpring(translateX4, { stiffness: 300, damping: 30 });
 
-    scaleValue.on("change", (latest) => {
-      console.log({latest});
-      if (latest === 1) {
-        setStartAnimate(true);
-      } else {
-        setStartAnimate(false);
+  scaleValue.on("change", (latest) => {
+    console.log({ latest });
+    if (latest === 1) {
+      setStartAnimate(true);
+    } else {
+      setStartAnimate(false);
+    }
+    if (latest < 10) {
+      if (heroSectionContainerRef?.current?.classList.contains("hide")) {
+        heroSectionContainerRef?.current?.classList.remove("hide");
+        //heroSectionContainerRef?.current?.classList.remove("z-30");
       }
-      if (latest < 10) {
-        if (heroSectionContainerRef?.current?.classList.contains("hide")) {
-          heroSectionContainerRef?.current?.classList.remove("hide");
-          //heroSectionContainerRef?.current?.classList.remove("z-30");
-        } 
-      } else {
-        if (!heroSectionContainerRef?.current?.classList.contains("hide")) {
-          heroSectionContainerRef?.current?.classList.add("hide");
-          //heroSectionContainerRef?.current?.classList.remove("z-30");
-        } 
+    } else {
+      if (!heroSectionContainerRef?.current?.classList.contains("hide")) {
+        heroSectionContainerRef?.current?.classList.add("hide");
+        //heroSectionContainerRef?.current?.classList.remove("z-30");
       }
-    });
+    }
+  });
 
-    scrollYProgress.on("change", (latest) => {
-      // scrollHeroSectionRef?.current?.classList.add("bg-black");
-      if (latest >= 0.09) {
-        const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
-        const scrollPercent = Math.min((latest - 0.09) / (0.15 - 0.09), 2);
-        let oneOpacityCount = 0;
-        spans.forEach((span, index) => {
-          let opacity = scrollPercent - (index) * 0.02;
-          opacity = Math.max(opacity, 0);
-          if (opacity >= 1) {
-            oneOpacityCount++;
-          }
-          span.style.opacity = `${opacity}`;
-        });
-      }
-    });
+  modifiedScrollYProgress.on("change", (latest) => {
+    // scrollHeroSectionRef?.current?.classList.add("bg-black");
+    if (latest >= 0.09) {
+      const spans = Array.from(linesRef?.current?.querySelectorAll("span") || []);
+      const scrollPercent = Math.min((latest - 0.09) / (0.15 - 0.09), 2);
+      let oneOpacityCount = 0;
+      spans.forEach((span, index) => {
+        let opacity = scrollPercent - index * 0.02;
+        opacity = Math.max(opacity, 0);
+        if (opacity >= 1) {
+          oneOpacityCount++;
+        }
+        span.style.opacity = `${opacity}`;
+      });
+    }
+  });
 
   console.log({ showIcon });
 

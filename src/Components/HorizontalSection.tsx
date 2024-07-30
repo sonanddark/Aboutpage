@@ -210,7 +210,7 @@ const HorizontalScrollCarousel = () => {
               <div className="hori-f1">{count2}+</div>
               <div className="hori-f2">HOURS OF FOOTAGE COMBINED</div>
             </div>
-            <div className="absolute left-[5px] lg:left-[300px] top-[200px] lg:top-[125px] ">
+            <div className="absolute left-[-10px] lg:left-[300px] top-[245px] lg:top-[125px] ">
               <div className="hori-para">
                 OUR ALL OUR GENRES WE CREATED OVER 12 <br />
                 SHOWS, 2 movies , 100+ LIVE <br />
