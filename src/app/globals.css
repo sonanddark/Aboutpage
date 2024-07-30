@@ -1022,7 +1022,7 @@ body {
   background-color: black !important;
   color: white !important;
   width: 595px !important;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (max-width: 1780px) {
